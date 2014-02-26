@@ -22,7 +22,9 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="src\Data\DatabaseReader.php" />
+    <Compile Include="src\Data\iDatabaseReader.php" />
+    <Compile Include="src\Data\DatabaseManager.php" />
+    <Compile Include="src\Data\MySqlDatabaseReader.php" />
     <Compile Include="src\HtmlGenerator.php" />
     <Compile Include="index.php" />
   </ItemGroup>
