@@ -22,15 +22,22 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Resources\HTML\Header.inc.php" />
+    <Compile Include="Resources\HTML\FormGeneration.inc.php" />
+    <Compile Include="src\BusinessLogic\FormGenerator.php" />
     <Compile Include="src\Data\iDatabaseReader.php" />
     <Compile Include="src\Data\DatabaseManager.php" />
     <Compile Include="src\Data\MySqlDatabaseReader.php" />
-    <Compile Include="src\HtmlGenerator.php" />
+    <Compile Include="src\BusinessLogic\HtmlTagGenerator.php" />
+    <Compile Include="src\FormSpecification.php" />
     <Compile Include="index.php" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\HTML\" />
     <Folder Include="src\" />
     <Folder Include="Project Management\" />
     <Folder Include="src\Data\" />
+    <Folder Include="src\BusinessLogic\" />
   </ItemGroup>
 </Project>

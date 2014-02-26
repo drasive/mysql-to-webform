@@ -1,4 +1,4 @@
-<?php namespace Data;
+<?php namespace FormGenerator\Data;
       class MySqlDatabaseReader extends DatabaseManager implements iDatabaseReader {
           
           // Private variables

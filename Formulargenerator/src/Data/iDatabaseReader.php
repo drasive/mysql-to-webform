@@ -1,4 +1,4 @@
-<?php namespace Data;
+<?php namespace FormGenerator\Data;
       interface iDatabaseReader {
           
           // Public methods
