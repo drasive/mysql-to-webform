@@ -22,8 +22,7 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Resources\HTML\Header.inc.php" />
-    <Compile Include="Resources\HTML\FormGeneration.inc.php" />
+    <Compile Include="FormGeneration.php" />
     <Compile Include="src\BusinessLogic\FormGenerator.php" />
     <Compile Include="src\Data\iDatabaseReader.php" />
     <Compile Include="src\Data\DatabaseManager.php" />
@@ -33,15 +32,31 @@
     <Compile Include="index.php" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="css\" />
+    <Folder Include="fonts\" />
+    <Folder Include="js\" />
+    <Folder Include="Project Management\" />
     <Folder Include="Resources\" />
     <Folder Include="Resources\HTML\" />
     <Folder Include="src\" />
-    <Folder Include="Project Management\" />
     <Folder Include="src\Data\" />
     <Folder Include="src\BusinessLogic\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\main.css" />
     <Content Include="Database Model.mwb" />
     <Content Include="Database Model.mwb.bak" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
   </ItemGroup>
 </Project>

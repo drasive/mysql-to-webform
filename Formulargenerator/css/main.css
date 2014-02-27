@@ -1,0 +1,62 @@
+﻿/* 
+   -------------------------------------------------- General
+*/
+@import url(http://fonts.googleapis.com/css?family=Raleway:300);
+
+html {
+    font-family: 'Raleway', sans-serif !important;
+}
+/* 
+   -------------------------------------------------- Classes
+*/
+/* --------------- Navigation */
+.navbar {
+    margin-bottom: 0px;
+}
+/* --------------- Headers */
+div.titlebox {  
+    background: #4eabe1;
+    margin-bottom: 20px;
+    height: 96px;
+    width: 100%;
+}
+
+/* --------------- Input */
+div.input-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+label.input-header {
+    color: #55524b;
+    font-size: 14px;
+}
+
+.input {
+    width: 100%;
+}
+
+.submit {
+    float: right;
+}
+/* 
+   -------------------------------------------------- Controls
+*/
+/* --------------- Input */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    height: 35px;
+}
+/* 
+   -------------------------------------------------- Headers
+*/
+h1 {
+    font-size: 32px;
+    line-height: 3;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
