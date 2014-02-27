@@ -40,4 +40,8 @@
     <Folder Include="src\Data\" />
     <Folder Include="src\BusinessLogic\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database Model.mwb" />
+    <Content Include="Database Model.mwb.bak" />
+  </ItemGroup>
 </Project>
