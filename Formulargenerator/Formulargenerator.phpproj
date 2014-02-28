@@ -37,6 +37,7 @@
     <Folder Include="css\" />
     <Folder Include="media\" />
     <Folder Include="media\icons\" />
+    <Folder Include="media\images\" />
     <Folder Include="media\pdfs\" />
     <Folder Include="style\css\" />
     <Folder Include="style\fonts\" />
@@ -52,6 +53,7 @@
   <ItemGroup>
     <Content Include="footer.inc.html" />
     <Content Include="media\icons\loading-circle.gif" />
+    <Content Include="media\images\kid_lolly_cat.jpg" />
     <Content Include="scripts\js\style.js" />
     <Content Include="style\css\style.css" />
     <Content Include="style\fonts\glyphicons-halflings-regular.eot" />

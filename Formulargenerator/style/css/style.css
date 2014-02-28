@@ -3,7 +3,7 @@
     Copyright © 2014, Dimitri Vranken
    ================================================== */
 /* 
-   -------------------------------------------------- General
+   ================================================== General
 */
 @import url(http://fonts.googleapis.com/css?family=Raleway:300);
 @import url(http://fonts.googleapis.com/css?family=Raleway:400);
@@ -14,11 +14,18 @@ html, body {
     font-weight: normal;
     background: #f2f5f7;
     color: #333333;
+    height: 100%;
+}
+
+div.content {
+    min-height: 100%;
 }
 /* 
-   -------------------------------------------------- Navigation
+   ================================================== Navigation
 */
 .navbar {
+    border: none;
+    margin-top: -20px;
     margin-bottom: 0px;
     color: #333;
     background: #484c4d;
@@ -41,11 +48,11 @@ html, body {
 
 .navbar a {
     color: #a5a8a8;
-    -moz-transition: color 0.5s;
-    -webkit-transition: color 0.5s;
-    -o-transition: color 0.5s;
-    -ms-transition: color 0.5s;
-    transition: color 0.5s;
+    -moz-transition: color 0.4s;
+    -webkit-transition: color 0.4s;
+    -o-transition: color 0.4s;
+    -ms-transition: color 0.4s;
+    transition: color 0.4s;
 }
 
     .navbar a:hover {
@@ -57,14 +64,19 @@ html, body {
         transition: color 0.2s;
     }
 /* 
-   -------------------------------------------------- Content
+   ================================================== Content
 */
+/* =============== Text */
 p.lead {
     font-size: 14px;
 }
-/* --------------- Input */
+
+section {
+    margin-bottom: 30px;
+}
+/* =============== Input */
 div.input-group {
-    margin-bottom: 20px;
+    padding-bottom: 20px;
     width: 100%;
 }
 
@@ -102,11 +114,11 @@ input {
         border: none;
         border-bottom: #3e88b4 5px solid;
         border-radius: 5px;
-        -moz-transition: background 0.4s;
-        -webkit-transition: background 0.4s;
-        -o-transition: background 0.4s;
-        -ms-transition: background 0.4s;
-        transition: background 0.4s;
+        -moz-transition: background 0.3s;
+        -webkit-transition: background 0.3s;
+        -o-transition: background 0.3s;
+        -ms-transition: background 0.3s;
+        transition: background 0.3s;
     }
 
         input[type='submit']:hover {
@@ -121,16 +133,46 @@ input {
     input.submit {
         float: right;
     }
+
+@media (max-width: 768px) {
+    input.submit {
+        width: 100%;
+    }
+}
+
+/* =============== Media */
+p.image-description {
+    margin-top: 5px;
+    font-size: 12px;
+}
 /* 
-   -------------------------------------------------- Headers
+   ================================================== Headers
 */
-div.titlebox {
+div.title-box {
     background: #4eabe1;
     margin-bottom: 50px;
     padding-top: 12px;
     padding-bottom: 12px;
     height: 120px;
     width: 100%;
+}
+
+@media (max-width: 992px) {
+    div.title-box {
+        margin-bottom: 35px;
+        padding-top: 34px;
+        padding-bottom: 34px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    div.title-box {
+        margin-bottom: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: 72px;
+    }
 }
 
 h1 {
@@ -142,6 +184,12 @@ h1 {
     font-weight: 300;
 }
 
+@media (max-width: 992px) {
+    h1 {
+        line-height: 1;
+    }
+}
+
 h2 {
     margin-top: 0px;
     color: #4eabe1;
@@ -149,19 +197,20 @@ h2 {
     font-weight: 500;
 }
 /* 
-   -------------------------------------------------- Footer
+   ================================================== Footer
 */
-div.footer {
+footer {
+    position: relative;
     width: 100%;
     background: #e0e7eb;
     height: 60px;
-    margin-top: 30px;
+    margin-top: -140px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
-    div.footer .container {
-        font-size: 16px;
+    footer .container {
+        font-size: 14px;
         line-height: 20px;
         color: #8b979e;
         font-weight: normal;
@@ -169,4 +218,14 @@ div.footer {
 
 p.foreign-credit {
     float: right;
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    p.foreign-credit {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
 }
