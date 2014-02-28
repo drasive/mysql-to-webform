@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Über</title>
+    <title>Über - Formular-Generator</title>
     <meta name="author" content="Dimitri Vranken">
 
     <link href="style/css/bootstrap.css" rel="stylesheet" media="screen">
@@ -21,8 +21,14 @@
             <article class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <section>
                     <h2>Was</h2>
+                    <h3>Funktion</h3>
                     <p>
-                        WASSSSSS
+                        Das Generieren von HTML5-Eingabeformularen. Die benötigten Felder und Attribute werden aus einer MySql Tabelle ausgelesen.
+                    </p>
+                    <h3>Technik</h3>
+                    <p>
+                        Frontend: HTML5 Website mit Bootstrap Layout<br />
+                        Backend: PHP 5.4
                     </p>
                 </section>
                 <section>
@@ -33,9 +39,15 @@
                 </section>
                 <section>
                     <h2>Wer</h2>
+                    <h3>Entwickler</h3>
                     <p>
                         Dimitri Vranken<br />
                         Mail: <a href="mailto:dimitri.vranken@hotmail.ch">dimitri.vranken@hotmail.ch</a><br />
+                    </p>
+                    <h3>Experte</h3>
+                    <p>
+                        Daniel Brodbeck<br />
+                        Mail: <a href="mailto:daniel.brodbeck@gibmit.ch">daniel.brodbeck@gibmit.ch</a><br />
                     </p>
                 </section>
             </article>

@@ -1,5 +1,5 @@
 <?php namespace FormGenerator\BusinessLogic;
-      class FormGenerator {
+      class InputFormGenerator {
           
           public function generateForm($name, $databaseSTuff) {
               

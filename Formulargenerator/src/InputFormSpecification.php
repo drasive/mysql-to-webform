@@ -1,5 +1,5 @@
 <?php namespace FormGenerator;
-      class FormSpecification {
+      class InputFormSpecification {
           
           
           

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Formulargenerator</title>
+    <title>Formular-Generator</title>
     <meta name="author" content="Dimitri Vranken">
 
     <link href="style/css/bootstrap.css" rel="stylesheet" media="screen">
@@ -22,10 +22,10 @@
                 <h2>Wilkommen beim Formular-Generator</h2>
                 <article>
                     <p class="lead">
-                        Der Formular-Generator unterstützt Sie in Ihrer Aufgabe Nutzereingaben für eine Datenbank zu erfassen.                
+                        Der Formular-Generator unterstützt Sie in Ihrer Aufgabe Nutzereingaben zu erfassen.                
                     </p>
                     <p class="lead">
-                        Geben Sie einfach die erforderlichen Informationen ein und lassen Sie ein HTML Formular generieren.
+                        Geben Sie einfach die erforderlichen Informationen ein und lassen Sie ein HTML5 Formular generieren.
                     </p>
                     <p class="lead">
                         Zur <a href="">Kurzanleitung</a>.
@@ -36,7 +36,7 @@
                 <form method="post">
                     <div class="input-group">
                         <label class="input-header" for="formName">Formularname</label>
-                        <input type="text" id="formName" name="formName" maxlength="64" required pattern="^[^\s][a-zA-Z0-9_\- ]{1,64}$" title="Der Name des zu generierenden Formulares. Erlaubte Zeichen: a-z, A-Z, 0-9, '_', '-' und ' ' (Leerzeichen)" class="input" spellcheck="true" />
+                        <input type="text" id="formName" name="formName" maxlength="64" required  pattern="^[^\s][a-zA-Z0-9_\- ]{1,64}$" title="Der Name des zu generierenden Formulares. Erlaubte Zeichen: a-z, A-Z, 0-9, '_', '-' und ' ' (Leerzeichen)" class="input" spellcheck="true" />
                     </div>
                     <br />
                     <div class="input-group">
@@ -45,15 +45,15 @@
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="database">Datenbank</label>
-                        <input type="text" id="database" name="database" maxlength="256" required pattern="^\w$" title="Der Name der Datenbank, in der sich die zu verwendende Tabelle befindet. Erlaubte Zeichen: a-z, A-Z, 0-9 und '_'" class="input" />
+                        <input type="text" id="database" name="database" maxlength="256" required pattern="^[^\s].{1,256}$" title="Der Name der Datenbank, in der sich die zu verwendende Tabelle befindet" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="table">Tabelle</label>
-                        <input type="text" id="table" name="table" maxlength="256" required pattern="^\w$" title="Der Name der Tabelle, aus der das Eingabeformular generiert werden soll. Erlaubte Zeichen: a-z, A-Z, 0-9 und '_'" class="input" />
+                        <input type="text" id="table" name="table" maxlength="256" required pattern="^[^\s].{1,256}$" title="Der Name der Tabelle, aus der das Eingabeformular generiert werden soll" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="username">Benutzername</label>
-                        <input type="text" id="username" name="username" maxlength="256" required pattern="^\w$" title="Der Benutzername für den Zugriff auf die angegebene Datenbank. Erlaubte Zeichen: a-z, A-Z, 0-9 und '_'" class="input" />
+                        <input type="text" id="username" name="username" maxlength="256" required pattern="^[^\s].{1,256}$" title="Der Benutzername für den Zugriff auf die angegebene Datenbank" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="password">Passwort</label>
@@ -74,5 +74,11 @@
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="scripts/js/bootstrap.min.js"></script>
     <script src="scripts/js/style.js" type="text/javascript"></script>
+     <script src="scripts/js/jquery.cookies.js" type="text/javascript"></script>
+    <script src="scripts/js/storage.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        saveUserInput('test');
+    </script>
 </body>
 </html>

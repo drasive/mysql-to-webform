@@ -25,16 +25,15 @@
     <Compile Include="about.php" />
     <Compile Include="navigation.inc.html" />
     <Compile Include="form_generator.php" />
-    <Compile Include="src\BusinessLogic\FormGenerator.php" />
+    <Compile Include="src\BusinessLogic\InputFormGenerator.php" />
     <Compile Include="src\Data\iDatabaseReader.php" />
     <Compile Include="src\Data\DatabaseManager.php" />
     <Compile Include="src\Data\MySqlDatabaseReader.php" />
     <Compile Include="src\BusinessLogic\HtmlTagGenerator.php" />
-    <Compile Include="src\FormSpecification.php" />
+    <Compile Include="src\InputFormSpecification.php" />
     <Compile Include="index.php" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="css\" />
     <Folder Include="media\" />
     <Folder Include="media\icons\" />
     <Folder Include="media\images\" />
@@ -54,6 +53,8 @@
     <Content Include="footer.inc.html" />
     <Content Include="media\icons\loading-circle.gif" />
     <Content Include="media\images\kid_lolly_cat.jpg" />
+    <Content Include="scripts\js\storage.js" />
+    <Content Include="scripts\js\jquery.cookies.js" />
     <Content Include="scripts\js\style.js" />
     <Content Include="style\css\style.css" />
     <Content Include="style\fonts\glyphicons-halflings-regular.eot" />
@@ -70,5 +71,7 @@
     <Content Include="style\css\bootstrap.min.css" />
     <Content Include="scripts\js\bootstrap.js" />
     <Content Include="scripts\js\bootstrap.min.js" />
+    <Content Include="_Project Management\Questions.txt" />
+    <Content Include="_Project Management\Feature ideas.txt" />
   </ItemGroup>
 </Project>
