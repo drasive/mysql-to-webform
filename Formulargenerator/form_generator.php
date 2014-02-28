@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
 
     <title>Formulargenerator</title>
     <meta name="author" content="Dimitri Vranken">
