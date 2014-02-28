@@ -22,7 +22,9 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="FormGeneration.php" />
+    <Compile Include="about.php" />
+    <Compile Include="navigation.inc.html" />
+    <Compile Include="form_generator.php" />
     <Compile Include="src\BusinessLogic\FormGenerator.php" />
     <Compile Include="src\Data\iDatabaseReader.php" />
     <Compile Include="src\Data\DatabaseManager.php" />
@@ -33,30 +35,38 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
-    <Folder Include="fonts\" />
-    <Folder Include="js\" />
-    <Folder Include="Project Management\" />
-    <Folder Include="Resources\" />
-    <Folder Include="Resources\HTML\" />
+    <Folder Include="media\" />
+    <Folder Include="media\icons\" />
+    <Folder Include="media\pdfs\" />
+    <Folder Include="style\css\" />
+    <Folder Include="style\fonts\" />
+    <Folder Include="_Project Management\Data\" />
+    <Folder Include="style\" />
+    <Folder Include="scripts\js\" />
+    <Folder Include="scripts\" />
+    <Folder Include="_Project Management\" />
     <Folder Include="src\" />
     <Folder Include="src\Data\" />
     <Folder Include="src\BusinessLogic\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\main.css" />
-    <Content Include="Database Model.mwb" />
-    <Content Include="Database Model.mwb.bak" />
-    <Content Include="css\bootstrap-theme.css" />
-    <Content Include="css\bootstrap-theme.css.map" />
-    <Content Include="css\bootstrap-theme.min.css" />
-    <Content Include="css\bootstrap.css" />
-    <Content Include="css\bootstrap.css.map" />
-    <Content Include="css\bootstrap.min.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="js\bootstrap.js" />
-    <Content Include="js\bootstrap.min.js" />
+    <Content Include="footer.inc.html" />
+    <Content Include="media\icons\loading-circle.gif" />
+    <Content Include="scripts\js\style.js" />
+    <Content Include="style\css\style.css" />
+    <Content Include="style\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="style\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="style\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="style\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="_Project Management\Data\Database Model.mwb" />
+    <Content Include="_Project Management\Data\Database Model.mwb.bak" />
+    <Content Include="style\css\bootstrap-theme.css" />
+    <Content Include="style\css\bootstrap-theme.css.map" />
+    <Content Include="style\css\bootstrap-theme.min.css" />
+    <Content Include="style\css\bootstrap.css" />
+    <Content Include="style\css\bootstrap.css.map" />
+    <Content Include="style\css\bootstrap.min.css" />
+    <Content Include="scripts\js\bootstrap.js" />
+    <Content Include="scripts\js\bootstrap.min.js" />
   </ItemGroup>
 </Project>
