@@ -1,4 +1,5 @@
 <?php namespace FormGenerator\BusinessLogic;
+      
       class HtmlTagGenerator {
           
           // Stuff
@@ -14,17 +15,25 @@
           }
           
           // Public methods
-          public static function generateInput($name, $required, $type, $default_value, $maximum_length, $minimum_value, $maximum_value) {
-              $type = "radio, text, checkbox, password, date, number, email, datetime, color, hidden, month";
+          public static function generateFormStart($action, $method) {
+              return "<form action='$action' method='$method'>";
           }
           
-          public static function generateTextarea($name, $required, $maximum_length, $rows, $columns, $placeholder) {
-              return "<textarea name='$name' required='$required' maxLength='$maximum_length' rows='$rows' cols='$columns' placeholder='$placeholder'></textarea>";
+          public static function generateInput($name, $required, $default_value, $type, $maximum_length) {
+              // TODO: check if default_value as value makes sense
+              return "<input name='$name' required='$required' value='$default_value' type='$type' maxLength='$maximum_length' />";
           }
           
-          public static function generateSelect($name, $required, $size, $options) {
+          public static function generateTextarea($name, $required, $default_value, $maximum_length) {
+              // TODO: check if default_value as value makes sense
+              return "<textarea name='$name' required='$required' maxLength='$maximum_length'>$default_value</textarea>";
+          }
+          
+          public static function generateSelect($name, $required, $default_value, $options) {
+              // TODO: default_value
               return "<select name='$name' required='$required' size='$size'>" + generateOptions($options) + "</select>";
           }
           
       }
+      
 ?>
