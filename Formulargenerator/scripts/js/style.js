@@ -1,13 +1,13 @@
 ﻿/* ==================================================
-    Copyright © 2014, Dimitri Vranken
+    Copyright © 2014 Dimitri Vranken
    ================================================== */
 
-function setActiveNavigationLink(id) {
-    var navigationLink = document.getElementById(id);
+function setActiveNavigationLink(linkId) {
+    var navigationLink = document.getElementById(linkId);
     if (navigationLink != null) {
         navigationLink.className += " active ";
     }
     else {
-        throw new Error("The provided Id is invalid");
+        throw new Error("Invalid linkId");
     }
 }

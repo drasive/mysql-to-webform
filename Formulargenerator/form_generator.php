@@ -2,16 +2,25 @@
 
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
 
     <title>Formular-Generator</title>
-    <meta name="author" content="Dimitri Vranken">
+    <meta name="author" content="Dimitri Vranken" />
 
-    <link href="style/css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="style/css/style.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+    <script src="scripts/js/bootstrap.min.js"></script>
+    <link href="style/css/bootstrap.css" rel="stylesheet" media="screen" />
+
+    <link href="style/css/style.css" rel="stylesheet" />
+    <script src="scripts/js/style.js" type="text/javascript"></script>
+
+    <script src="scripts/js/jquery.cookies.js" type="text/javascript"></script>
+    <script src="scripts/js/storage.js" type="text/javascript"></script>
 </head>
 <body>
-    <?php require('navigation.inc.html'); ?>
+    <?php require('includes/warnings.inc.php'); ?>
+    <?php require('includes/navigation.inc.html'); ?>
 
     <div class="content">
         <div class="title-box text-center">
@@ -22,7 +31,7 @@
                 <h2>Wilkommen beim Formular-Generator</h2>
                 <article>
                     <p class="lead">
-                        Der Formular-Generator unterstützt Sie in Ihrer Aufgabe Nutzereingaben zu erfassen.                
+                        Der Formular-Generator unterstützt Sie in Ihrer Aufgabe Nutzereingaben zu erfassen.
                     </p>
                     <p class="lead">
                         Geben Sie einfach die erforderlichen Informationen ein und lassen Sie ein HTML5 Formular generieren.
@@ -36,24 +45,24 @@
                 <form method="post">
                     <div class="input-group">
                         <label class="input-header" for="formName">Formularname</label>
-                        <input type="text" id="formName" name="formName" maxlength="64" required  pattern="^[^\s][a-zA-Z0-9_\- ]{1,64}$" title="Der Name des zu generierenden Formulares. Erlaubte Zeichen: a-z, A-Z, 0-9, '_', '-' und ' ' (Leerzeichen)" class="input" spellcheck="true" />
+                        <input type="text" id="formName" name="formName" maxlength="64" required pattern="^[^\s][a-zA-Z0-9_\- ]{0,64}$" title="Der Name des zu generierenden Formulares. Erlaubte Zeichen: a-z, A-Z, 0-9, '_', '-' und ' ' (Leerzeichen)" class="input" spellcheck="true" />
                     </div>
                     <br />
                     <div class="input-group">
                         <label class="input-header" for="hostname">Hostname</label>
-                        <input type="text" id="hostname" name="hostname" maxlength="256" required pattern="^((([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$" title="Der Name des Hosts, auf dem sich die zu verwendende Datenbank befindet. Erlaubte Zeichen: Hostname oder IP-Adresse des Hosts" class="input" />
+                        <input type="text" id="hostname" name="hostname" onchange="saveUserInput('hostname');" maxlength="256" required pattern="^((([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$" title="Der Name des Hosts, auf dem sich die zu verwendende Datenbank befindet. Erlaubte Zeichen: Hostname oder IP-Adresse des Hosts" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="database">Datenbank</label>
-                        <input type="text" id="database" name="database" maxlength="256" required pattern="^[^\s].{1,256}$" title="Der Name der Datenbank, in der sich die zu verwendende Tabelle befindet" class="input" />
+                        <input type="text" id="database" name="database" onchange="saveUserInput('database');" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Name der Datenbank, in der sich die zu verwendende Tabelle befindet" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="table">Tabelle</label>
-                        <input type="text" id="table" name="table" maxlength="256" required pattern="^[^\s].{1,256}$" title="Der Name der Tabelle, aus der das Eingabeformular generiert werden soll" class="input" />
+                        <input type="text" id="table" name="table" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Name der Tabelle, aus der das Eingabeformular generiert werden soll" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="username">Benutzername</label>
-                        <input type="text" id="username" name="username" maxlength="256" required pattern="^[^\s].{1,256}$" title="Der Benutzername für den Zugriff auf die angegebene Datenbank" class="input" />
+                        <input type="text" id="username" name="username" onchange="saveUserInput('username');" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Benutzername für den Zugriff auf die angegebene Datenbank" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="password">Passwort</label>
@@ -66,19 +75,15 @@
         </div>
     </div>
 
-    <?php require('footer.inc.html'); ?>
+    <?php require('includes/footer.inc.html'); ?>
 
     <!--
         ================================================== Scripts
     -->
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="scripts/js/bootstrap.min.js"></script>
-    <script src="scripts/js/style.js" type="text/javascript"></script>
-     <script src="scripts/js/jquery.cookies.js" type="text/javascript"></script>
-    <script src="scripts/js/storage.js" type="text/javascript"></script>
-
     <script type="text/javascript">
-        saveUserInput('test');
+        loadUserInput('hostname');
+        loadUserInput('database');
+        loadUserInput('username');
     </script>
 </body>
 </html>

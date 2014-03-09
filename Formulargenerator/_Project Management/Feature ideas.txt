@@ -1,2 +1,1 @@
 ﻿- List generated input forms
-- Save user input with cookies and load it on a revisit (optional)

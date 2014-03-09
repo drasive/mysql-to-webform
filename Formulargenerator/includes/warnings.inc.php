@@ -1,0 +1,1 @@
+﻿<?php require('javascript_off_warning.inc.html'); ?>

@@ -7,11 +7,17 @@
     <title>Über - Formular-Generator</title>
     <meta name="author" content="Dimitri Vranken">
 
-    <link href="style/css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="style/css/style.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+    <script src="scripts/js/bootstrap.min.js"></script>
+    <link href="style/css/bootstrap.css" rel="stylesheet" media="screen" />
+
+    <link href="style/css/style.css" rel="stylesheet" />
+    <script src="scripts/js/style.js" type="text/javascript"></script>
 </head>
 <body>
-    <?php require('navigation.inc.html'); ?>
+    <?php require('includes/warnings.inc.php'); ?>
+    <?php require('includes/navigation.inc.html'); ?>
 
     <div class="content">
         <div class="title-box text-center">
@@ -27,7 +33,7 @@
                     </p>
                     <h3>Technik</h3>
                     <p>
-                        Frontend: HTML5 Website mit Bootstrap Layout<br />
+                        Frontend: HTML5 Website mit CSS3 und Bootstrap<br />
                         Backend: PHP 5.4
                     </p>
                 </section>
@@ -63,12 +69,6 @@
         </div>
     </div>
 
-    <?php require('footer.inc.html'); ?>
-
-    <!--
-        ================================================== Scripts
-    -->
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="scripts/js/bootstrap.min.js"></script>
+    <?php require('includes/footer.inc.html'); ?>
 </body>
 </html>

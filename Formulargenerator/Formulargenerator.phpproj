@@ -14,6 +14,12 @@
     <SccProvider>SAK</SccProvider>
     <SccAuxPath>SAK</SccAuxPath>
     <SccLocalPath>SAK</SccLocalPath>
+    <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+    <Server>PHPDev</Server>
+    <PublishEvent>None</PublishEvent>
+    <PHPDevAutoPort>True</PHPDevAutoPort>
+    <PHPDevPort>44387</PHPDevPort>
+    <PHPDevHostName>localhost</PHPDevHostName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <IncludeDebugInformation>true</IncludeDebugInformation>
@@ -23,7 +29,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="about.php" />
-    <Compile Include="navigation.inc.html" />
+    <Compile Include="includes\navigation.inc.html" />
     <Compile Include="form_generator.php" />
     <Compile Include="src\BusinessLogic\InputFormGenerator.php" />
     <Compile Include="src\Data\iDatabaseReader.php" />
@@ -38,6 +44,7 @@
     <Folder Include="media\icons\" />
     <Folder Include="media\images\" />
     <Folder Include="media\pdfs\" />
+    <Folder Include="includes\" />
     <Folder Include="style\css\" />
     <Folder Include="style\fonts\" />
     <Folder Include="_Project Management\Data\" />
@@ -50,13 +57,16 @@
     <Folder Include="src\BusinessLogic\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="footer.inc.html" />
+    <Content Include="includes\footer.inc.html" />
+    <Content Include="includes\warnings.inc.php" />
     <Content Include="media\icons\loading-circle.gif" />
     <Content Include="media\images\kid_lolly_cat.jpg" />
+    <Content Include="includes\javascript_off_warning.inc.html" />
     <Content Include="scripts\js\storage.js" />
     <Content Include="scripts\js\jquery.cookies.js" />
     <Content Include="scripts\js\style.js" />
-    <Content Include="style\css\style.css" />
+    <Content Include="style\css\compile less files.bat" />
+    <Content Include="style\css\style.less" />
     <Content Include="style\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="style\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="style\fonts\glyphicons-halflings-regular.ttf" />
