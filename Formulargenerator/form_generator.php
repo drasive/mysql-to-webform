@@ -57,8 +57,8 @@
                 <input type="month" title="month" value="Test" /><br />
                 <input type="number" title="number" value="Test" /><br />
                 <input type="password" title="password" value="Test" /><br />
-               <!-- <input type="radio" title="radio" value="Test" /><br />-->
-                <input type="range" title="range" value="Test" max="5"/><br />
+                <!-- <input type="radio" title="radio" value="Test" /><br />-->
+                <input type="range" title="range" value="Test" max="5" /><br />
                 <!--<input type="reset" title="reset" value="Test" /><br />-->
                 <input type="search" title="search" value="Test" /><br />
                 <input type="submit" title="submit" value="Test" /><br />
@@ -85,7 +85,7 @@
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="table">Tabelle</label>
-                        <input value="personen" type="text" id="table" name="table" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Name der Tabelle, aus der das Eingabeformular generiert werden soll" class="input" />
+                        <input value="input" type="text" id="table" name="table" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Name der Tabelle, aus der das Eingabeformular generiert werden soll" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="username">Benutzername</label>

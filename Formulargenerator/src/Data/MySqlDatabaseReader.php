@@ -45,6 +45,7 @@
 
           public function getFields($table) {
               $fields = array();
+              
               $rows = $this->executeSelect("SELECT *
                                             FROM $table
                                             LIMIT 0, 0");

@@ -20,13 +20,11 @@
           }
           
           public static function generateInput($name, $required, $default_value, $type, $maximum_length) {
-              // TODO: check if default_value as value makes sense
-              return "<input name='$name' required='$required' value='$default_value' type='$type' maxLength='$maximum_length' />";
+              return "<input name='$name' required='$required' type='$type' maxLength='$maximum_length' />";
           }
           
           public static function generateTextarea($name, $required, $default_value, $maximum_length) {
-              // TODO: check if default_value as value makes sense
-              return "<textarea name='$name' required='$required' maxLength='$maximum_length'>$default_value</textarea>";
+              return "<textarea name='$name' required='$required' maxLength='$maximum_length'></textarea>";
           }
           
           public static function generateRadiobuttons($name, $required, $default_value, $maximum_length) {
@@ -35,8 +33,8 @@
           }
           
           public static function generateSelect($name, $required, $default_value, $options) {
-              // TODO: default_value
-              return "<select name='$name' required='$required' size='$size'>" + generateOptions($options) + "</select>";
+              // TODO: default_value, options
+              return "<select name='$name' required='$required' size='$size'>" + HtmlTagGenerator::generateOptions($options) + "</select>";
           }
           
       }

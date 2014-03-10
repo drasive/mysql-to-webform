@@ -1,1 +1,1 @@
-﻿- List generated input forms
+﻿- Show preview of input elements (allow customization)

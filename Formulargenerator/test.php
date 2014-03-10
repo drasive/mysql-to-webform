@@ -7,8 +7,6 @@
 require_once('src\BusinessLogic\InputFormGenerator.php');
 require_once('src\UserInterface\HtmlParameterValidation.php');
 
-// ----------------------Fucking interface class
-
 $name = $_POST['formName'];
 $server = $_POST['hostname'];
 $database = $_POST['database'];

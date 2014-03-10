@@ -31,6 +31,7 @@
     <Compile Include="about.php" />
     <Compile Include="includes\navigation.inc.html" />
     <Compile Include="form_generator.php" />
+    <Compile Include="src\BusinessLogic\MySqlDatabaseInputElementBuilder.php" />
     <Compile Include="src\Data\DatabaseField.php" />
     <Compile Include="src\String.php" />
     <Compile Include="src\Enum.php" />
@@ -39,7 +40,7 @@
     <Compile Include="src\Data\DatabaseManager.php" />
     <Compile Include="src\Data\MySqlDatabaseReader.php" />
     <Compile Include="src\BusinessLogic\HtmlTagGenerator.php" />
-    <Compile Include="src\BusinessLogic\InputElementSpecification.php" />
+    <Compile Include="src\BusinessLogic\InputElement.php" />
     <Compile Include="index.php" />
     <Compile Include="src\UserInterface\HtmlParameterValidation.php" />
     <Compile Include="test.php" />

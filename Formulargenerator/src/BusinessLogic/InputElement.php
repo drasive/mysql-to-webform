@@ -1,6 +1,6 @@
 <?php namespace InputFormGenerator\BusinessLogic;
       
-      class InputElementSpecification {
+      class InputElement {
           
           // Private variables
           private $name;
