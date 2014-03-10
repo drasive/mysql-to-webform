@@ -1,8 +1,8 @@
-<?php namespace FormGenerator\BusinessLogic;
+<?php namespace InputFormGenerator;
       
       /**
        *  @author http://stackoverflow.com/questions/254514/php-and-enumerations
-       **/
+       */
       abstract class Enum {
           
           private static $constCache = NULL;

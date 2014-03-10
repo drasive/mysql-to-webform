@@ -1,32 +1,45 @@
-<?php namespace FormGenerator\Data;
+<?php namespace InputFormGenerator\Data;
       
-      class MySqlDatabaseReader extends DatabaseManager implements iDatabaseReader {
-          
-          // Private variables
-          private $database_handle;
-          private $does_database_exist;
-
-          // Public properties
-          public function getDoesDatabaseExist() {
-              return $does_database_exist;
-          }
+      require_once('src/Data/DatabaseManager.php');
+      
+      class MySqlDatabaseReader extends DatabaseManager {
           
           // Public constructors
-          function __construct($server, $database, $user_name, $password) {
-              parent::__construct($server, $database, $user_name, $password);
-              
-              $database_handle = mysql_connect($server, $user_name, $password);
-              $does_database_exist = mysql_select_db($database, $db_handle);
+          function __construct($server, $database, $username, $password) {
+              parent::__construct($server, $database, $username, $password);
           }
           
-          // Public methods
-          public function select ($SqlStatement) {
-              return mysql_query($SqlStatement);
+          // Private methods
+          private function getDatabaseHandle() {
+              return mysql_connect($this->server, $this->username, $this->password);
           }
           
-          // Public methods
-          function __destruct() {
+          private function closeDatabaseHandle($database_handle) {
               mysql_close($database_handle);
+          }
+          
+          // Public methods
+          public function canConnectToDatabase() {
+              try {
+                  $database_handle = $this->getDatabaseHandle();
+                  return mysql_select_db($this->database, $database_handle);
+              }
+              catch (Exception $exception) {
+                  return false;
+              }
+              // TODO: close connection       
+          }
+          
+          public function executeSelect ($SqlQuery) {
+              // TODO: Escape the sql query
+              try {
+                  $database_handle = $this->getDatabaseHandle();
+                  return mysql_query($SqlQuery);
+              }
+              catch (Exception $exception) {
+                  throw $exception;
+              }
+              // TODO: close connection           
           }          
           
       }

@@ -1,4 +1,4 @@
-<?php namespace FormGenerator\BusinessLogic;
+<?php namespace InputFormGenerator\BusinessLogic;
       
       class HtmlTagGenerator {
           
@@ -27,6 +27,11 @@
           public static function generateTextarea($name, $required, $default_value, $maximum_length) {
               // TODO: check if default_value as value makes sense
               return "<textarea name='$name' required='$required' maxLength='$maximum_length'>$default_value</textarea>";
+          }
+          
+          public static function generateRadiobuttons($name, $required, $default_value, $maximum_length) {
+              // TODO: Implement
+              return "placeholder";
           }
           
           public static function generateSelect($name, $required, $default_value, $options) {

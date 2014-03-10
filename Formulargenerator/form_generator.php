@@ -42,27 +42,27 @@
                 </article>
             </aside>
             <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 pull-right">
-                <form method="post">
+                <form method="post" action="test.php">
                     <div class="input-group">
                         <label class="input-header" for="formName">Formularname</label>
-                        <input type="text" id="formName" name="formName" maxlength="64" required pattern="^[^\s][a-zA-Z0-9_\- ]{0,64}$" title="Der Name des zu generierenden Formulares. Erlaubte Zeichen: a-z, A-Z, 0-9, '_', '-' und ' ' (Leerzeichen)" class="input" spellcheck="true" />
+                        <input value="Test" type="text" id="formName" name="formName" maxlength="64" required pattern="^[^\s][a-zA-Z0-9_\- ]{0,64}$" title="Der Name des zu generierenden Formulares. Erlaubte Zeichen: a-z, A-Z, 0-9, '_', '-' und ' ' (Leerzeichen)" class="input" spellcheck="true" />
                     </div>
                     <br />
                     <div class="input-group">
                         <label class="input-header" for="hostname">Hostname</label>
-                        <input type="text" id="hostname" name="hostname" onchange="saveUserInput('hostname');" maxlength="256" required pattern="^((([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$" title="Der Name des Hosts, auf dem sich die zu verwendende Datenbank befindet. Erlaubte Zeichen: Hostname oder IP-Adresse des Hosts" class="input" />
+                        <input value="localhost" type="text" id="hostname" name="hostname" onchange="saveUserInput('hostname');" maxlength="256" required pattern="^((([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$" title="Der Name des Hosts, auf dem sich die zu verwendende Datenbank befindet. Erlaubte Zeichen: Hostname oder IP-Adresse des Hosts" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="database">Datenbank</label>
-                        <input type="text" id="database" name="database" onchange="saveUserInput('database');" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Name der Datenbank, in der sich die zu verwendende Tabelle befindet" class="input" />
+                        <input value="formulargenerator" type="text" id="database" name="database" onchange="saveUserInput('database');" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Name der Datenbank, in der sich die zu verwendende Tabelle befindet" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="table">Tabelle</label>
-                        <input type="text" id="table" name="table" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Name der Tabelle, aus der das Eingabeformular generiert werden soll" class="input" />
+                        <input value="personen" type="text" id="table" name="table" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Name der Tabelle, aus der das Eingabeformular generiert werden soll" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="username">Benutzername</label>
-                        <input type="text" id="username" name="username" onchange="saveUserInput('username');" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Benutzername für den Zugriff auf die angegebene Datenbank" class="input" />
+                        <input value="root" type="text" id="username" name="username" onchange="saveUserInput('username');" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Benutzername für den Zugriff auf die angegebene Datenbank" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="password">Passwort</label>
@@ -81,9 +81,9 @@
         ================================================== Scripts
     -->
     <script type="text/javascript">
-        loadUserInput('hostname');
-        loadUserInput('database');
-        loadUserInput('username');
+        //loadUserInput('hostname');
+        //loadUserInput('database');
+        //loadUserInput('username');
     </script>
 </body>
 </html>

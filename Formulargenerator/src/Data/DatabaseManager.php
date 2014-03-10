@@ -1,12 +1,12 @@
-<?php namespace FormGenerator\Data;
+<?php namespace InputFormGenerator\Data;
       
       abstract class DatabaseManager {
           
           // Private variables
-          private $server = "127.0.0.1";
-          private $database = "test";
-          private $user_name = "root";
-          private $password = "";
+          private $server;
+          private $database;
+          private $username;
+          private $password;
 
           // Public properties
           public function __get($property) {
@@ -16,12 +16,15 @@
           }
           
           // Public constructors
-          function __construct($server, $database, $user_name, $password) {
+          function __construct($server, $database, $username, $password) {
               $this->server = $server;
               $this->database = $database;
-              $this->user_name = $user_name;
+              $this->username = $username;
               $this->password = $password;
           }
+          
+          // Public methods
+          public abstract function canConnectToDatabase();
           
       }
       

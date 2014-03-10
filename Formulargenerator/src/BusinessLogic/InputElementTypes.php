@@ -1,6 +1,9 @@
-<?php namespace FormGenerator\BusinessLogic;
+<?php namespace InputFormGenerator\BusinessLogic;
       
-      abstract class InputTypes extends Enum {
+      require_once('src\Enum.php');
+      
+      abstract class InputElementTypes extends \InputFormGenerator\Enum {
+          // Input (0 - 99)
           const checkbox = 0;
           const color = 1;
           const date = 2;
@@ -18,6 +21,11 @@
           const time = 14;
           const url = 15;
           const week = 16;
+          
+          // Others (100 - 199)
+          const textarea = 100;          
+          const radiobuttons = 101;
+          const select = 102;
       }
       
 ?>

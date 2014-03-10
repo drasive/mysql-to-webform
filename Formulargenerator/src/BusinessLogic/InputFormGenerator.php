@@ -1,13 +1,16 @@
-<?php namespace FormGenerator\BusinessLogic;
-      
+<?php namespace InputFormGenerator\BusinessLogic;
+
       class InputFormGenerator {
           
-          public function generateForm($name, $databaseSTuff) {
+          function generateInputForm($name, $server, $database, $table, $username, $password) {
+              $mySqlDatabaseReader = new Data\MySqlDatabaseReader($server, $database, $username, $password);
+              $test = $mySqlDatabaseReader->doesDatabaseExist();
+              
               $htmlTagGenerator = new HtmlTagGenerator();
               
-              return $htmlTagGenerator->generateFormStart('', 'post');
+              $form = $htmlTagGenerator->generateFormStart('', 'post');
           }
           
       }
-      
+
 ?>

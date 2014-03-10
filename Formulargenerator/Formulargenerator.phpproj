@@ -5,10 +5,10 @@
     <Name>Formulargenerator</Name>
     <ProjectGuid>6f6218ee-a761-4e6d-a105-9e17139377c6</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Formulargenerator</RootNamespace>
+    <RootNamespace>InputFormGenerator</RootNamespace>
     <!-- important to be opened by PHP Tools, when also Phalanger Tools are installed -->
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
-    <AssemblyName>Formulargenerator</AssemblyName>
+    <AssemblyName>InputFormGenerator</AssemblyName>
     <IISProjectUrl>http://localhost:15179/</IISProjectUrl>
     <SccProjectName>SAK</SccProjectName>
     <SccProvider>SAK</SccProvider>
@@ -31,15 +31,17 @@
     <Compile Include="about.php" />
     <Compile Include="includes\navigation.inc.html" />
     <Compile Include="form_generator.php" />
-    <Compile Include="src\BusinessLogic\Enum.php" />
+    <Compile Include="src\String.php" />
+    <Compile Include="src\Enum.php" />
     <Compile Include="src\BusinessLogic\InputFormGenerator.php" />
-    <Compile Include="src\BusinessLogic\InputTypes.php" />
-    <Compile Include="src\Data\iDatabaseReader.php" />
+    <Compile Include="src\BusinessLogic\InputElementTypes.php" />
     <Compile Include="src\Data\DatabaseManager.php" />
     <Compile Include="src\Data\MySqlDatabaseReader.php" />
     <Compile Include="src\BusinessLogic\HtmlTagGenerator.php" />
-    <Compile Include="src\InputFormSpecification.php" />
+    <Compile Include="src\BusinessLogic\InputElementSpecification.php" />
     <Compile Include="index.php" />
+    <Compile Include="src\UserInterface\HtmlParameterValidation.php" />
+    <Compile Include="test.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="media\" />
@@ -47,6 +49,7 @@
     <Folder Include="media\images\" />
     <Folder Include="media\pdfs\" />
     <Folder Include="includes\" />
+    <Folder Include="src\UserInterface\" />
     <Folder Include="style\css\" />
     <Folder Include="style\fonts\" />
     <Folder Include="_Project Management\Data\" />
