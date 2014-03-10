@@ -31,6 +31,7 @@
     <Compile Include="about.php" />
     <Compile Include="includes\navigation.inc.html" />
     <Compile Include="form_generator.php" />
+    <Compile Include="src\Data\DatabaseField.php" />
     <Compile Include="src\String.php" />
     <Compile Include="src\Enum.php" />
     <Compile Include="src\BusinessLogic\InputFormGenerator.php" />
@@ -76,8 +77,6 @@
     <Content Include="style\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="style\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="style\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="_Project Management\Data\Database Model 2.mwb" />
-    <Content Include="_Project Management\Data\Database Model 2.mwb.bak" />
     <Content Include="_Project Management\Data\Database Model.mwb" />
     <Content Include="_Project Management\Data\Database Model.mwb.bak" />
     <Content Include="style\css\bootstrap-theme.css" />

@@ -1,7 +1,7 @@
 <?php namespace InputFormGenerator\Data;
-      
+
       abstract class DatabaseManager {
-          
+
           // Private variables
           private $server;
           private $database;
@@ -14,7 +14,7 @@
                   return $this->$property;
               }
           }
-          
+
           // Public constructors
           function __construct($server, $database, $username, $password) {
               $this->server = $server;
@@ -22,10 +22,14 @@
               $this->username = $username;
               $this->password = $password;
           }
-          
+
           // Public methods
           public abstract function canConnectToDatabase();
-          
+
+          public abstract function executeSelect($selectStatement);
+
+          public abstract function getFields($table);
+
       }
-      
+
 ?>

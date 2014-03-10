@@ -40,6 +40,33 @@
                         Zur <a href="">Kurzanleitung</a>.
                     </p>
                 </article>
+
+                <br />
+                <br />
+                --- For testing purposes only ---<br />
+                <!--<input type="button" title="button" value="Test" /><br />-->
+                <input type="checkbox" title="checkbox" value="Test" /><br />
+                <input type="color" title="color" value="Test" /><br />
+                <input type="date" title="date" value="Test" /><br />
+                <input type="datetime" title="datetime" value="Test" /><br />
+                <input type="datetime-local" title="datetime-local" value="Test" /><br />
+                <input type="email" title="email" value="Test" /><br />
+                <input type="file" title="file" value="Test" /><br />
+                <!--<input type="hidden" title="hidden" value="Test" /><br />
+                <input type="image" title="image" value="Test" /><br />-->
+                <input type="month" title="month" value="Test" /><br />
+                <input type="number" title="number" value="Test" /><br />
+                <input type="password" title="password" value="Test" /><br />
+               <!-- <input type="radio" title="radio" value="Test" /><br />-->
+                <input type="range" title="range" value="Test" max="5"/><br />
+                <!--<input type="reset" title="reset" value="Test" /><br />-->
+                <input type="search" title="search" value="Test" /><br />
+                <input type="submit" title="submit" value="Test" /><br />
+                <input type="tel" title="tel" value="Test" /><br />
+                <input type="text" title="text" value="Test" /><br />
+                <input type="time" title="time" value="Test" /><br />
+                <input type="url" title="url" value="Test" /><br />
+                <input type="week" title="week" value="Test" /><br />
             </aside>
             <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 pull-right">
                 <form method="post" action="test.php">
