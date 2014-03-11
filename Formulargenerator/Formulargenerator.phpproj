@@ -20,7 +20,7 @@
     <PHPDevAutoPort>True</PHPDevAutoPort>
     <PHPDevPort>44387</PHPDevPort>
     <PHPDevHostName>localhost</PHPDevHostName>
-    <StartupFile>generate_input_form.php</StartupFile>
+    <StartupFile>includes\404.php</StartupFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <IncludeDebugInformation>true</IncludeDebugInformation>
@@ -29,7 +29,9 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="error.php" />
     <Compile Include="about.php" />
+    <Compile Include="src\BusinessLogic\Logging.php" />
     <Compile Include="src\UserInterface\HttpHelper.php" />
     <Compile Include="view_input_form.php" />
     <Compile Include="includes\navigation.inc.html" />
@@ -68,6 +70,7 @@
   <ItemGroup>
     <Content Include="includes\footer.inc.html" />
     <Content Include="includes\warnings.inc.php" />
+    <Content Include="media\images\batman_ironman_spider-man.jpg" />
     <Content Include="media\images\form-128.png" />
     <Content Include="media\images\form-24.png" />
     <Content Include="media\images\form-32.png" />
@@ -88,6 +91,10 @@
     <Content Include="style\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="style\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="style\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="style\fonts\space_invaders.eot" />
+    <Content Include="style\fonts\space_invaders.svg" />
+    <Content Include="style\fonts\space_invaders.ttf" />
+    <Content Include="style\fonts\space_invaders.woff" />
     <Content Include="_Project Management\Data\Database Model.mwb" />
     <Content Include="_Project Management\Data\Database Model.mwb.bak" />
     <Content Include="style\css\bootstrap-theme.css" />

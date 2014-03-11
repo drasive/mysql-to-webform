@@ -5,6 +5,14 @@
     Copyright © 2014 Dimitri Vranken
    ================================================== */
 @charset "utf-8";
+
+@font-face {
+    font-family: 'Space Invaders';
+    src: url('/style/fonts/space_invaders.eot');
+    src: url('/style/fonts/space_invaders.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('/style/fonts/space_invaders.woff') format('woff'), /* Modern Browsers */ url('/style/fonts/space_invaders.ttf') format('truetype'), /* Safari, Android, iOS */ url('/style/fonts/space_invaders.svg#svgFontName') format('svg');
+    /* IE9 Compat Modes */
+    /* Legacy iOS */
+}
 /* 
    ================================================== Variables
 */
@@ -73,7 +81,7 @@ div.notification {
         color: #a5a8a8 !important;
     }
 
-.navbar a {
+.navbar-nav a {
     color: #a5a8a8;
     -moz-transition: color 0.4s;
     -webkit-transition: color 0.4s;
@@ -82,8 +90,9 @@ div.notification {
     transition: color 0.4s;
 }
 
-    .navbar a:hover {
-        color: #ffffff;
+    .navbar-nav a:hover,
+    .navbar-nav a.active {
+        color: #ffffff !important;
         -moz-transition: color 0.2s;
         -webkit-transition: color 0.2s;
         -o-transition: color 0.2s;
@@ -144,7 +153,10 @@ input {
         width: 100%;
     }
 
-    input[type='submit'] {
+    input[type='submit'],
+    input[type='button'] {
+        margin-left: 15px;
+        float: right;
         padding: 0px 30px;
         height: 53px;
         background: #4eabe1;
@@ -161,7 +173,8 @@ input {
         transition: background 0.3s;
     }
 
-        input[type='submit']:hover {
+        input[type='submit']:hover,
+        input[type='button']:hover {
             background: #3e88b4;
             -moz-transition: background 0.3s;
             -webkit-transition: background 0.3s;
@@ -170,16 +183,16 @@ input {
             transition: background 0.3s;
         }
 
-    input.submit {
-        float: right;
-    }
-
 @media (max-width: 768px) {
     input.submit {
         width: 100%;
     }
 }
 /* =============== Media */
+p.image-title {
+    margin-bottom: 5px;
+}
+
 p.image-description {
     margin-top: 5px;
     font-size: 12px;
@@ -242,6 +255,29 @@ h3 {
     color: #4eabe1;
     font-size: 18px;
     font-weight: 300;
+}
+
+div.error {
+    width: 380px;
+    margin: 0 auto;
+}
+
+h1.error {
+    font-family: 'Space Invaders';
+    color: #4eabe1;
+    line-height: 1;
+    font-size: 60px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+h2.error {
+    font-family: 'Space Invaders';
+    color: #4eabe1;
+    line-height: 1.2;
+    font-size: 28px;
+    margin-top: 0px;
+    margin-bottom: 30px;
 }
 /* 
    ================================================== Footer

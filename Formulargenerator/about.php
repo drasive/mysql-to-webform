@@ -6,19 +6,19 @@
     <meta name="author" content="Dimitri Vranken" />
 
     <title>Über - Formular-Generator</title>
-    <link rel="shortcut icon" href="media/icons/form.ico">
+    <link rel="shortcut icon" href="/media/icons/form.ico">
 
     <script src="http://code.jquery.com/jquery.js"></script>
 
-    <script src="scripts/js/bootstrap.min.js"></script>
-    <link href="style/css/bootstrap.css" rel="stylesheet" media="screen" />
+    <script src="/scripts/js/bootstrap.min.js"></script>
+    <link href="/style/css/bootstrap.css" rel="stylesheet" media="screen" />
 
-    <link href="style/css/style.css" rel="stylesheet" />
-    <script src="scripts/js/style.js" type="text/javascript"></script>
+    <link href="/style/css/style.css" rel="stylesheet" />
+    <script src="/scripts/js/style.js" type="text/javascript"></script>
 </head>
 <body>
-    <?php require('includes/warnings.inc.php'); ?>
-    <?php require('includes/navigation.inc.html'); ?>
+    <?php require('/includes/warnings.inc.php'); ?>
+    <?php require('/includes/navigation.inc.html'); ?>
 
     <div class="content">
         <div class="title-box text-center">
@@ -60,8 +60,8 @@
             </article>
             <aside class="hidden-xs hidden-sm col-md-5 col-lg-4 pull-right">
                 <h2>Such free space. WOW!</h2>
-                <div class="image-box">
-                    <img src="media/images/kid_lolly_cat.jpg" alt="Ein Kleinkind, das seinen Lutscher an eine Katze geklebt hat und traurig über seinen Verlust ist. Die Katze sieht auch nicht glücklich aus." title="Ein Kleinkind, das seinen Lutscher an eine Katze geklebt hat und traurig über seinen Verlust ist. Die Katze sieht auch nicht glücklich aus." /><br />
+                <div>
+                    <img src="media/images/kid_lolly_cat.jpg" style="height: 480px; width: 360px;" alt="Ein Kleinkind, das seinen Lutscher an eine Katze geklebt hat und traurig über seinen Verlust ist. Die Katze sieht auch nicht glücklich aus." title="Ein Kleinkind, das seinen Lutscher an eine Katze geklebt hat und traurig über seinen Verlust ist. Die Katze sieht auch nicht glücklich aus." /><br />
                     <p class="image-description">
                         Bildquelle: <a href="http://i.imgur.com/maELdh4.jpg">Imgur.com</a><br />
                     </p>
@@ -70,6 +70,13 @@
         </div>
     </div>
 
-    <?php require('includes/footer.inc.html'); ?>
+    <?php require('/includes/footer.inc.html'); ?>
+
+    <!--
+        ================================================== Scripts
+    -->
+    <script type="text/javascript">
+        setActiveNavigationLink('nav_about');
+    </script>
 </body>
 </html>

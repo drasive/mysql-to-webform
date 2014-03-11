@@ -6,19 +6,19 @@
     <meta name="author" content="Dimitri Vranken" />
 
     <title>Vorschau - Formular-Generator</title>
-    <link rel="shortcut icon" href="media/icons/form.ico">
+    <link rel="shortcut icon" href="/media/icons/form.ico">
 
     <script src="http://code.jquery.com/jquery.js"></script>
 
-    <script src="scripts/js/bootstrap.min.js"></script>
-    <link href="style/css/bootstrap.css" rel="stylesheet" media="screen" />
+    <script src="/scripts/js/bootstrap.min.js"></script>
+    <link href="/style/css/bootstrap.css" rel="stylesheet" media="screen" />
 
-    <link href="style/css/style.css" rel="stylesheet" />
-    <script src="scripts/js/style.js" type="text/javascript"></script>
+    <link href="/style/css/style.css" rel="stylesheet" />
+    <script src="/scripts/js/style.js" type="text/javascript"></script>
 </head>
 <body>
-    <?php require('includes/warnings.inc.php'); ?>
-    <?php require('includes/navigation.inc.html'); ?>
+    <?php require('/includes/warnings.inc.php'); ?>
+    <?php require('/includes/navigation.inc.html'); ?>
 
     <div class="content">
         <div class="title-box text-center">
@@ -30,10 +30,10 @@
                     <section>
                         <h2>Glückwunsch!</h2>
                         <p class="lead">
-                            Ihr Formular konnte erfolgreich generiert werden und steht Ihnen zur freien Verwendung zur Verfügung.
+                            Ihr Formular wurde generiert und steht Ihnen zur freien Verwendung zur Verfügung.
                         </p>
                         <p class="lead">
-                            Probieren Sie es direkt hier im Browser aus, laden Sie es sich herunter oder lassen sie ein neues Formular für eine andere MySql Tabelle generieren.
+                            Probieren Sie es direkt hier im Browser aus, laden Sie es sich herunter oder verwerfen Sie es und lassen Sie sich beliebig viele andere Formulare generieren.
                         </p>
                     </section>
                     <section class="hidden-sm">
@@ -73,12 +73,13 @@
 
 
                 <form method="post" action="test.php">
-                    <input type="submit" value="Herunterladen" class="submit" />
+                    <input name="download" type="submit" value="Herunterladen" />
+                    <input type="button" value="Verwerfen" onclick="if (confirm('Möchten Sie dieses Eingabeformular wirklich verwerfen?\nSie können es beliebig viele male erneut generieren lassen.')) { window.location = '/generate_input_form.php'; }" />
                 </form>
             </div>
         </div>
     </div>
 
-    <?php require('includes/footer.inc.html'); ?>
+    <?php require('/includes/footer.inc.html'); ?>
 </body>
 </html>
