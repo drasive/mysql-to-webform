@@ -20,6 +20,7 @@
     <PHPDevAutoPort>True</PHPDevAutoPort>
     <PHPDevPort>44387</PHPDevPort>
     <PHPDevHostName>localhost</PHPDevHostName>
+    <StartupFile>generate_input_form.php</StartupFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <IncludeDebugInformation>true</IncludeDebugInformation>
@@ -29,8 +30,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="about.php" />
+    <Compile Include="src\UserInterface\HttpHelper.php" />
+    <Compile Include="view_input_form.php" />
     <Compile Include="includes\navigation.inc.html" />
-    <Compile Include="form_generator.php" />
+    <Compile Include="generate_input_form.php" />
     <Compile Include="src\BusinessLogic\MySqlDatabaseInputElementBuilder.php" />
     <Compile Include="src\Data\DatabaseField.php" />
     <Compile Include="src\String.php" />
@@ -41,8 +44,7 @@
     <Compile Include="src\Data\MySqlDatabaseReader.php" />
     <Compile Include="src\BusinessLogic\HtmlTagGenerator.php" />
     <Compile Include="src\BusinessLogic\InputElement.php" />
-    <Compile Include="index.php" />
-    <Compile Include="src\UserInterface\HtmlParameterValidation.php" />
+    <Compile Include="src\UserInterface\HtmlParameterValidator.php" />
     <Compile Include="test.php" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +68,14 @@
   <ItemGroup>
     <Content Include="includes\footer.inc.html" />
     <Content Include="includes\warnings.inc.php" />
+    <Content Include="media\images\form-128.png" />
+    <Content Include="media\images\form-24.png" />
+    <Content Include="media\images\form-32.png" />
+    <Content Include="media\images\form-48.png" />
+    <Content Include="media\images\form-64.png" />
+    <Content Include="media\images\form-72.png" />
+    <Content Include="media\images\form-96.png" />
+    <Content Include="media\icons\form.ico" />
     <Content Include="media\icons\loading-circle.gif" />
     <Content Include="media\images\kid_lolly_cat.jpg" />
     <Content Include="includes\javascript_off_warning.inc.html" />

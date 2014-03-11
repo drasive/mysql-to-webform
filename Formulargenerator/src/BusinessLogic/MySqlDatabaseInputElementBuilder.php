@@ -4,7 +4,7 @@
           
           // Private methods
           private static function getDatabaseFieldInputElementType($databaseField) {
-              if (MySqlDatabaseInputElementBuilder::isDatabaseFieldNumeric($databaseField)) {
+              if (self::isDatabaseFieldNumeric($databaseField)) {
                   if ($databaseField->maximumLength == 1 && in_array('unsigned', $databaseField->flags)) {
                       return \InputFormGenerator\BusinessLogic\InputElementTypes::checkbox;
                   }
@@ -14,42 +14,42 @@
               }
               else {
                   if (in_array('enum', $databaseField->flags)) {
-                      if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_r')) {
+                      if (self::hasDatabaseFieldPostfix($databaseField, '_r')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::radiobuttons;
                       } else {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::select;
                       }
                   }
                   else {
-                      if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_c')) {
+                      if (self::hasDatabaseFieldPostfix($databaseField, '_c')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::color;
-                      } else if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_d')) {
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_d')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::date;
-                      } else if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_dt')) {
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_dt')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::dateTime;
-                      } else if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_dtl')) {
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_dtl')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::dateTimeLocal;
-                      } else if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_e')) {
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_e')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::email;
-                      } else if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_f')) {
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_f')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::file;
-                      } else if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_m')) {
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_m')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::month;
-                      } else if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_n')) {
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_n')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::number;
-                      } else if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_p')) {
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_p')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::password;
-                      } else if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_r')) {
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_r')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::range;
-                      } else if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_s')) {
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_s')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::search;
-                      } else if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_tel')) {
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_tel')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::telephone;
-                      } else if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_t')) {
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_t')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::time;
-                      } else if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_u')) {
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_u')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::url;
-                      } else if (MySqlDatabaseInputElementBuilder::hasDatabaseFieldPostfix($databaseField, '_w')) {
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_w')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::week;
                       }
                       else {
@@ -90,7 +90,7 @@
                   }
 
                   // TODO: Handle default value and options
-                  $type = MySqlDatabaseInputElementBuilder::getDatabaseFieldInputElementType($databaseField);
+                  $type = self::getDatabaseFieldInputElementType($databaseField);
                   switch ($type) {
                       case \InputFormGenerator\BusinessLogic\InputElementTypes::radiobuttons:
                           $options = '[OPTIONS]';
@@ -102,7 +102,7 @@
                           $options = null;
                   }
 
-                  array_push($inputElements, new \InputFormGenerator\BusinessLogic\InputElement(MySqlDatabaseInputElementBuilder::getDatabaseFieldNameWithoutPostfix($databaseField),
+                  array_push($inputElements, new \InputFormGenerator\BusinessLogic\InputElement(self::getDatabaseFieldNameWithoutPostfix($databaseField),
                                                                                                 in_array('not_null', $databaseField->flags),
                                                                                                 $databaseField->defaultValue,
                                                                                                 $type,

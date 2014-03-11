@@ -98,10 +98,10 @@
 
           // Public methods
           public static function generateInputForm($name, $server, $database, $table, $username, $password) {
-              // TODO: Cceck if table exists
+              // TODO: Check if table exists
 
               $mySqlDatabaseReader = new \InputFormGenerator\Data\MySqlDatabaseReader($server, $database, $username, $password);
-              if ($mySqlDatabaseReader->canConnectToDatabase()) {
+              if ($mySqlDatabaseReader->canConnect()) {
                   echo '<h3>Info</h3>';
                   echo 'Connection succesfull<br /><br />';
 
@@ -160,20 +160,35 @@
                   echo '</table>';
 
                   // ------------------------------------------------------------------------------------------------------------------------
-                  // Make this to a method (in this class) called ~"generateInputElements"
 
-                  $HtmlElements = InputFormGenerator::generateHtmlElements($inputElements);
+                  $htmlElements = self::generateHtmlElements($inputElements);
 
                   echo '<h3>HTMl input elements</h3>';
                   echo '<table cellpadding="5">';
-                  foreach ($HtmlElements as $htmlElement) {
-                      echo "<tr><td>$htmlElement</tr></td>";
+                  foreach ($htmlElements as $htmlElement) {
+                      echo "<tr><td>$htmlElement</td></tr>";
                   }
                   echo '</table>';
 
-
-
-                  //$form = $htmlTagGenerator->generateFormStart('', 'post');
+                  // ------------------------------------------------------------------------------------------------------------------------
+                  
+                  echo '<hr />';
+                  $inputForm = "<h1>$name</h1>";
+                  $inputForm = $inputForm . HtmlTagGenerator::generateFormStart('', 'post');
+                  $inputForm = $inputForm . '<table cellpadding="5">';
+                  for ($inputFormIndex = 0; $inputFormIndex < sizeof($htmlElements); $inputFormIndex++) {
+                      $currentInputElement = $inputElements[$inputFormIndex];
+                      $currentHtmlElement = $htmlElements[$inputFormIndex];
+                      
+                      $inputForm = $inputForm . '<tr>
+                                                    <td>' . HtmlTagGenerator::generateLabel($currentInputElement->name . ':', '[PH]') . '</td>
+                                                    <td>' . $currentHtmlElement . '</td>
+                                                </tr>';
+                  }
+                  $inputForm = $inputForm . '</table>';
+                  $inputForm = $inputForm . HtmlTagGenerator::generateSubmit('Abschicken');
+                  $inputForm = $inputForm . '</form>';
+                  return $inputForm;
               }
               else {
                   echo 'Connection failed<br />';

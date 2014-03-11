@@ -2,10 +2,11 @@
 
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="author" content="Dimitri Vranken" />
 
     <title>Über - Formular-Generator</title>
-    <meta name="author" content="Dimitri Vranken">
+    <link rel="shortcut icon" href="media/icons/form.ico">
 
     <script src="http://code.jquery.com/jquery.js"></script>
 

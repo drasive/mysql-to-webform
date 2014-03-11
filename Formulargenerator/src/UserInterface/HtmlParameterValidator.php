@@ -1,6 +1,6 @@
 <?php namespace InputFormGenerator\UserInterface;
       
-      abstract class HtmlParameterValidation {
+      abstract class HtmlParameterValidator {
           
           // Public methods
           public static function escape($htmlParameter) {

@@ -24,7 +24,9 @@
           }
 
           // Public methods
-          public abstract function canConnectToDatabase();
+          public abstract function canConnect();
+          
+          public abstract function doesTableExist($table);
 
           public abstract function executeSelect($selectStatement);
 

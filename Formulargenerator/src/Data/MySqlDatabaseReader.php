@@ -8,6 +8,7 @@
           // Public constructors
           function __construct($server, $database, $username, $password) {
               parent::__construct($server, $database, $username, $password);
+              mysql_select_db($this->database, $this->getDatabaseHandle());
           }
 
           // Private methods
@@ -15,50 +16,63 @@
               return mysql_connect($this->server, $this->username, $this->password);
           }
 
-          private function closeDatabaseHandle($database_handle) {
-              mysql_close($database_handle);
-          }
-
           // Public methods
-          public function canConnectToDatabase() {
+          public function canConnect() {
               try {
-                  $database_handle = $this->getDatabaseHandle();
-                  return mysql_select_db($this->database, $database_handle);
+                  return mysql_select_db($this->database, $this->getDatabaseHandle());
               }
               catch (Exception $exception) {
                   return false;
               }
-              // TODO: close connection
+          }
+          
+          /**
+           * @author http://www.electrictoolbox.com/check-if-mysql-table-exists/php-function/
+           */
+          public function doesTableExist($table) {
+              try {
+                  $result = $this->executeSelect("SELECT COUNT(*) AS count 
+                                                  FROM information_schema.tables
+                                                  WHERE table_schema = '$this->database'
+                                                  AND table_name = '$table'");
+                  
+                  return mysql_result($result, 0) > 0;
+              }
+              catch (Exception $exception) {
+                  return false;
+              }
           }
 
           public function executeSelect ($selectStatement) {
-              // TODO: Escape the sql query
               try {
-                  $database_handle = $this->getDatabaseHandle();
-                  return mysql_query($selectStatement);
+                  return mysql_query($selectStatement, $this->getDatabaseHandle());
               }
               catch (Exception $exception) {
                   throw $exception;
               }
-              // TODO: close connection
           }
 
           public function getFields($table) {
-              $fields = array();
-              
-              $rows = $this->executeSelect("SELECT *
-                                            FROM $table
-                                            LIMIT 0, 0");
+              try {
+                  $fields = array();
+                  
+                  $result = $this->executeSelect("SELECT *
+                                                  FROM $table
+                                                  LIMIT 0, 0");
 
-              for ($fieldIndex = 0; $fieldIndex < mysql_num_fields($rows); $fieldIndex++) {
-                  array_push($fields, new DatabaseField(mysql_field_name($rows, $fieldIndex),
-                                                        mysql_field_type($rows, $fieldIndex),
-                                                        mysql_field_len($rows, $fieldIndex),
-                                                        explode(' ', mysql_field_flags($rows, $fieldIndex)),
-                                                        '[PH]'));
+                  for ($fieldIndex = 0; $fieldIndex < mysql_num_fields($result); $fieldIndex++) {
+                      array_push($fields, new DatabaseField(mysql_field_name($result, $fieldIndex),
+                                                            mysql_field_type($result, $fieldIndex),
+                                                            mysql_field_len($result, $fieldIndex),
+                                                            explode(' ', mysql_field_flags($result, $fieldIndex)),
+                                                            '[PH]'));
+                  }
+
+                  return $fields;
               }
-
-              return $fields;
+              catch (Exception $exception) {
+                  throw $exception;
+              }
           }
 
       }

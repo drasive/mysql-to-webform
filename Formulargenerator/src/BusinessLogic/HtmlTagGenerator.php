@@ -14,9 +14,13 @@
               return "<option value='$value'>$name</option>";
           }
           
-          // Public methods
+          // Public methods          
           public static function generateFormStart($action, $method) {
               return "<form action='$action' method='$method'>";
+          }
+          
+          public static function generateLabel($content, $for) {
+              return "<label for='$for'>$content</label>";
           }
           
           public static function generateInput($name, $required, $default_value, $type, $maximum_length) {
@@ -34,7 +38,11 @@
           
           public static function generateSelect($name, $required, $default_value, $options) {
               // TODO: default_value, options
-              return "<select name='$name' required='$required' size='$size'>" + HtmlTagGenerator::generateOptions($options) + "</select>";
+              return "<select name='$name' required='$required' size='$size'>" + self::generateOptions($options) + "</select>";
+          }
+          
+          public static function generateSubmit($title) {
+              return "<input type='submit' value='$title' />"; 
           }
           
       }
