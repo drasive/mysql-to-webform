@@ -98,19 +98,16 @@
 
           // Public methods
           public static function generateInputForm($name, $server, $database, $table, $username, $password) {
-              // TODO: Check if table exists
-
+              $debug = false;
+              // TODO: check table existance
+              
               $mySqlDatabaseReader = new \InputFormGenerator\Data\MySqlDatabaseReader($server, $database, $username, $password);
               if ($mySqlDatabaseReader->canConnect()) {
-                  echo '<h3>Info</h3>';
-                  echo 'Connection succesfull<br /><br />';
-
-                  // ------------------------------------------------------------------------------------------------------------------------
-
                   $databaseFields = $mySqlDatabaseReader->getFields($table);
 
-                  echo '<h3>Database fields</h3>';
-                  echo '<table cellpadding="5">
+                  if ($debug) {
+                      echo '<h3>Database fields</h3>';
+                      echo '<table cellpadding="5">
                             <tr>
                                 <th>Name</th>
                                 <th>Type</th>
@@ -118,25 +115,27 @@
                                 <th>Flags</th>
                                 <th>Default</th>
                             </tr>';
-                  foreach ($databaseFields as $databaseField) {
-                      echo '<tr>';
+                      foreach ($databaseFields as $databaseField) {
+                          echo '<tr>';
 
-                      echo '<td>' . $databaseField->name . '</td>';
-                      echo '<td>' . $databaseField->type . '</td>';
-                      echo '<td>' . $databaseField->maximumLength . '</td>';
-                      echo '<td>' . implode('/ ', $databaseField->flags) . '</td>';
-                      echo '<td>' . $databaseField->defaultValue . '</td>';
+                          echo '<td>' . $databaseField->name . '</td>';
+                          echo '<td>' . $databaseField->type . '</td>';
+                          echo '<td>' . $databaseField->maximumLength . '</td>';
+                          echo '<td>' . implode('/ ', $databaseField->flags) . '</td>';
+                          echo '<td>' . $databaseField->defaultValue . '</td>';
 
-                      echo '</tr>';
+                          echo '</tr>';
+                      }
+                      echo '</table>';
                   }
-                  echo '</table>';
 
                   // ------------------------------------------------------------------------------------------------------------------------
 
                   $inputElements = \InputFormGenerator\BusinessLogic\MySqlDatabaseInputElementBuilder::buildInputElements($databaseFields);
 
-                  echo '<h3>Input elements</h3>';
-                  echo '<table cellpadding="5">
+                  if ($debug) {
+                      echo '<h3>Input elements</h3>';
+                      echo '<table cellpadding="5">
                             <tr>
                                 <th>Name</th>
                                 <th>Required</th>
@@ -145,34 +144,37 @@
                                 <th>Max. Length</th>
                                 <th>Options</th>
                             </tr>';
-                  foreach ($inputElements as $inputElement) {
-                      echo '<tr>';
+                      foreach ($inputElements as $inputElement) {
+                          echo '<tr>';
 
-                      echo '<td>' . $inputElement->name . '</td>';
-                      echo '<td>' . $inputElement->required . '</td>';
-                      echo '<td>' . $inputElement->defaultValue . '</td>';
-                      echo '<td>' . $inputElement->type . '</td>';
-                      echo '<td>' . $inputElement->maximumLength . '</td>';
-                      echo '<td>' . $inputElement->options . '</td>';
+                          echo '<td>' . $inputElement->name . '</td>';
+                          echo '<td>' . $inputElement->required . '</td>';
+                          echo '<td>' . $inputElement->defaultValue . '</td>';
+                          echo '<td>' . $inputElement->type . '</td>';
+                          echo '<td>' . $inputElement->maximumLength . '</td>';
+                          echo '<td>' . $inputElement->options . '</td>';
 
-                      echo '</tr>';
+                          echo '</tr>';
+                      }
+                      echo '</table>';
                   }
-                  echo '</table>';
-
+                  
                   // ------------------------------------------------------------------------------------------------------------------------
 
                   $htmlElements = self::generateHtmlElements($inputElements);
 
-                  echo '<h3>HTMl input elements</h3>';
-                  echo '<table cellpadding="5">';
-                  foreach ($htmlElements as $htmlElement) {
-                      echo "<tr><td>$htmlElement</td></tr>";
+                  if ($debug) {
+                      echo '<h3>HTMl input elements</h3>';
+                      echo '<table cellpadding="5">';
+                      foreach ($htmlElements as $htmlElement) {
+                          echo "<tr><td>$htmlElement</td></tr>";
+                      }
+                      echo '</table>';
+                      
+                      echo '<hr />';
                   }
-                  echo '</table>';
 
                   // ------------------------------------------------------------------------------------------------------------------------
-                  
-                  echo '<hr />';
                   $inputForm = "<h1>$name</h1>";
                   $inputForm = $inputForm . HtmlTagGenerator::generateFormStart('', 'post');
                   $inputForm = $inputForm . '<table cellpadding="5">';

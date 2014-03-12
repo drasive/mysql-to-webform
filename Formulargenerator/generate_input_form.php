@@ -56,27 +56,27 @@
                 </article>
             </aside>
             <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 pull-right">
-                <form method="post" style="padding-bottom: 70px;">
+                <form method="post" action="view_input_form.php" style="padding-bottom: 70px;">
                     <div class="input-group">
                         <label class="input-header" for="formName">Formularname</label>
-                        <input value="<?php if ($validateForm) {echo $name;} else {echo 'Test';} ?>" type="text" id="formName" name="formName" maxlength="64" required pattern="^[^\s][a-zA-Z0-9_\- ]{0,64}$" title="Der Name des zu generierenden Formulares. Erlaubte Zeichen: a-z, A-Z, 0-9, '_', '-' und ' ' (Leerzeichen)" class="input" spellcheck="true" />
+                        <input value="<?php if ($validateForm) {echo $name;} else {echo 'Test';} ?>" type="text" id="formName" name="formName" placeholder=" z. B.: Lieferanten (mit Adresse)" maxlength="64" required pattern="^[^\s][a-zA-Z0-9_\-() ]{0,64}$" title="Der Name des zu generierenden Formulares. Erlaubte Zeichen: a-z, A-Z, 0-9, '_', '-', '(', ')' und ' ' (Leerzeichen)" class="input" spellcheck="true" />
                     </div>
                     <br />
                     <div class="input-group">
                         <label class="input-header" for="hostname">Hostname</label>
-                        <input value="<?php if ($validateForm) {echo $server;} else {echo 'localhost';} ?>" type="text" id="hostname" name="hostname" onchange="saveUserInput('hostname');" maxlength="256" required pattern="^((([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$" title="Der Name des Hosts, auf dem sich die zu verwendende Datenbank befindet. Erlaubte Zeichen: Hostname oder IP-Adresse des Hosts" class="input" />
+                        <input value="<?php if ($validateForm) {echo $server;} else {echo 'localhost';} ?>" type="text" id="hostname" name="hostname" placeholder=" z. B.: 192.168.0.1" onchange="saveUserInput('hostname');" maxlength="256" required pattern="^((([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$" title="Der Name des Hosts, auf dem sich die zu verwendende Datenbank befindet. Erlaubte Zeichen: Hostname oder IP-Adresse des Hosts" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="database">Datenbank</label>
-                        <input value="<?php if ($validateForm) {echo $database;} else {echo 'formulargenerator';} ?>" type="text" id="database" name="database" onchange="saveUserInput('database');" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Name der MySql Datenbank, in der sich die zu verwendende Tabelle befindet" class="input" />
+                        <input value="<?php if ($validateForm) {echo $database;} else {echo 'formulargenerator';} ?>" type="text" id="database" name="database" placeholder=" z. B.: Lieferservice" onchange="saveUserInput('database');" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Name der MySql Datenbank, in der sich die zu verwendende Tabelle befindet" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="table">Tabelle</label>
-                        <input value="<?php if ($validateForm) {echo $table;} else {echo 'input';} ?>" type="text" id="table" name="table" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Name der Datenbanktabelle, aus der das Eingabeformular generiert werden soll" class="input" />
+                        <input value="<?php if ($validateForm) {echo $table;} else {echo 'input';} ?>" type="text" id="table" name="table" placeholder=" z. B.: Lieferanten" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Name der Datenbanktabelle, aus der das Eingabeformular generiert werden soll" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="username">Benutzername</label>
-                        <input value="<?php if ($validateForm) {echo $username;} else {echo 'root';} ?>" type="text" id="username" name="username" onchange="saveUserInput('username');" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Benutzername für den Zugriff auf die angegebene Datenbank" class="input" />
+                        <input value="<?php if ($validateForm) {echo $username;} else {echo 'root';} ?>" type="text" id="username" name="username" placeholder=" z. B.: root" onchange="saveUserInput('username');" maxlength="256" required pattern="^[^\s].{0,256}$" title="Der Benutzername für den Zugriff auf die angegebene Datenbank" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="password">Passwort</label>
@@ -91,7 +91,7 @@
                     require_once('src\UserInterface\HtmlParameterValidator.php');
                     require_once('src\Data\MySqlDatabaseReader.php');
                     
-                    $generateInputForm = false;
+                    $startInputFormGeneration = false;
                     
                     if ($validateForm) {
                         // Validate form input
@@ -125,7 +125,7 @@
                             outputInvalidDatabaseConnectionParameterErrorMessage('Es kann keine Verbindung zur Datenbank hergestellt werden.');
                         }
                         else if (!$mySqlDatabaseReader->doesTableExist($table)) {
-                            outputInvalidDatabaseConnectionParameterErrorMessage('Die angegebene Datenbanktabelle existiert nicht.');
+                            outputInvalidDatabaseConnectionParameterErrorMessage('Die angegebene Datenbanktabelle kann nicht gefunden werden.');
                         }
                         else {
                             $isDatabaseConnectionValid = true;
@@ -134,10 +134,10 @@
                             return;
                         }
                         
-                        $generateInputForm = true;
+                        $startInputFormGeneration = true;
                     }
                     
-                    if ($generateInputForm) {
+                    if ($startInputFormGeneration) {
                         // TODO: Fucking shit. Really PHP?
                         //http_post_fields('/view_input_form.php', array($))
                         //http_post

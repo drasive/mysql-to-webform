@@ -31,6 +31,7 @@
   <ItemGroup>
     <Compile Include="error.php" />
     <Compile Include="about.php" />
+    <Compile Include="scripts\php\download_input_form.php" />
     <Compile Include="src\BusinessLogic\Logging.php" />
     <Compile Include="src\UserInterface\HttpHelper.php" />
     <Compile Include="view_input_form.php" />
@@ -47,7 +48,6 @@
     <Compile Include="src\BusinessLogic\HtmlTagGenerator.php" />
     <Compile Include="src\BusinessLogic\InputElement.php" />
     <Compile Include="src\UserInterface\HtmlParameterValidator.php" />
-    <Compile Include="test.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="media\" />
@@ -55,6 +55,7 @@
     <Folder Include="media\images\" />
     <Folder Include="media\pdfs\" />
     <Folder Include="includes\" />
+    <Folder Include="scripts\php\" />
     <Folder Include="src\UserInterface\" />
     <Folder Include="style\css\" />
     <Folder Include="style\fonts\" />

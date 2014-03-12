@@ -1,3 +1,3 @@
 ﻿cd
 
-lessc style.less > style.css
+lessc style.less -x > style.css

@@ -17,6 +17,19 @@
     <script src="/scripts/js/style.js" type="text/javascript"></script>
 </head>
 <body>
+    <?php
+    $validateParameters = true; //isset($_POST['submit']);
+    
+    if($validateParameters){
+        $name = $_POST['formName'];
+        $server = $_POST['hostname'];
+        $database = $_POST['database'];
+        $table = $_POST['table'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+    }
+    ?>
+
     <?php require('/includes/warnings.inc.php'); ?>
     <?php require('/includes/navigation.inc.html'); ?>
 
@@ -41,28 +54,28 @@
                         <table>
                             <tbody>
                                 <tr>
-                                    <td>Formularname</td>
-                                    <td>Test</td>
+                                    <td>Formularname:</td>
+                                    <td><?php echo $name; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Anzahl Eingabefelder</td>
-                                    <td>Test</td>
+                                    <td><?php echo '[PH]'; ?></td>
                                 </tr>
                                 <tr class="new-section">
-                                    <td>Hostname</td>
-                                    <td>Test</td>
+                                    <td>Hostname:</td>
+                                    <td><?php echo $server; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Datenbank</td>
-                                    <td>Test</td>
+                                    <td>Datenbank:</td>
+                                    <td><?php echo $database; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Tabelle</td>
-                                    <td>Test</td>
+                                    <td>Tabelle:</td>
+                                    <td><?php echo $table; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Benutzername</td>
-                                    <td>Test</td>
+                                    <td>Benutzername:</td>
+                                    <td><?php echo $username; ?></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -70,12 +83,37 @@
                 </article>
             </aside>
             <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 pull-right">
+                <div class="frame" style="height: 500px;">
+                    <?php
+                    require_once('src\UserInterface\HtmlParameterValidator.php');
+                    require_once('src\BusinessLogic\InputFormGenerator.php');
+                    
+                    $generateInputForm = false;
+                    
+                    if ($validateParameters) {
+                        // Validate parameters
+                        if (!\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($name) ||
+                            !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($server) ||
+                            !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($database) || 
+                            !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($table) |
+                            !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($username)) {
+                            // TODO: show dat error page and exit
+                            echo "Shits on fire, yo";
+                        }
+                        
+                        $generateInputForm = true;
+                    }
+                    
+                    if ($generateInputForm) {
+                        echo \InputFormGenerator\BusinessLogic\InputFormGenerator::generateInputForm($name, $server, $database, $table, $username, $password);
+                    }
+                    ?>
+                </div>
 
-
-                <form method="post" action="test.php">
-                    <input name="download" type="submit" value="Herunterladen" />
-                    <input type="button" value="Verwerfen" onclick="if (confirm('Möchten Sie dieses Eingabeformular wirklich verwerfen?\nSie können es beliebig viele male erneut generieren lassen.')) { window.location = '/generate_input_form.php'; }" />
+                <form method="post" action="/scripts/php/download_input_form.php">
+                    <input type="submit" value="Herunterladen" name="download" />
                 </form>
+                <input type="button" value="Verwerfen" onclick="if (confirm('Möchten Sie dieses Eingabeformular wirklich verwerfen?\nSie können es zu einem beliebigen Zeitpunkt erneut generieren lassen.')) { window.location = '/generate_input_form.php'; }" />
             </div>
         </div>
     </div>
