@@ -64,8 +64,7 @@
                       array_push($fields, new DatabaseField(mysql_field_name($result, $fieldIndex),
                                                             mysql_field_type($result, $fieldIndex),
                                                             mysql_field_len($result, $fieldIndex),
-                                                            explode(' ', mysql_field_flags($result, $fieldIndex)),
-                                                            '[PH]'));
+                                                            explode(' ', mysql_field_flags($result, $fieldIndex))));
                   }
 
                   return $fields;

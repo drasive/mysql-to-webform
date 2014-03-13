@@ -7,7 +7,6 @@
           private $type;
           private $maximumLength;
           private $flags;
-          private $defaultValue;
 
           // Public properties
           public function __get($property) {
@@ -17,12 +16,11 @@
           }
 
           // Public constructors
-          function __construct($name, $type, $maximumLength, $flags, $defaultValue) {
+          function __construct($name, $type, $maximumLength, $flags) {
               $this->name = $name;
               $this->type = $type;
               $this->maximumLength = $maximumLength;
               $this->flags = $flags;
-              $this->defaultValue = $defaultValue;
           }
 
       }

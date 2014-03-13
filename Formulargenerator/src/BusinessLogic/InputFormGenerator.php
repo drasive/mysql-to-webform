@@ -16,18 +16,18 @@
               foreach ($inputElements as $inputElement) {
                   // TODO: Pretty shitty condition
                   if ($inputElement->type < 100) {
-                      array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateInput($inputElement->name,$inputElement->required, $inputElement->defaultValue, InputFormGenerator::convertInputElementTypeToHtmlInputType($inputElement->type), $inputElement->maximumLength));
+                      array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateInput($inputElement->name,$inputElement->required, InputFormGenerator::convertInputElementTypeToHtmlInputType($inputElement->type), $inputElement->maximumLength));
                   }
                   else {
                       switch ($inputElement->type) {
                           case 100:
-                              array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateTextarea($inputElement->name,$inputElement->required, $inputElement->defaultValue, $inputElement->maximumLength));
+                              array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateTextarea($inputElement->name,$inputElement->required, $inputElement->maximumLength));
                               break;
                           case 101:
-                              array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateRadiobuttons($inputElement->name,$inputElement->required, $inputElement->defaultValue, $inputElement->options));
+                              array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateRadiobuttons($inputElement->name,$inputElement->required, $inputElement->options));
                               break;
                           case 102:
-                              array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateSelect($inputElement->name,$inputElement->required, $inputElement->defaultValue, $inputElement->options));
+                              array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateSelect($inputElement->name,$inputElement->required, $inputElement->options));
                               break;
                           default:
                           // TODO: handle this bs
@@ -99,7 +99,7 @@
           // Public methods
           public static function generateInputForm($name, $server, $database, $table, $username, $password) {
               $debug = false;
-              // TODO: check table existance
+              // TODO: check table existance and stuff
               
               $mySqlDatabaseReader = new \InputFormGenerator\Data\MySqlDatabaseReader($server, $database, $username, $password);
               if ($mySqlDatabaseReader->canConnect()) {
@@ -113,7 +113,6 @@
                                 <th>Type</th>
                                 <th>Max. Length</th>
                                 <th>Flags</th>
-                                <th>Default</th>
                             </tr>';
                       foreach ($databaseFields as $databaseField) {
                           echo '<tr>';
@@ -122,7 +121,6 @@
                           echo '<td>' . $databaseField->type . '</td>';
                           echo '<td>' . $databaseField->maximumLength . '</td>';
                           echo '<td>' . implode('/ ', $databaseField->flags) . '</td>';
-                          echo '<td>' . $databaseField->defaultValue . '</td>';
 
                           echo '</tr>';
                       }
@@ -139,7 +137,6 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Required</th>
-                                <th>Default</th>
                                 <th>Type</th>
                                 <th>Max. Length</th>
                                 <th>Options</th>
@@ -149,7 +146,6 @@
 
                           echo '<td>' . $inputElement->name . '</td>';
                           echo '<td>' . $inputElement->required . '</td>';
-                          echo '<td>' . $inputElement->defaultValue . '</td>';
                           echo '<td>' . $inputElement->type . '</td>';
                           echo '<td>' . $inputElement->maximumLength . '</td>';
                           echo '<td>' . $inputElement->options . '</td>';
@@ -162,17 +158,6 @@
                   // ------------------------------------------------------------------------------------------------------------------------
 
                   $htmlElements = self::generateHtmlElements($inputElements);
-
-                  if ($debug) {
-                      echo '<h3>HTMl input elements</h3>';
-                      echo '<table cellpadding="5">';
-                      foreach ($htmlElements as $htmlElement) {
-                          echo "<tr><td>$htmlElement</td></tr>";
-                      }
-                      echo '</table>';
-                      
-                      echo '<hr />';
-                  }
 
                   // ------------------------------------------------------------------------------------------------------------------------
                   $inputForm = "<h1>$name</h1>";

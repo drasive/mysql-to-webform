@@ -89,7 +89,7 @@
                       continue;
                   }
 
-                  // TODO: Handle default value and options
+                  // TODO: Handle options
                   $type = self::getDatabaseFieldInputElementType($databaseField);
                   switch ($type) {
                       case \InputFormGenerator\BusinessLogic\InputElementTypes::radiobuttons:
@@ -104,7 +104,6 @@
 
                   array_push($inputElements, new \InputFormGenerator\BusinessLogic\InputElement(self::getDatabaseFieldNameWithoutPostfix($databaseField),
                                                                                                 in_array('not_null', $databaseField->flags),
-                                                                                                $databaseField->defaultValue,
                                                                                                 $type,
                                                                                                 $databaseField->maximumLength,
                                                                                                 $options));

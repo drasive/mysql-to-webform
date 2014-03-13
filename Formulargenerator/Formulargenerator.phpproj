@@ -83,6 +83,7 @@
     <Content Include="media\icons\loading-circle.gif" />
     <Content Include="media\images\kid_lolly_cat.jpg" />
     <Content Include="includes\javascript_off_warning.inc.html" />
+    <Content Include="scripts\js\jquery.cookies.min.js" />
     <Content Include="scripts\js\storage.js" />
     <Content Include="scripts\js\jquery.cookies.js" />
     <Content Include="scripts\js\style.js" />

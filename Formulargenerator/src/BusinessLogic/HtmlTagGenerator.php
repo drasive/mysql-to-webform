@@ -23,21 +23,21 @@
               return "<label for='$for'>$content</label>";
           }
           
-          public static function generateInput($name, $required, $default_value, $type, $maximum_length) {
+          public static function generateInput($name, $required, $type, $maximum_length) {
               return "<input name='$name' required='$required' type='$type' maxLength='$maximum_length' />";
           }
           
-          public static function generateTextarea($name, $required, $default_value, $maximum_length) {
+          public static function generateTextarea($name, $required, $maximum_length) {
               return "<textarea name='$name' required='$required' maxLength='$maximum_length'></textarea>";
           }
           
-          public static function generateRadiobuttons($name, $required, $default_value, $maximum_length) {
+          public static function generateRadiobuttons($name, $required, $maximum_length) {
               // TODO: Implement
               return "placeholder";
           }
           
-          public static function generateSelect($name, $required, $default_value, $options) {
-              // TODO: default_value, options
+          public static function generateSelect($name, $required, $options) {
+              // TODO: options
               return "<select name='$name' required='$required' size='$size'>" + self::generateOptions($options) + "</select>";
           }
           

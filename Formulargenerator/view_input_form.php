@@ -21,7 +21,7 @@
     $validateParameters = true; //isset($_POST['submit']);
     
     if($validateParameters){
-        $name = $_POST['formName'];
+        $name = $_POST['name'];
         $server = $_POST['hostname'];
         $database = $_POST['database'];
         $table = $_POST['table'];
@@ -46,7 +46,7 @@
                             Ihr Formular wurde generiert und steht Ihnen zur freien Verwendung zur Verfügung.
                         </p>
                         <p class="lead">
-                            Probieren Sie es direkt hier im Browser aus, laden Sie es sich herunter oder verwerfen Sie es und lassen Sie sich beliebig viele andere Formulare generieren.
+                            Probieren Sie es direkt hier im Browser aus, laden Sie es sich herunter oder verwerfen Sie es und lassen Sie sich ein anderes Formulare generieren.
                         </p>
                     </section>
                     <section class="hidden-sm">
@@ -56,10 +56,6 @@
                                 <tr>
                                     <td>Formularname:</td>
                                     <td><?php echo $name; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Anzahl Eingabefelder</td>
-                                    <td><?php echo '[PH]'; ?></td>
                                 </tr>
                                 <tr class="new-section">
                                     <td>Hostname:</td>
@@ -97,8 +93,8 @@
                             !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($database) || 
                             !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($table) |
                             !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($username)) {
-                            // TODO: show dat error page and exit
-                            echo "Shits on fire, yo";
+                            
+                            header('Location: /error.php');
                         }
                         
                         $generateInputForm = true;

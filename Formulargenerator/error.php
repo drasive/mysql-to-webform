@@ -20,22 +20,25 @@
     <?php require('/includes/navigation.inc.html'); ?>
 
     <div class="content">
-        <div class="container error">
-            <h1 class="error">Error.</h1>
-            <h2 class="error">I fucked up, sorry!</h2>
-            <div>
-                <p class="image-title">
-                    Here, take this image as a compensation:
-                </p>
-                <img src="/media/images/batman_ironman_spider-man.jpg" style="height: 480px; width: 360px;" alt="Spider-Man: still poor." title="Spider-Man: still poor." /><br />
-                <p class="image-description">
-                    Image source: <a href="http://www.uproxx.com/gammasquad/2012/07/batman-and-iron-man-infographics/">Uproxx.com</a><br />
+        <div class="container special-content">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <h1 class="error">Error.</h1>
+                <h2 class="error">I fucked up, sorry!</h2>
+                <p class="lead">
+                    Back to the <a href="/generate_input_form.php">Homepage</a>.
                 </p>
             </div>
-            <br />
-            <p class="lead">
-                Back to the <a href="/generate_input_form.php">Homepage</a>.
-            </p>
+            <aside class="hidden-xs col-sm-6 col-md-6 col-lg-6 pull-right">
+                <div>
+                    <p class="image-title">
+                        Here, take this image as a compensation:
+                    </p>
+                    <img src="/media/images/batman_ironman_spider-man.jpg" style="height: 480px; width: 360px;" alt="Spider-Man: still poor." title="Spider-Man: still poor." /><br />
+                    <p class="image-description">
+                        Image source: <a href="http://www.uproxx.com/gammasquad/2012/07/batman-and-iron-man-infographics/">Uproxx.com</a><br />
+                    </p>
+                </div>
+            </aside>
         </div>
     </div>
 

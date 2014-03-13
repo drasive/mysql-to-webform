@@ -5,7 +5,6 @@
           // Private variables
           private $name;
           private $required;
-          private $defaultValue;
           private $type;          
           private $maximumLength;
           private $options;
@@ -18,10 +17,9 @@
           }
           
           // Public constructors
-          function __construct($name, $required, $defaultValue, $type, $maximumLength, $options = null) {
+          function __construct($name, $required, $type, $maximumLength, $options = null) {
               $this->name = $name;
               $this->required = $required;
-              $this->defaultValue = $defaultValue;
               $this->type = $type;
               $this->maximumLength = $maximumLength;
               $this->options = $options;

@@ -1,5 +1,5 @@
 <?php
-$name = $_POST['formName'];
+$name = $_POST['name'];
 $server = $_POST['hostname'];
 $database = $_POST['database'];
 $table = $_POST['table'];
