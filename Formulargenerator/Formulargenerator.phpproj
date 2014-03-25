@@ -107,6 +107,8 @@
     <Content Include="style\css\bootstrap.min.css" />
     <Content Include="scripts\js\bootstrap.js" />
     <Content Include="scripts\js\bootstrap.min.js" />
+    <Content Include="_Project Management\Data\Input type notes.txt" />
+    <Content Include="_Project Management\Data\Input types.txt" />
     <Content Include="_Project Management\Questions.txt" />
     <Content Include="_Project Management\Feature ideas.txt" />
   </ItemGroup>

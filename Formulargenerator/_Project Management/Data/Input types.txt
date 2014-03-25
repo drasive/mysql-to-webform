@@ -1,0 +1,26 @@
+string
+- color            -> _c
+- date             -> _d
+- datetime         -> _dt
+- datetime-local   -> _dtl
+- email            -> _e
+- file             -> _f
+- month            -> _m
+- number           -> _n
+- password         -> _p
+- range            -> _r
+- search           -> _s
+- tel              -> _tel
+- text             -> [none]
+- time             -> _t
+- url              -> _u
+- week             -> _w
+- textarea         -> [PLACEHOLDER]
+
+string/enum
+- radio            -> _r
+- select           -> [none]
+
+int
+- checkbox         -> BIT / int && length == 1 && flag contains "unsigned"
+- number           -> INT
