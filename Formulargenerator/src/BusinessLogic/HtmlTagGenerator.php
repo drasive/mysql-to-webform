@@ -3,10 +3,15 @@
       class HtmlTagGenerator {
           
           // Stuff
+          public static function generateRadiobutton($name, $required) {
+              return "<input name='$name' required='$required' type='radio' />";
+          }
+          
           private static function generateOptions($options) {
-              foreach ($options as &$option) {
+              foreach ($options as $option) {
                   $optionsHtml += generateOption($option);
               }
+              
               return $optionsHtml;
           }
           
@@ -31,9 +36,13 @@
               return "<textarea name='$name' required='$required' maxLength='$maximum_length'></textarea>";
           }
           
-          public static function generateRadiobuttons($name, $required, $maximum_length) {
-              // TODO: Implement
-              return "placeholder";
+          public static function generateRadiobuttons($name, $options) {
+              // TODO: Options
+              foreach ($options as $option) {
+                  $radiobuttons .= generateRadiobutton($name, $required);
+              }
+              
+              return $radiobuttons;
           }
           
           public static function generateSelect($name, $required, $options) {

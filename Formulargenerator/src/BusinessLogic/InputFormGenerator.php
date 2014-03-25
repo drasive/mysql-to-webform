@@ -14,7 +14,6 @@
               $HtmlElements = array();
 
               foreach ($inputElements as $inputElement) {
-                  // TODO: Pretty shitty condition
                   if ($inputElement->type < 100) {
                       array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateInput($inputElement->name,$inputElement->required, InputFormGenerator::convertInputElementTypeToHtmlInputType($inputElement->type), $inputElement->maximumLength));
                   }
