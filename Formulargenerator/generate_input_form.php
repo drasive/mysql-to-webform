@@ -21,6 +21,9 @@
 </head>
 <body>
     <?php
+    // TODO: Debug flag
+    $debug = true;
+    
     $validateUserInput = isset($_POST['validate_user_input']);
 
     if($validateUserInput){
@@ -51,33 +54,33 @@
                         Geben Sie einfach die erforderlichen Informationen ein und lassen Sie ein HTML5 Formular generieren.
                     </p>
                     <p class="lead">
-                        Zur <a href="">Kurzanleitung</a>.
+                        <!-- TODO: Finish -->
+                        Zur <a href="error.php">Kurzanleitung</a>.
                     </p>
                 </article>
             </aside>
             <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 pull-right">
                 <form method="post" style="padding-bottom: 70px;" name="generate_input_form" id="generate_input_form">
-                    <!-- TODO: -->
                     <div class="input-group">
                         <label class="input-header" for="name">Formularname</label>
-                        <input value="<?php if ($validateUserInput) {echo $name;} else {echo 'Test';} ?>" type="text" id="name" name="name" placeholder=" z. B.: Lieferanten (mit Adresse)" maxlength="64" required="" pattern="^[^\s][a-zA-Z0-9_\-() ]{0,64}$" title="Der Name des zu generierenden Formulares. Erlaubte Zeichen: a-z, A-Z, 0-9, '_', '-', '(', ')' und ' ' (Leerzeichen)" class="input" spellcheck="true" />
+                        <input value="<?php if ($validateUserInput) {echo $name;} else if ($debug) {echo 'Test';} ?>" type="text" id="name" name="name" placeholder=" z. B.: Lieferanten (mit Adresse)" maxlength="64" required="" pattern="^[^\s][a-zA-Z0-9_\-() ]{0,64}$" title="Der Name des zu generierenden Formulares. Erlaubte Zeichen: a-z, A-Z, 0-9, '_', '-', '(', ')' und ' ' (Leerzeichen)" class="input" spellcheck="true" />
                     </div>
                     <br />
                     <div class="input-group">
                         <label class="input-header" for="hostname">Hostname</label>
-                        <input value="<?php if ($validateUserInput) {echo $server;} else {echo 'localhost';} ?>" type="text" id="hostname" name="hostname" placeholder=" z. B.: 192.168.0.1" onchange="saveUserInput('hostname');" maxlength="256" required="" pattern="^((([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$" title="Der Name des Hosts, auf dem sich die zu verwendende Datenbank befindet. Erlaubte Zeichen: Hostname oder IP-Adresse des Hosts" class="input" />
+                        <input value="<?php if ($validateUserInput) {echo $server;} else if ($debug) {echo 'localhost';} ?>" type="text" id="hostname" name="hostname" placeholder=" z. B.: 192.168.0.1" onchange="saveUserInput('hostname');" maxlength="256" required="" pattern="^((([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$" title="Der Name des Hosts, auf dem sich die zu verwendende Datenbank befindet. Erlaubte Zeichen: Hostname oder IP-Adresse des Hosts" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="database">Datenbank</label>
-                        <input value="<?php if ($validateUserInput) {echo $database;} else {echo 'formulargenerator';} ?>" type="text" id="database" name="database" placeholder=" z. B.: Lieferservice" onchange="saveUserInput('database');" maxlength="256" required="" pattern="^[^\s].{0,256}$" title="Der Name der MySql Datenbank, in der sich die zu verwendende Tabelle befindet" class="input" />
+                        <input value="<?php if ($validateUserInput) {echo $database;} else if ($debug) {echo 'formulargenerator';} ?>" type="text" id="database" name="database" placeholder=" z. B.: Lieferservice" onchange="saveUserInput('database');" maxlength="256" required="" pattern="^[^\s].{0,256}$" title="Der Name der MySql Datenbank, in der sich die zu verwendende Tabelle befindet" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="table">Tabelle</label>
-                        <input value="<?php if ($validateUserInput) {echo $table;} else {echo 'input';} ?>" type="text" id="table" name="table" placeholder=" z. B.: Lieferanten" maxlength="256" required="" pattern="^[^\s].{0,256}$" title="Der Name der Datenbanktabelle, aus der das Eingabeformular generiert werden soll" class="input" />
+                        <input value="<?php if ($validateUserInput) {echo $table;} else if ($debug) {echo 'input';} ?>" type="text" id="table" name="table" placeholder=" z. B.: Lieferanten" maxlength="256" required="" pattern="^[^\s].{0,256}$" title="Der Name der Datenbanktabelle, aus der das Eingabeformular generiert werden soll" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="username">Benutzername</label>
-                        <input value="<?php if ($validateUserInput) {echo $username;} else {echo 'root';} ?>" type="text" id="username" name="username" placeholder=" z. B.: root" onchange="saveUserInput('username');" maxlength="256" required="" pattern="^[^\s].{0,256}$" title="Der Benutzername für den Zugriff auf die angegebene Datenbank" class="input" />
+                        <input value="<?php if ($validateUserInput) {echo $username;} else if ($debug) {echo 'root';} ?>" type="text" id="username" name="username" placeholder=" z. B.: root" onchange="saveUserInput('username');" maxlength="256" required="" pattern="^[^\s].{0,256}$" title="Der Benutzername für den Zugriff auf die angegebene Datenbank" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="password">Passwort</label>
@@ -183,13 +186,12 @@
     </script>
 
     <?php
-    // TODO:
-    if (!$validateUserInput) {
-        //echo '<script type="text/javascript">
-        //          loadUserInput("hostname");
-        //          loadUserInput("database");
-        //          loadUserInput("username");
-        //      </script>';
+    if (!$validateUserInput && !$debug) {
+        echo '<script type="text/javascript">
+                  loadUserInput("hostname");
+                  loadUserInput("database");
+                  loadUserInput("username");
+              </script>';
     }
     ?>
 

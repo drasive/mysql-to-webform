@@ -23,13 +23,11 @@
                               array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateTextarea($inputElement->name,$inputElement->required, $inputElement->maximumLength));
                               break;
                           case 101:
-                              array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateRadiobuttons($inputElement->name,$inputElement->required, $inputElement->options));
+                              array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateRadiobuttons($inputElement->name, $inputElement->required, $inputElement->options));
                               break;
                           case 102:
                               array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateSelect($inputElement->name,$inputElement->required, $inputElement->options));
                               break;
-                          default:
-                          // TODO: handle this bs
                       }
                   }
               }
@@ -90,15 +88,13 @@
                   case InputElementTypes::week:
                       return 'week';
                       break;
-                  default:
-                  // TODO: do something
               }
           }
 
           // Public methods
           public static function generateInputForm($name, $server, $database, $table, $username, $password) {
+              // TODO: Debug flag
               $debug = false;
-              // TODO: check table existance and stuff
               
               $mySqlDatabaseReader = new \InputFormGenerator\Data\MySqlDatabaseReader($server, $database, $username, $password);
               if ($mySqlDatabaseReader->canConnect()) {
@@ -147,7 +143,7 @@
                           echo '<td>' . $inputElement->required . '</td>';
                           echo '<td>' . $inputElement->type . '</td>';
                           echo '<td>' . $inputElement->maximumLength . '</td>';
-                          echo '<td>' . $inputElement->options . '</td>';
+                          echo '<td>' . implode(', ', $inputElement->options) . '</td>';
 
                           echo '</tr>';
                       }
@@ -159,19 +155,20 @@
                   $htmlElements = self::generateHtmlElements($inputElements);
 
                   // ------------------------------------------------------------------------------------------------------------------------
-                  $inputForm = "<h1>$name</h1>";
                   $inputForm = $inputForm . HtmlTagGenerator::generateFormStart('', 'post');
                   $inputForm = $inputForm . '<table cellpadding="5">';
                   for ($inputFormIndex = 0; $inputFormIndex < sizeof($htmlElements); $inputFormIndex++) {
                       $currentInputElement = $inputElements[$inputFormIndex];
                       $currentHtmlElement = $htmlElements[$inputFormIndex];
                       
+                      // TODO: Radiobutton labels
                       $inputForm = $inputForm . '<tr>
-                                                    <td>' . HtmlTagGenerator::generateLabel($currentInputElement->name . ':', '[PH]') . '</td>
+                                                    <td>' . HtmlTagGenerator::generateLabel($currentInputElement->name . ':', $currentInputElement->name) . '</td>
                                                     <td>' . $currentHtmlElement . '</td>
                                                 </tr>';
                   }
-                  $inputForm = $inputForm . '</table>';
+                  $inputForm = $inputForm . '</table>
+                                            <br/>';
                   $inputForm = $inputForm . HtmlTagGenerator::generateSubmit('Abschicken');
                   $inputForm = $inputForm . '</form>';
                   return $inputForm;

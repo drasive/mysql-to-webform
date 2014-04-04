@@ -15,6 +15,34 @@
           private function getDatabaseHandle() {
               return mysql_connect($this->server, $this->username, $this->password);
           }
+          
+          /**
+           * @author http://stackoverflow.com/questions/2350052/how-can-i-get-enum-possible-values-in-a-mysql-database
+           */
+          private function getPossbleEnumValues($table, $fieldname) {
+              return array("rb1", "b2", "stuff3");
+              
+              //try {
+              //    $result = $this->executeSelect("SHOW COLUMNS 
+              //                                    FROM $table
+              //                                    WHERE Field = '$field'");
+              //    $row = mysql_fetch_row($result);
+              //    $type = mysql_field_type($result, 0);
+              //    
+              //    //$type = $this->executeSelect("SHOW COLUMNS 
+              //    //                             FROM $table
+              //    //                             WHERE Field = '$field'")->row(0)->Type;                  
+              //    preg_match('/^enum\((.*)\)$/', $type, $matches);
+              //    foreach( explode(',', $matches[1]) as $value ) {
+              //        $enum[] = trim( $value, "'" );
+              //    }
+              //    
+              //    return $enum;
+              //}
+              //catch (Exception $exception) {
+              //    throw $exception;
+              //}
+          }
 
           // Public methods
           public function canConnect() {
@@ -43,7 +71,7 @@
               }
           }
 
-          public function executeSelect ($selectStatement) {
+          public function executeSelect($selectStatement) {
               try {
                   return mysql_query($selectStatement, $this->getDatabaseHandle());
               }
@@ -61,10 +89,22 @@
                                                   LIMIT 0, 0");
 
                   for ($fieldIndex = 0; $fieldIndex < mysql_num_fields($result); $fieldIndex++) {
-                      array_push($fields, new DatabaseField(mysql_field_name($result, $fieldIndex),
-                                                            mysql_field_type($result, $fieldIndex),
-                                                            mysql_field_len($result, $fieldIndex),
-                                                            explode(' ', mysql_field_flags($result, $fieldIndex))));
+                      $fieldName = mysql_field_name($result, $fieldIndex);
+                      $fieldType = mysql_field_type($result, $fieldIndex);
+                      $fieldLength = mysql_field_len($result, $fieldIndex);
+                      $fieldFlags = explode(' ', mysql_field_flags($result, $fieldIndex));
+                      if (in_array('enum', $fieldFlags)) {
+                          $fieldOptions = self::getPossbleEnumValues($table, $fieldName);
+                      }
+                      else {
+                          $fieldOptions = null;
+                      }
+                      
+                      array_push($fields, new DatabaseField($fieldName,
+                                                            $fieldType,
+                                                            $fieldLength,
+                                                            $fieldFlags,
+                                                            $fieldOptions));
                   }
 
                   return $fields;

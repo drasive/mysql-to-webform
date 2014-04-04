@@ -17,7 +17,7 @@
           }
           
           // Public constructors
-          function __construct($name, $required, $type, $maximumLength, $options = null) {
+          function __construct($name, $required, $type, $maximumLength, $options) {
               $this->name = $name;
               $this->required = $required;
               $this->type = $type;

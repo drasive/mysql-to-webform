@@ -1,5 +1,2 @@
-﻿- Are my RegEx ok?
-- Can you fix my footer?
-- When should the js/ php scripts be loaded?
-- Custom error page
+﻿- Custom error page
 - Download

@@ -2,21 +2,21 @@
       
       class HtmlTagGenerator {
           
-          // Stuff
-          public static function generateRadiobutton($name, $required) {
-              return "<input name='$name' required='$required' type='radio' />";
+          // Private methods
+          private static function generateRadiobutton($value, $name, $required) {
+              return "<input value='$value' name='$name' required='$required' type='radio' />";
           }
           
           private static function generateOptions($options) {
               foreach ($options as $option) {
-                  $optionsHtml += generateOption($option);
+                  $optionsHtml = $optionsHtml . self::generateOption($option);
               }
               
               return $optionsHtml;
           }
           
-          private static function generateOption($value, $name) {
-              return "<option value='$value'>$name</option>";
+          private static function generateOption($value) {
+              return "<option value='$value'>$value</option>";
           }
           
           // Public methods          
@@ -29,25 +29,23 @@
           }
           
           public static function generateInput($name, $required, $type, $maximum_length) {
-              return "<input name='$name' required='$required' type='$type' maxLength='$maximum_length' />";
+              return "<input id='$name' name='$name' required='$required' type='$type' maxLength='$maximum_length' />";
           }
           
           public static function generateTextarea($name, $required, $maximum_length) {
-              return "<textarea name='$name' required='$required' maxLength='$maximum_length'></textarea>";
+              return "<textarea id='$name' name='$name' required='$required' maxLength='$maximum_length'></textarea>";
           }
           
-          public static function generateRadiobuttons($name, $options) {
-              // TODO: Options
+          public static function generateRadiobuttons($name, $required, $options) {
               foreach ($options as $option) {
-                  $radiobuttons .= generateRadiobutton($name, $required);
+                  $radiobuttons .= self::generateRadiobutton($option, $name, $required);
               }
               
               return $radiobuttons;
           }
           
           public static function generateSelect($name, $required, $options) {
-              // TODO: options
-              return "<select name='$name' required='$required' size='$size'>" + self::generateOptions($options) + "</select>";
+              return "<select id='$name' name='$name' required='$required' size='$size'>" . self::generateOptions($options) . "</select>";
           }
           
           public static function generateSubmit($title) {

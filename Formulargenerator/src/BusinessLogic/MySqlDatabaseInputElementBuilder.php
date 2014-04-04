@@ -89,17 +89,14 @@
                       continue;
                   }
 
-                  // TODO: Handle options
                   $type = self::getDatabaseFieldInputElementType($databaseField);
                   switch ($type) {
                       case \InputFormGenerator\BusinessLogic\InputElementTypes::radiobuttons:
-                          $options = '[OPTIONS]';
+                          $options = $databaseField->options;
                           break;
                       case  \InputFormGenerator\BusinessLogic\InputElementTypes::select:
-                          $options = '[OPTIONS]';
+                          $options = $databaseField->options;
                           break;
-                      default:
-                          $options = null;
                   }
 
                   array_push($inputElements, new \InputFormGenerator\BusinessLogic\InputElement(self::getDatabaseFieldNameWithoutPostfix($databaseField),

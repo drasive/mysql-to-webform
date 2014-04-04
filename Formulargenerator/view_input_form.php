@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="author" content="Dimitri Vranken" />
 
-    <title>Vorschau - Formular-Generator</title>
+    <title>Formular - Formular-Generator</title>
     <link rel="shortcut icon" href="/media/icons/form.ico">
 
     <script src="http://code.jquery.com/jquery.js"></script>
@@ -18,7 +18,7 @@
 </head>
 <body>
     <?php
-    $validateParameters = true; //isset($_POST['submit']);
+    $validateParameters = true;
     
     if($validateParameters){
         $name = $_POST['name'];
@@ -109,7 +109,7 @@
                 <form method="post" action="/scripts/php/download_input_form.php">
                     <input type="submit" value="Herunterladen" name="download" />
                 </form>
-                <input type="button" value="Verwerfen" onclick="if (confirm('Möchten Sie dieses Eingabeformular wirklich verwerfen?\nSie können es zu einem beliebigen Zeitpunkt erneut generieren lassen.')) { window.location = '/generate_input_form.php'; }" />
+                <input class="pull-left" type="button" value="Neues Formular" onclick="if (confirm('Möchten Sie dieses Eingabeformular wirklich verwerfen?\nSie können es zu einem beliebigen Zeitpunkt erneut generieren lassen.')) { window.location = '/generate_input_form.php'; }" />
             </div>
         </div>
     </div>
