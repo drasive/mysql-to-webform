@@ -32,7 +32,6 @@
     <Compile Include="error.php" />
     <Compile Include="about.php" />
     <Compile Include="scripts\php\download_input_form.php" />
-    <Compile Include="src\BusinessLogic\Logging.php" />
     <Compile Include="src\UserInterface\HttpHelper.php" />
     <Compile Include="view_input_form.php" />
     <Compile Include="includes\navigation.inc.html" />
@@ -40,7 +39,6 @@
     <Compile Include="src\BusinessLogic\MySqlDatabaseInputElementBuilder.php" />
     <Compile Include="src\Data\DatabaseField.php" />
     <Compile Include="src\String.php" />
-    <Compile Include="src\Enum.php" />
     <Compile Include="src\BusinessLogic\InputFormGenerator.php" />
     <Compile Include="src\BusinessLogic\InputElementTypes.php" />
     <Compile Include="src\Data\DatabaseManager.php" />

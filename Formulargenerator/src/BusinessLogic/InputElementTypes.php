@@ -2,6 +2,9 @@
       
       require_once('src\Enum.php');
       
+      /**
+       * Die verschiedenen Typen von Eingabeelementen (InputElement).
+       */
       abstract class InputElementTypes extends \InputFormGenerator\Enum {
           // Input (0 - 99)
           const checkbox = 0;

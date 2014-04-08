@@ -1,6 +1,7 @@
 <?php namespace InputFormGenerator;
       
       /**
+       * Stellt Methoden bereit, um mit Strings zu arbeiten.
        * @author http://stackoverflow.com/questions/834303/php-startswith-and-endswith-functions
        */
       class String {

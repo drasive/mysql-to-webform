@@ -1,5 +1,8 @@
 <?php namespace InputFormGenerator\Data;
 
+      /**
+       * Ein Feld in einer Datenbank.
+       */
       class DatabaseField {
 
           // Private variables

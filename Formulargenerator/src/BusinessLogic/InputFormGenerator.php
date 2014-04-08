@@ -7,25 +7,32 @@
       require_once('src\BusinessLogic\MySqlDatabaseInputElementBuilder.php');
       require_once('src\BusinessLogic\HtmlTagGenerator.php');
 
+      /**
+       * Generiert HTML Eingabeformen aufgrund der Felder in einer MySQL Datenbanktabelle.
+       */
       class InputFormGenerator {
 
           // Private methods
+          /**
+           * Generiert ein passendes HTML-Element für das angegebene Eingabeelement.
+           * @return string Das HTML-Element als string.
+           */
           private static function generateHtmlElements($inputElements) {
               $HtmlElements = array();
 
               foreach ($inputElements as $inputElement) {
-                  if ($inputElement->type < 100) {
+                  if ($inputElement->type < 100) { // Das Element wird zu einem Input HTML-Element
                       array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateInput($inputElement->name,$inputElement->required, InputFormGenerator::convertInputElementTypeToHtmlInputType($inputElement->type), $inputElement->maximumLength));
                   }
-                  else {
+                  else { // Das Element wird nicht zu einem Input HTML-Element
                       switch ($inputElement->type) {
-                          case 100:
+                          case 100: // Textarea HTML-Element
                               array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateTextarea($inputElement->name,$inputElement->required, $inputElement->maximumLength));
                               break;
-                          case 101:
+                          case 101: // Radiobutton HTML-Element
                               array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateRadiobuttons($inputElement->name, $inputElement->required, $inputElement->options));
                               break;
-                          case 102:
+                          case 102: // Select HTML-Element
                               array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateSelect($inputElement->name,$inputElement->required, $inputElement->options));
                               break;
                       }
@@ -35,6 +42,10 @@
               return $HtmlElements;
           }
 
+          /**
+           * Gibt den passenden HTML Input-Type für den angegebenen InputElementType zurück.
+           * @return string Der Passende HTML Input-Typ als string.
+           */
           private static function convertInputElementTypeToHtmlInputType($inputElementType) {
               switch ($inputElementType) {
                   case InputElementTypes::checkbox:
@@ -92,14 +103,26 @@
           }
 
           // Public methods
+          /**
+           * Generiert eine HTML Eingabeform aus den Feldern der angegebenen MySQL Datenbanktabelle.
+           * @param string $name Der Name des Formulares.
+           * @param string $server Der Hostname oder die IP-Adresse des MySQL-Servers.
+           * @param string $database Der Name der Datenbank, die die angegebene Tabelle enthält.
+           * @param string $table Die Datenbanktabelle, für die das Eingabeformular generiert werden soll.
+           * @param string $username Der Benutzername für den Zugriff auf die angegebene Datenbanktabelle.
+           * @param string $password Das Password für den Zugriff auf die angegebene Datenbanktabelle.
+           * @return string Das Eingabeformular als string.
+           */
           public static function generateInputForm($name, $server, $database, $table, $username, $password) {
               // TODO: Debug flag
               $debug = false;
               
               $mySqlDatabaseReader = new \InputFormGenerator\Data\MySqlDatabaseReader($server, $database, $username, $password);
-              if ($mySqlDatabaseReader->canConnect()) {
+              if ($mySqlDatabaseReader->canConnect()) { // Die Verbindung zur angegebenen Datenbank kann hergestellt werden
+                  // Datenbankfelder auslesen
                   $databaseFields = $mySqlDatabaseReader->getFields($table);
 
+                  // Ausgelesene Datenbankfelder ausgeben
                   if ($debug) {
                       echo '<h3>Database fields</h3>';
                       echo '<table cellpadding="5">
@@ -124,8 +147,10 @@
 
                   // ------------------------------------------------------------------------------------------------------------------------
 
+                  // Eingabeelemente aus ausgelesenen Datenbankfeldern generieren
                   $inputElements = \InputFormGenerator\BusinessLogic\MySqlDatabaseInputElementBuilder::buildInputElements($databaseFields);
 
+                  // Generierte Eingabeelemente ausgeben
                   if ($debug) {
                       echo '<h3>Input elements</h3>';
                       echo '<table cellpadding="5">
@@ -152,16 +177,19 @@
                   
                   // ------------------------------------------------------------------------------------------------------------------------
 
+                  // HTML-Elemente aus generierten Eingabeelementen generieren
                   $htmlElements = self::generateHtmlElements($inputElements);
 
                   // ------------------------------------------------------------------------------------------------------------------------
+                  // Formularbeginn generieren
                   $inputForm = $inputForm . HtmlTagGenerator::generateFormStart('', 'post');
                   $inputForm = $inputForm . '<table cellpadding="5">';
+                  
+                  // HTML-Elemente in Tabellenzeilen ausgeben
                   for ($inputFormIndex = 0; $inputFormIndex < sizeof($htmlElements); $inputFormIndex++) {
                       $currentInputElement = $inputElements[$inputFormIndex];
                       $currentHtmlElement = $htmlElements[$inputFormIndex];
                       
-                      // TODO: Radiobutton labels
                       $inputForm = $inputForm . '<tr>
                                                     <td>' . HtmlTagGenerator::generateLabel($currentInputElement->name . ':', $currentInputElement->name) . '</td>
                                                     <td>' . $currentHtmlElement . '</td>
@@ -169,8 +197,11 @@
                   }
                   $inputForm = $inputForm . '</table>
                                             <br/>';
+                  
+                  // Formularende generieren
                   $inputForm = $inputForm . HtmlTagGenerator::generateSubmit('Abschicken');
                   $inputForm = $inputForm . '</form>';
+                  
                   return $inputForm;
               }
               else {

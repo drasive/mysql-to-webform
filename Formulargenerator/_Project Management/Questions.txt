@@ -1,2 +1,3 @@
-﻿- Custom error page
+﻿- Are radiobuttons ok (attributes, style)?
+- Documentation complete enough?
 - Download
