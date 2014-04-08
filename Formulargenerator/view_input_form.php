@@ -19,8 +19,9 @@
 <body>
     <?php
     $validateParameters = true;
-    
-    if($validateParameters){
+        
+    if ($validateParameters) {
+        // Get parameters
         $name = $_POST['name'];
         $server = $_POST['hostname'];
         $database = $_POST['database'];
@@ -81,26 +82,27 @@
             <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 pull-right">
                 <div class="frame" style="height: 500px;">
                     <?php
-                    require_once('src\UserInterface\HtmlParameterValidator.php');
+                    require_once('src\UserInterface\HttpParameterValidator.php');
                     require_once('src\BusinessLogic\InputFormGenerator.php');
                     
                     $generateInputForm = false;
                     
                     if ($validateParameters) {
                         // Validate parameters
-                        if (!\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($name) ||
-                            !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($server) ||
-                            !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($database) || 
-                            !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($table) |
-                            !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($username)) {
+                        if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($name) ||
+                            !\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($server) ||
+                            !\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($database) || 
+                            !\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($table) |
+                            !\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($username)) {
                             
                             header('Location: /error.php');
                         }
                         
                         $generateInputForm = true;
                     }
-                    
+                                        
                     if ($generateInputForm) {
+                        // Generate input form
                         echo \InputFormGenerator\BusinessLogic\InputFormGenerator::generateInputForm($name, $server, $database, $table, $username, $password);
                     }
                     ?>
@@ -109,7 +111,7 @@
                 <form method="post" action="/scripts/php/download_input_form.php">
                     <input type="submit" value="Herunterladen" name="download" />
                 </form>
-                <input class="pull-left" type="button" value="Neues Formular" onclick="if (confirm('Möchten Sie dieses Eingabeformular wirklich verwerfen?\nSie können es zu einem beliebigen Zeitpunkt erneut generieren lassen.')) { window.location = '/generate_input_form.php'; }" />
+                <input class="pull-left" type="button" value="Neues Formular" onclick="if (confirm('Möchten Sie wirklich ein neues Eingabeformular generieren?\nSie können dieses zu einem beliebigen Zeitpunkt erneut generieren lassen.')) { window.location = '/generate_input_form.php'; }" />
             </div>
         </div>
     </div>

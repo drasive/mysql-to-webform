@@ -1,3 +1,3 @@
 ﻿- Are radiobuttons ok (attributes, style)?
 - Documentation complete enough?
-- Download
+- Remove/ Fix the download

@@ -1,11 +1,9 @@
 <?php namespace InputFormGenerator\BusinessLogic;
-      
-      require_once('src\Enum.php');
-      
+           
       /**
        * Die verschiedenen Typen von Eingabeelementen (InputElement).
        */
-      abstract class InputElementTypes extends \InputFormGenerator\Enum {
+      abstract class InputElementTypes {
           // Input (0 - 99)
           const checkbox = 0;
           const color = 1;

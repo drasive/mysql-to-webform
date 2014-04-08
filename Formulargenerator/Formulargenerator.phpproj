@@ -45,7 +45,7 @@
     <Compile Include="src\Data\MySqlDatabaseReader.php" />
     <Compile Include="src\BusinessLogic\HtmlTagGenerator.php" />
     <Compile Include="src\BusinessLogic\InputElement.php" />
-    <Compile Include="src\UserInterface\HtmlParameterValidator.php" />
+    <Compile Include="src\UserInterface\HttpParameterValidator.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="media\" />

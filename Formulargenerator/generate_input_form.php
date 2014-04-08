@@ -25,8 +25,9 @@
     $debug = true;
     
     $validateUserInput = isset($_POST['validate_user_input']);
-
-    if($validateUserInput){
+    
+    if ($validateUserInput) {
+        // Get parameters
         $name = $_POST['name'];
         $server = $_POST['hostname'];
         $database = $_POST['database'];
@@ -92,7 +93,7 @@
 
                 <p class="warning">
                     <?php
-                    require_once('src\UserInterface\HtmlParameterValidator.php');
+                    require_once('src\UserInterface\HttpParameterValidator.php');
                     require_once('src\Data\MySqlDatabaseReader.php');
 
                     $startInputFormGeneration = false;
@@ -100,19 +101,19 @@
                     if ($validateUserInput) {
                         // Validate form input
                         $isUserInputValid = false;
-                        if (!\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($name)) {
+                        if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($name)) {
                             outputMissingInformationErrorMessage('Formularname');
                         }
-                        else if (!\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($server)) {
+                        else if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($server)) {
                             outputMissingInformationErrorMessage('Hostname');
                         }
-                        else if (!\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($database)) {
+                        else if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($database)) {
                             outputMissingInformationErrorMessage('Datenbankname');
                         }
-                        else if (!\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($table)) {
+                        else if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($table)) {
                             outputMissingInformationErrorMessage('Tabellenname');
                         }
-                        else if (!\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($username)) {
+                        else if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($username)) {
                             outputMissingInformationErrorMessage('Benutzername');
                         }
                         else {
@@ -142,10 +143,16 @@
                     }
 
                     // Methods
+                    /**
+                     * Fehler ausgeben, dass eine Information fehlt.
+                     */
                     function outputMissingInformationErrorMessage($missingInformation) {
                         echo "Es wurde kein $missingInformation angegeben!";
                     }
 
+                    /**
+                     * Fehler ausgeben, dass eine Parameter für die Verbindung zur Datenbank inkorrekt ist.
+                     */
                     function outputInvalidDatabaseConnectionParameterErrorMessage($error) {
                         echo "$error<br />
                               Überprüfen Sie die Verbindungsparameter.";
@@ -157,7 +164,9 @@
                 <form action="view_input_form.php" method="post" name="view_input_form" id="view_input_form">
                     <?php
                     if ($startInputFormGeneration) {
-                        // Source: http://stackoverflow.com/questions/5576619/php-redirect-with-post-data
+                        // Prepeare a hidden form for a HTTP Post to the form-generation page
+                        
+                        // Source: http://stackoverflow.com/questions/5576619/php-redirect-with-post-data                        
                         foreach ($_POST as $httpPostVariableName => $httpPostVariableValue) {
                             echo "<input type='hidden' name='" . htmlentities($httpPostVariableName)."' value='" . htmlentities($httpPostVariableValue) . "'>\n";
                         }
@@ -167,6 +176,7 @@
 
                 <?php
                 if ($startInputFormGeneration) {
+                    // Execute the HTTP Post to the form-generation page
                     echo '<script type="text/javascript">
                               document.forms["view_input_form"].submit();
                           </script>';

@@ -8,10 +8,10 @@
           // Private methods
           /**
            * Bestimmt den Typen des Eingabeelementes, der für das angegebene Datenbankfeld am passendsten ist.
-           * @return InputElementTypes Das passendste Eingabeelementtyp für das angegebene Datenbankfeld.
+           * @return InputElementTypes Der passendste Eingabeelementtyp für das angegebene Datenbankfeld.
            */
           private static function getDatabaseFieldInputElementType($databaseField) {
-              if (self::isDatabaseFieldNumeric($databaseField)) { // Das Feld ist numerisch
+              if (self::isDatabaseFieldNumeric($databaseField)) { // Das Datenbankfeld ist numerisch
                   if ($databaseField->maximumLength == 1 && in_array('unsigned', $databaseField->flags)) { // Der Datentyp "Bit"
                       return \InputFormGenerator\BusinessLogic\InputElementTypes::checkbox;
                   }
@@ -19,7 +19,7 @@
                       return \InputFormGenerator\BusinessLogic\InputElementTypes::number;
                   }
               }
-              else { // Das Feld ist nicht numerisch
+              else { // Das Datenbankfeld ist nicht numerisch
                   if (in_array('enum', $databaseField->flags)) {
                       if (self::hasDatabaseFieldPostfix($databaseField, '_r')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::radiobuttons;

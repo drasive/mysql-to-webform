@@ -8,16 +8,16 @@ $table = $_POST['table'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-require_once('src\UserInterface\HtmlParameterValidator.php');
+require_once('src\UserInterface\HttpParameterValidator.php');
 require_once('src\UserInterface\HttpHelper.php.php');
 require_once('src\BusinessLogic\InputFormGenerator.php');
 
 // Validate parameters
-if (!\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($name) ||
-    !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($server) ||
-    !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($database) || 
-    !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($table) |
-    !\InputFormGenerator\UserInterface\HtmlParameterValidator::hasValue($username)) {
+if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($name) ||
+    !\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($server) ||
+    !\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($database) || 
+    !\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($table) |
+    !\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($username)) {
     // TODO: show dat error page and exit
     echo "Shits on fire, yo";
 }

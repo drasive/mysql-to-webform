@@ -15,7 +15,7 @@
           // Private methods
           /**
            * Generiert ein passendes HTML-Element für das angegebene Eingabeelement.
-           * @return string Das HTML-Element als string.
+           * @return string Das HTML-Element.
            */
           private static function generateHtmlElements($inputElements) {
               $HtmlElements = array();
@@ -44,7 +44,7 @@
 
           /**
            * Gibt den passenden HTML Input-Type für den angegebenen InputElementType zurück.
-           * @return string Der Passende HTML Input-Typ als string.
+           * @return string Der passende HTML Input-Typ.
            */
           private static function convertInputElementTypeToHtmlInputType($inputElementType) {
               switch ($inputElementType) {
@@ -111,7 +111,7 @@
            * @param string $table Die Datenbanktabelle, für die das Eingabeformular generiert werden soll.
            * @param string $username Der Benutzername für den Zugriff auf die angegebene Datenbanktabelle.
            * @param string $password Das Password für den Zugriff auf die angegebene Datenbanktabelle.
-           * @return string Das Eingabeformular als string.
+           * @return string Das Eingabeformular.
            */
           public static function generateInputForm($name, $server, $database, $table, $username, $password) {
               // TODO: Debug flag
