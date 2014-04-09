@@ -8,9 +8,9 @@ $table = $_POST['table'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-require_once('src\UserInterface\HttpParameterValidator.php');
-require_once('src\UserInterface\HttpHelper.php.php');
-require_once('src\BusinessLogic\InputFormGenerator.php');
+require_once('..\..\src\UserInterface\HttpParameterValidator.php');
+require_once('..\..\src\UserInterface\HttpHelper.php');
+require_once('..\..\src\BusinessLogic\InputFormGenerator.php');
 
 // Validate parameters
 if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($name) ||

@@ -77,7 +77,7 @@
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="table">Tabelle</label>
-                        <input value="<?php if ($validateUserInput) {echo $table;} else if ($debug) {echo 'input';} ?>" type="text" id="table" name="table" placeholder=" z. B.: Lieferanten" maxlength="256" required="" pattern="^[^\s].{0,256}$" title="Der Name der Datenbanktabelle, aus der das Eingabeformular generiert werden soll" class="input" />
+                        <input value="<?php if ($validateUserInput) {echo $table;} else if ($debug) {echo 'input_not_required';} ?>" type="text" id="table" name="table" placeholder=" z. B.: Lieferanten" maxlength="256" required="" pattern="^[^\s].{0,256}$" title="Der Name der Datenbanktabelle, aus der das Eingabeformular generiert werden soll" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="username">Benutzername</label>
@@ -164,7 +164,7 @@
                 <form action="view_input_form.php" method="post" name="view_input_form" id="view_input_form">
                     <?php
                     if ($startInputFormGeneration) {
-                        // Prepeare a hidden form for a HTTP Post to the form-generation page
+                        // Prepeare a hidden form for a HTTP post to the form-generation page
                         
                         // Source: http://stackoverflow.com/questions/5576619/php-redirect-with-post-data                        
                         foreach ($_POST as $httpPostVariableName => $httpPostVariableValue) {
@@ -176,7 +176,7 @@
 
                 <?php
                 if ($startInputFormGeneration) {
-                    // Execute the HTTP Post to the form-generation page
+                    // Execute the HTTP post to the form-generation page
                     echo '<script type="text/javascript">
                               document.forms["view_input_form"].submit();
                           </script>';

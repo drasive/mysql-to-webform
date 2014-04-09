@@ -15,7 +15,7 @@ string
 - time             -> _t
 - url              -> _u
 - week             -> _w
-- textarea         -> [PLACEHOLDER]
+- textarea         -> _ta
 
 string/enum
 - radio            -> _r

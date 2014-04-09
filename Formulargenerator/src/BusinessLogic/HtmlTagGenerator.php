@@ -7,11 +7,24 @@
           
           // Private methods
           /**
+           * Generiert ein Required-Attribut oder einen leeren String, abhängig vom angegebenen "required" Parameter.
+           * @param string Das generierte Required-Attribut oder ein leerer String. 
+           */
+          private static function generateRequiredAttribute($required) {
+              if ($required) {
+                  return "required";
+              }
+              
+              return "";
+          }
+          
+          /**
            * Generiert ein Input-Element vom Typ "radio".
            * @return string Das Element.
            */
           private static function generateRadiobutton($value, $name, $required) {
-              return "<input value='$value' name='$name' required='$required' type='radio' />";
+              $requiredAttribute = self::generateRequiredAttribute($required);
+              return "<input value='$value' name='$name' $requiredAttribute type='radio' />";
           }
           
           /**
@@ -35,6 +48,14 @@
               return "<option value='$value'>$value</option>";
           }
           
+          /**
+           * Generiert ein Option-Element ohne Wert.
+           * @return string Das Element.
+           */
+          private static function generateOptionEmpty() {
+              return "<option value=''>- Bitte Auswaehlen -</option>";
+          }
+          
           // Public methods       
           /**
            * Generiert den Starttag eines Formulares.
@@ -49,7 +70,15 @@
            * Generiert ein Label-Element.
            * @return string Das Element.
            */
-          public static function generateLabel($content, $for) {
+          public static function generateLabel($content) {
+              return "<label>$content</label>";
+          }
+          
+          /**
+           * Generiert ein Label-Element.
+           * @return string Das Element.
+           */
+          public static function generateLabelFor($content, $for) {
               return "<label for='$for'>$content</label>";
           }
           
@@ -58,7 +87,36 @@
            * @return string Das Element.
            */
           public static function generateInput($name, $required, $type, $maximum_length) {
-              return "<input id='$name' name='$name' required='$required' type='$type' maxLength='$maximum_length' />";
+              // Required-Attribut generieren, falls unterstützt
+              $requiredAttribute = "";
+              if ($type == 'text' or 
+                  $type == 'search' or 
+                  $type == 'url' or 
+                  $type == 'tel' or 
+                  $type == 'email' or 
+                  $type == 'password' or
+                  $type == 'datetime' or
+                  $type == 'date' or
+                  $type == 'month' or
+                  $type == 'week' or
+                  $type == 'time' or
+                  $type == 'datetime-local' or
+                  $type == 'number') {
+                  $requiredAttribute = self::generateRequiredAttribute($required);
+              }
+              
+              // MaxLength-Attribut generieren, falls unterstützt
+              $maxLenghtAttribute = "";
+              if ($type == 'email' or 
+                  $type == 'password' or 
+                  $type == 'search' or 
+                  $type == 'tel' or 
+                  $type == 'text' or 
+                  $type == 'url') {
+                  $maxLenghtAttribute = "maxLength='$maximum_length'";
+              }
+              
+              return "<input id='$name' name='$name' $requiredAttribute type='$type' $maxLenghtAttribute />";
           }
           
           /**
@@ -66,7 +124,8 @@
            * @return string Das Element.
            */
           public static function generateTextarea($name, $required, $maximum_length) {
-              return "<textarea id='$name' name='$name' required='$required' maxLength='$maximum_length'></textarea>";
+              $requiredAttribute = self::generateRequiredAttribute($required);
+              return "<textarea id='$name' name='$name' $requiredAttribute maxLength='$maximum_length' rows='5' cols='25'></textarea>";
           }
           
           /**
@@ -88,7 +147,18 @@
            * @return string Das Element.
            */
           public static function generateSelect($name, $required, $options) {
-              return "<select id='$name' name='$name' required='$required' size='$size'>" . self::generateOptions($options) . "</select>";
+              // Starttag generieren
+              $requiredAttribute = self::generateRequiredAttribute($required);
+              $starttag = "<select id='$name' name='$name' $requiredAttribute>";
+              
+              // Optionen generieren
+              $optionsHTML = "";
+              if ($required) {
+                  $optionsHTML .= self::generateOptionEmpty();
+              }
+              $optionsHTML .= self::generateOptions($options);
+              
+              return $starttag . $optionsHTML . "</select>";
           }
           
           /**

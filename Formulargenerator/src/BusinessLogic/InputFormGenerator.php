@@ -181,26 +181,37 @@
                   $htmlElements = self::generateHtmlElements($inputElements);
 
                   // ------------------------------------------------------------------------------------------------------------------------
-                  // Formularbeginn generieren
-                  $inputForm = $inputForm . HtmlTagGenerator::generateFormStart('', 'post');
-                  $inputForm = $inputForm . '<table cellpadding="5">';
+                  // Beginn des Formulares generieren
+                  $inputForm .= HtmlTagGenerator::generateFormStart('generate_input_form.php', 'post');
+                  // TODO: table cellpadding="5"
+                  $inputForm .= '<table cellpadding="5">';
                   
                   // HTML-Elemente in Tabellenzeilen ausgeben
                   for ($inputFormIndex = 0; $inputFormIndex < sizeof($htmlElements); $inputFormIndex++) {
                       $currentInputElement = $inputElements[$inputFormIndex];
                       $currentHtmlElement = $htmlElements[$inputFormIndex];
                       
-                      $inputForm = $inputForm . '<tr>
-                                                    <td>' . HtmlTagGenerator::generateLabel($currentInputElement->name . ':', $currentInputElement->name) . '</td>
-                                                    <td>' . $currentHtmlElement . '</td>
-                                                </tr>';
+                      // TODO: td valign="top"
+                      $inputForm .= '<tr>
+                                         <td valign="top">';
+                      // Passendes Label anfügen
+                      if (!$currentInputElement->type == InputElementTypes::radiobuttons) {
+                          $inputForm .= HtmlTagGenerator::generateLabelFor($currentInputElement->name . ':', $currentInputElement->name);   
+                      }
+                      else {
+                          $inputForm .= HtmlTagGenerator::generateLabel($currentInputElement->name . ':');   
+                      }
+                      // HTML-Element anfügen
+                      $inputForm .= '    </td>
+                                         <td valign="top">' . $currentHtmlElement . '</td>
+                                     </tr>';                           
                   }
-                  $inputForm = $inputForm . '</table>
-                                            <br/>';
+                  $inputForm .= '</table>
+                                 <br/>';
                   
-                  // Formularende generieren
-                  $inputForm = $inputForm . HtmlTagGenerator::generateSubmit('Abschicken');
-                  $inputForm = $inputForm . '</form>';
+                  // Endes des Formulares generieren
+                  $inputForm .= HtmlTagGenerator::generateSubmit('Abschicken');
+                  $inputForm .= '</form>';
                   
                   return $inputForm;
               }

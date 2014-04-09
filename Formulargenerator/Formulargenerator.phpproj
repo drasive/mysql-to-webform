@@ -109,6 +109,7 @@
     <Content Include="_Project Management\Data\Input type notes.txt" />
     <Content Include="_Project Management\Data\Input types.txt" />
     <Content Include="_Project Management\Concept.pdf" />
+    <Content Include="_Project Management\ToDo.txt" />
     <Content Include="_Project Management\Questions.txt" />
     <Content Include="_Project Management\Feature ideas.txt" />
   </ItemGroup>

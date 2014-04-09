@@ -76,6 +76,7 @@
            */
           public function doesTableExist($table) {
               try {
+                  // Überprüfen, ob eine Tabelle mit dem angegebenen Namen existiert
                   $result = $this->executeSelect("SELECT COUNT(*) AS count 
                                                   FROM information_schema.tables
                                                   WHERE table_schema = '$this->database'
@@ -107,15 +108,19 @@
               try {
                   $fields = array();
                   
+                  // Leere Abfrage mit allen Spalten auf der Datenbank ausführen
                   $result = $this->executeSelect("SELECT *
                                                   FROM $table
                                                   LIMIT 0, 0");
 
                   for ($fieldIndex = 0; $fieldIndex < mysql_num_fields($result); $fieldIndex++) {
+                      // Feldinformationen auslesen
                       $fieldName = mysql_field_name($result, $fieldIndex);
                       $fieldType = mysql_field_type($result, $fieldIndex);
                       $fieldLength = mysql_field_len($result, $fieldIndex);
                       $fieldFlags = explode(' ', mysql_field_flags($result, $fieldIndex));
+                      
+                      // Falls nötig, die möglichen Eingabewerte des Datenbankfeldes festlegen
                       if (in_array('enum', $fieldFlags)) {
                           $fieldOptions = self::getPossbleEnumValues($table, $fieldName);
                       }
@@ -123,6 +128,7 @@
                           $fieldOptions = null;
                       }
                       
+                      // Neues Datenbankfeld zum Array hinzufügen
                       array_push($fields, new DatabaseField($fieldName,
                                                             $fieldType,
                                                             $fieldLength,

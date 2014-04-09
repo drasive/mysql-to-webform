@@ -59,6 +59,8 @@
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::url;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_w')) {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::week;
+                      } else if (self::hasDatabaseFieldPostfix($databaseField, '_ta')) {
+                          return \InputFormGenerator\BusinessLogic\InputElementTypes::textarea;
                       }
                       else {
                           return \InputFormGenerator\BusinessLogic\InputElementTypes::text;

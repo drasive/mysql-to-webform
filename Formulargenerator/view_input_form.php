@@ -18,9 +18,10 @@
 </head>
 <body>
     <?php
-    $validateParameters = true;
-        
-    if ($validateParameters) {
+    // The form was probably submitted to be generated, if the name parameter is supplied
+    $validateHttpParameters = (isset($_POST['name']));
+    
+    if ($validateHttpParameters) {
         // Get parameters
         $name = $_POST['name'];
         $server = $_POST['hostname'];
@@ -87,7 +88,7 @@
                     
                     $generateInputForm = false;
                     
-                    if ($validateParameters) {
+                    if ($validateHttpParameters) {
                         // Validate parameters
                         if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($name) ||
                             !\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($server) ||
