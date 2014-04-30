@@ -31,8 +31,6 @@
   <ItemGroup>
     <Compile Include="error.php" />
     <Compile Include="about.php" />
-    <Compile Include="scripts\php\download_input_form.php" />
-    <Compile Include="src\UserInterface\HttpHelper.php" />
     <Compile Include="view_input_form.php" />
     <Compile Include="includes\navigation.inc.html" />
     <Compile Include="generate_input_form.php" />
@@ -67,6 +65,7 @@
     <Folder Include="src\BusinessLogic\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Readme.txt" />
     <Content Include="includes\footer.inc.html" />
     <Content Include="includes\warnings.inc.php" />
     <Content Include="media\images\batman_ironman_spider-man.jpg" />
@@ -96,6 +95,7 @@
     <Content Include="style\fonts\space_invaders.ttf" />
     <Content Include="style\fonts\space_invaders.woff" />
     <Content Include="_Project Management\Concept.docx" />
+    <Content Include="_Project Management\Data\Database Dump.sql" />
     <Content Include="_Project Management\Data\Database Model.mwb" />
     <Content Include="_Project Management\Data\Database Model.mwb.bak" />
     <Content Include="style\css\bootstrap-theme.css" />
@@ -109,7 +109,6 @@
     <Content Include="_Project Management\Data\Input type notes.txt" />
     <Content Include="_Project Management\Data\Input types.txt" />
     <Content Include="_Project Management\Concept.pdf" />
-    <Content Include="_Project Management\ToDo.txt" />
     <Content Include="_Project Management\Questions.txt" />
     <Content Include="_Project Management\Feature ideas.txt" />
   </ItemGroup>

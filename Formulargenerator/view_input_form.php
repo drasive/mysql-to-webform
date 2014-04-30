@@ -48,7 +48,7 @@
                             Ihr Formular wurde generiert und steht Ihnen zur freien Verwendung zur Verfügung.
                         </p>
                         <p class="lead">
-                            Probieren Sie es direkt hier im Browser aus, laden Sie es sich herunter oder verwerfen Sie es und lassen Sie sich ein anderes Formulare generieren.
+                            Probieren Sie es direkt hier im Browser aus, kopieren Sie den Quellcode oder verwerfen Sie es und lassen Sie sich ein anderes Formulare generieren.
                         </p>
                     </section>
                     <section class="hidden-sm">
@@ -109,10 +109,7 @@
                     ?>
                 </div>
 
-                <form method="post" action="/scripts/php/download_input_form.php">
-                    <input type="submit" value="Herunterladen" name="download" />
-                </form>
-                <input class="pull-left" type="button" value="Neues Formular" onclick="if (confirm('Möchten Sie wirklich ein neues Eingabeformular generieren?\nSie können dieses zu einem beliebigen Zeitpunkt erneut generieren lassen.')) { window.location = '/generate_input_form.php'; }" />
+                <input class="pull-right" type="button" value="Neues Formular generieren" onclick="if (confirm('Möchten Sie wirklich ein neues Eingabeformular generieren?\nSie können dieses zu einem beliebigen Zeitpunkt erneut generieren lassen.')) { window.location = '/generate_input_form.php'; }" />
             </div>
         </div>
     </div>

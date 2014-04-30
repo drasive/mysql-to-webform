@@ -1,6 +1,1 @@
-﻿- Are radiobuttons ok (attributes, style)?
-- Documentation complete enough?
-- Remove/ fix the download
-- Footer ok?
-- Line breaks ok?
-- W3C validation (style errors)?
+﻿- Line breaks ok?

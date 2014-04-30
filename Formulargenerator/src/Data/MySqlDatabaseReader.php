@@ -31,30 +31,26 @@
            * @author http://stackoverflow.com/questions/2350052/how-can-i-get-enum-possible-values-in-a-mysql-database
            */
           private function getPossbleEnumValues($table, $fieldname) {
-              // TODO: Important
+              // MySQLi Abfrage durchführen
+              $MySqliLink = mysqli_connect($this->server, $this->username, $this->password, $this->database);
+              $selectStatement = "DESC $table";
               
-              return array("rb1", "b2", "stuff3");
+              $result = mysqli_query($MySqliLink, $selectStatement);
               
-              //try {
-              //    $result = $this->executeSelect("SHOW COLUMNS 
-              //                                    FROM $table
-              //                                    WHERE Field = '$field'");
-              //    $row = mysql_fetch_row($result);
-              //    $type = mysql_field_type($result, 0);
-              //    
-              //    //$type = $this->executeSelect("SHOW COLUMNS 
-              //    //                             FROM $table
-              //    //                             WHERE Field = '$field'")->row(0)->Type;                  
-              //    preg_match('/^enum\((.*)\)$/', $type, $matches);
-              //    foreach( explode(',', $matches[1]) as $value ) {
-              //        $enum[] = trim( $value, "'" );
-              //    }
-              //    
-              //    return $enum;
-              //}
-              //catch (Exception $exception) {
-              //    throw $exception;
-              //}
+              // Typ der gesuchten Zeile finden
+              do {
+                  $row = mysqli_fetch_array($result);
+                  
+                  $fieldName = $row[0];
+                  $fieldType = $row[1];
+                  
+              } while (strtolower($fieldName) != strtolower($fieldname));
+              
+              // Trennzeichen aus Typ entfernen
+              // RegEx von Nicola Bischof bereitgestellt
+              preg_match_all("/\'(.*?)\'/", $fieldType, $enumValues);
+              
+              return $enumValues[1];
           }
 
           // Public methods

@@ -62,7 +62,7 @@
            * @return string Der Starttagt.
            */
           public static function generateFormStart($action, $method) {
-              return "<form action='$action' method='$method'>";
+              return "<form action='$action' method='$method' onsubmit='alert(\"Das Formular wäre nun abgesendet worden.\"); return false;'>";
           }
           
           
@@ -166,7 +166,7 @@
            * @return string Das Element.
            */
           public static function generateSubmit($title) {
-              return "<input type='submit' value='$title' />"; 
+              return "<input type='submit' value='$title'/>"; 
           }
           
       }

@@ -183,7 +183,6 @@
                   // ------------------------------------------------------------------------------------------------------------------------
                   // Beginn des Formulares generieren
                   $inputForm .= HtmlTagGenerator::generateFormStart('generate_input_form.php', 'post');
-                  // TODO: table cellpadding="5"
                   $inputForm .= '<table cellpadding="5">';
                   
                   // HTML-Elemente in Tabellenzeilen ausgeben
@@ -191,15 +190,14 @@
                       $currentInputElement = $inputElements[$inputFormIndex];
                       $currentHtmlElement = $htmlElements[$inputFormIndex];
                       
-                      // TODO: td valign="top"
                       $inputForm .= '<tr>
                                          <td valign="top">';
                       // Passendes Label anfügen
-                      if (!$currentInputElement->type == InputElementTypes::radiobuttons) {
-                          $inputForm .= HtmlTagGenerator::generateLabelFor($currentInputElement->name . ':', $currentInputElement->name);   
+                      if ($currentInputElement->type == InputElementTypes::radiobuttons) {
+                          $inputForm .= HtmlTagGenerator::generateLabel($currentInputElement->name . ':');
                       }
                       else {
-                          $inputForm .= HtmlTagGenerator::generateLabel($currentInputElement->name . ':');   
+                          $inputForm .= HtmlTagGenerator::generateLabelFor($currentInputElement->name . ':', $currentInputElement->name);
                       }
                       // HTML-Element anfügen
                       $inputForm .= '    </td>

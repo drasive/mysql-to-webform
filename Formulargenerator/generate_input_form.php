@@ -22,7 +22,7 @@
 <body>
     <?php
     // TODO: Debug flag
-    $debug = true;
+    $debug = false;
     
     $validateUserInput = isset($_POST['validate_user_input']);
     
