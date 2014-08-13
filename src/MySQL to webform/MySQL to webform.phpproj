@@ -78,10 +78,10 @@
     <Content Include="js\storage.js" />
     <Content Include="js\jquery.cookies.js" />
     <Content Include="js\style.js" />
-    <Content Include="style\css\style.css" />
-    <Content Include="style\css\style.css.map" />
-    <Content Include="style\css\style.less" />
-    <Content Include="style\css\style.min.css" />
+    <Content Include="style\css\custom.css" />
+    <Content Include="style\css\custom.css.map" />
+    <Content Include="style\css\custom.min.css" />
+    <Content Include="style\css\custom.less" />
     <Content Include="style\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="style\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="style\fonts\glyphicons-halflings-regular.ttf" />

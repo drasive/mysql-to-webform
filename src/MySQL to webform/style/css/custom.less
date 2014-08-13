@@ -1,0 +1,341 @@
+﻿/* ==================================================
+    Copyright © 2014 Dimitri Vranken
+   ================================================== */
+@charset "utf-8";
+
+@import url(http://fonts.googleapis.com/css?family=Raleway:300);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400);
+@import url(http://fonts.googleapis.com/css?family=Raleway:500);
+
+@font-face {
+    font-family: 'Space Invaders';
+    src: url('/style/fonts/space_invaders.eot'); /* IE9 Compat Modes */
+    src: url('/style/fonts/space_invaders.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('/style/fonts/space_invaders.woff') format('woff'), /* Modern Browsers */
+    url('/style/fonts/space_invaders.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('/style/fonts/space_invaders.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+/* 
+   ================================================== Variables
+*/
+@notificationWarningBackgroundColor: #e55f05;
+@notificationWarningTextColor: #fff;
+
+@navbarBackgroundColor: #484c4d;
+@navbarTextColorInactive: #a5a8a8;
+@navbarTextColorActive: #fff;
+
+
+@primaryBackgroundColor: #f2f5f7;
+@primaryTextColor: #333;
+
+@secondaryBackgroundColor: #4eabe1;
+@secondaryBackgroundColorShade: #3e88b4;
+@secondaryTextColor: #fff;
+
+@warningTextColor: #e55f05;
+
+
+@footerBackgroundColor: #e0e7eb;
+@footerTextColor: #8b979e;
+/* 
+   ================================================== General
+*/
+html, body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+    background: @primaryBackgroundColor;
+    color: @primaryTextColor;
+    height: 100%;
+}
+
+div.content {
+    min-height: 100%;
+}
+/* 
+   ================================================== Notifications
+*/
+div.notification {
+    width: 100%;
+    height: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: -20px;
+}
+
+    div.notification .container {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    div.notification.warning {
+        background: @notificationWarningBackgroundColor;
+    }
+
+        div.notification.warning .container {
+            color: @notificationWarningTextColor;
+        }
+/* 
+   ================================================== Navigation
+*/
+.navbar {
+    border: none;
+    margin-top: -20px;
+    margin-bottom: 0px;
+    background: @navbarBackgroundColor;
+}
+
+    .navbar .container {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+.navbar-brand {
+    cursor: default;
+    color: @navbarTextColorInactive !important;
+    font-size: 20px;
+}
+
+    .navbar-brand:hover {
+        color: @navbarTextColorInactive !important;
+    }
+
+.navbar-nav a {
+    color: @navbarTextColorInactive;
+    -moz-transition: color 0.4s;
+    -webkit-transition: color 0.4s;
+    -o-transition: color 0.4s;
+    -ms-transition: color 0.4s;
+    transition: color 0.4s;
+}
+
+    .navbar-nav a:hover, .navbar-nav a.active {
+        color: @navbarTextColorActive !important;
+        -moz-transition: color 0.2s;
+        -webkit-transition: color 0.2s;
+        -o-transition: color 0.2s;
+        -ms-transition: color 0.2s;
+        transition: color 0.2s;
+    }
+
+/* 
+   ================================================== Content
+*/
+/* =============== General */
+div.frame {
+    border: 1px solid;
+    margin-bottom: 20px;
+    overflow: auto;
+    padding: 10px;
+}
+/* =============== Text */
+section {
+    margin-bottom: 30px;
+}
+
+p.lead {
+    font-size: 14px;
+}
+
+p.warning {
+    color: @warningTextColor;
+    font-size: 14px;
+}
+/* =============== Tables */
+td {
+    padding-bottom: 7px;
+    padding-right: 50px;
+}
+
+tr.new-section td {
+    padding-top: 15px;
+}
+/* =============== Input */
+div.input-group {
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+    label.input-header {
+        padding-top: 5px;
+        color: #55524b;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 20px;
+    }
+
+input {
+    height: 35px;
+    border: #c7ced2 1px solid;
+    border-radius: 3px;
+}
+
+    input.input {
+        width: 100%;
+    }
+
+    input[type='submit'], input[type='button'] {
+        margin-left: 15px;
+        float: right;
+        padding: 0px 30px;
+        height: 53px;
+        background: @secondaryBackgroundColor;
+        font-size: 20px;
+        color: @secondaryTextColor;
+        text-align: center;
+        cursor: pointer;
+        border: none;
+        border-bottom: @secondaryBackgroundColorShade 5px solid;
+        -moz-transition: background 0.3s;
+        -webkit-transition: background 0.3s;
+        -o-transition: background 0.3s;
+        -ms-transition: background 0.3s;
+        transition: background 0.3s;
+    }
+
+        input[type='submit']:hover, input[type='button']:hover {
+            background: @secondaryBackgroundColorShade;
+            -moz-transition: background 0.3s;
+            -webkit-transition: background 0.3s;
+            -o-transition: background 0.3s;
+            -ms-transition: background 0.3s;
+            transition: background 0.3s;
+        }
+
+@media (max-width: 768px) {
+    input.submit {
+        width: 100%;
+    }
+}
+
+/* =============== Media */
+p.image-title {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+p.image-description {
+    margin-top: 5px;
+    font-size: 12px;
+}
+/* 
+   ================================================== Headers
+*/
+div.title-box {
+    background: @secondaryBackgroundColor;
+    margin-bottom: 50px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    height: 120px;
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+    div.title-box {
+        margin-bottom: 35px;
+        padding-top: 34px;
+        padding-bottom: 34px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    div.title-box {
+        margin-bottom: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: 72px;
+    }
+}
+
+h1 {
+    color: @secondaryTextColor;
+    font-size: 32px;
+    line-height: 3;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: 300;
+}
+
+@media (max-width: 992px) {
+    h1 {
+        line-height: 1;
+    }
+}
+
+h2 {
+    margin-top: 0px;
+    color: @secondaryBackgroundColor;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: @secondaryBackgroundColor;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+div.special-content {
+    margin-top: 50px;
+}
+
+h1.error {
+    font-family: 'Space Invaders';
+    color: #4eabe1;
+    line-height: 1;
+    font-size: 60px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+h2.error {
+    font-family: 'Space Invaders';
+    color: #4eabe1;
+    line-height: 1.2;
+    font-size: 28px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+/* 
+   ================================================== Footer
+*/
+footer {
+    position: relative;
+    width: 100%;
+    background: @footerBackgroundColor;
+    height: 60px;
+    margin-top: -140px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+    footer .container {
+        font-size: 14px;
+        line-height: 20px;
+        color: @footerTextColor;
+        font-weight: normal;
+    }
+
+p.credit {
+    float: right;
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    p.credit {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+}
