@@ -83,8 +83,8 @@
             <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 pull-right">
                 <div class="frame" style="height: 500px;">
                     <?php
-                    require_once('src\UserInterface\HttpParameterValidator.php');
-                    require_once('src\BusinessLogic\InputFormGenerator.php');
+                    require_once('php/UserInterface/HttpParameterValidator.php');
+                    require_once('php/BusinessLogic/InputFormGenerator.php');
                     
                     $generateInputForm = false;
                     

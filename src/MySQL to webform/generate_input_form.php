@@ -93,8 +93,8 @@
 
                 <p class="warning">
                     <?php
-                    require_once('src\UserInterface\HttpParameterValidator.php');
-                    require_once('src\Data\MySqlDatabaseReader.php');
+                    require_once('php/UserInterface/HttpParameterValidator.php');
+                    require_once('php/Data/MySqlDatabaseReader.php');
 
                     $startInputFormGeneration = false;
 

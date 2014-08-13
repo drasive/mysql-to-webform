@@ -1,11 +1,11 @@
 <?php namespace InputFormGenerator\BusinessLogic;
 
-      require_once('src\String.php');
-      require_once('src\Data\MySqlDatabaseReader.php');
-      require_once('src\BusinessLogic\InputElementTypes.php');
-      require_once('src\BusinessLogic\InputElement.php');
-      require_once('src\BusinessLogic\MySqlDatabaseInputElementBuilder.php');
-      require_once('src\BusinessLogic\HtmlTagGenerator.php');
+      require_once('php/String.php');
+      require_once('php/Data/MySqlDatabaseReader.php');
+      require_once('php/BusinessLogic/InputElementTypes.php');
+      require_once('php/BusinessLogic/InputElement.php');
+      require_once('php/BusinessLogic/MySqlDatabaseInputElementBuilder.php');
+      require_once('php/BusinessLogic/HtmlTagGenerator.php');
 
       /**
        * Generiert HTML Eingabeformen aufgrund der Felder in einer MySQL Datenbanktabelle.

@@ -1,7 +1,7 @@
 <?php namespace InputFormGenerator\Data;
 
-      require_once('src/Data/DatabaseField.php');
-      require_once('src/Data/DatabaseManager.php');
+      require_once('php/Data/DatabaseField.php');
+      require_once('php/Data/DatabaseManager.php');
 
       class MySqlDatabaseReader extends DatabaseManager {
 

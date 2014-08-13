@@ -34,30 +34,30 @@
     <Compile Include="view_input_form.php" />
     <Compile Include="includes\navigation.inc.html" />
     <Compile Include="generate_input_form.php" />
-    <Compile Include="src\BusinessLogic\MySqlDatabaseInputElementBuilder.php" />
-    <Compile Include="src\Data\DatabaseField.php" />
-    <Compile Include="src\String.php" />
-    <Compile Include="src\BusinessLogic\InputFormGenerator.php" />
-    <Compile Include="src\BusinessLogic\InputElementTypes.php" />
-    <Compile Include="src\Data\DatabaseManager.php" />
-    <Compile Include="src\Data\MySqlDatabaseReader.php" />
-    <Compile Include="src\BusinessLogic\HtmlTagGenerator.php" />
-    <Compile Include="src\BusinessLogic\InputElement.php" />
-    <Compile Include="src\UserInterface\HttpParameterValidator.php" />
+    <Compile Include="php\BusinessLogic\MySqlDatabaseInputElementBuilder.php" />
+    <Compile Include="php\Data\DatabaseField.php" />
+    <Compile Include="php\String.php" />
+    <Compile Include="php\BusinessLogic\InputFormGenerator.php" />
+    <Compile Include="php\BusinessLogic\InputElementTypes.php" />
+    <Compile Include="php\Data\DatabaseManager.php" />
+    <Compile Include="php\Data\MySqlDatabaseReader.php" />
+    <Compile Include="php\BusinessLogic\HtmlTagGenerator.php" />
+    <Compile Include="php\BusinessLogic\InputElement.php" />
+    <Compile Include="php\UserInterface\HttpParameterValidator.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="media\" />
     <Folder Include="media\icons\" />
     <Folder Include="media\images\" />
     <Folder Include="includes\" />
-    <Folder Include="src\UserInterface\" />
+    <Folder Include="php\UserInterface\" />
     <Folder Include="style\css\" />
     <Folder Include="style\fonts\" />
     <Folder Include="style\" />
     <Folder Include="js\" />
-    <Folder Include="src\" />
-    <Folder Include="src\Data\" />
-    <Folder Include="src\BusinessLogic\" />
+    <Folder Include="php\" />
+    <Folder Include="php\Data\" />
+    <Folder Include="php\BusinessLogic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="includes\footer.inc.html" />
