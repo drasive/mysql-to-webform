@@ -6,15 +6,15 @@
     <meta name="author" content="Dimitri Vranken" />
 
     <title>Über - Formular-Generator</title>
-    <link rel="shortcut icon" href="/media/icons/form.ico">
+    <link rel="shortcut icon" href="media/icons/form.ico">
 
     <script src="http://code.jquery.com/jquery.js"></script>
 
-    <script src="/js/bootstrap.min.js"></script>
-    <link href="/style/css/bootstrap.css" rel="stylesheet" media="screen" />
+    <script src="js/bootstrap.min.js"></script>
+    <link href="style/css/bootstrap.css" rel="stylesheet" media="screen" />
 
-    <link href="/style/css/custom.min.css" rel="stylesheet" />
-    <script src="/js/style.js" type="text/javascript"></script>
+    <link href="style/css/custom.min.css" rel="stylesheet" />
+    <script src="js/style.js" type="text/javascript"></script>
 </head>
 <body>
     <?php require('includes/warnings.inc.php'); ?>
