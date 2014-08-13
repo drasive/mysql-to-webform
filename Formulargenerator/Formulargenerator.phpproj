@@ -49,9 +49,7 @@
     <Folder Include="media\" />
     <Folder Include="media\icons\" />
     <Folder Include="media\images\" />
-    <Folder Include="media\pdfs\" />
     <Folder Include="includes\" />
-    <Folder Include="scripts\php\" />
     <Folder Include="src\UserInterface\" />
     <Folder Include="style\css\" />
     <Folder Include="style\fonts\" />
@@ -109,7 +107,6 @@
     <Content Include="_Project Management\Data\Input type notes.txt" />
     <Content Include="_Project Management\Data\Input types.txt" />
     <Content Include="_Project Management\Concept.pdf" />
-    <Content Include="_Project Management\Questions.txt" />
     <Content Include="_Project Management\Feature ideas.txt" />
   </ItemGroup>
 </Project>
