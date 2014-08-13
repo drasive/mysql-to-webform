@@ -55,8 +55,7 @@
     <Folder Include="style\fonts\" />
     <Folder Include="_Project Management\Data\" />
     <Folder Include="style\" />
-    <Folder Include="scripts\js\" />
-    <Folder Include="scripts\" />
+    <Folder Include="js\" />
     <Folder Include="_Project Management\" />
     <Folder Include="src\" />
     <Folder Include="src\Data\" />
@@ -78,10 +77,10 @@
     <Content Include="media\icons\loading-circle.gif" />
     <Content Include="media\images\kid_lolly_cat.jpg" />
     <Content Include="includes\javascript_off_warning.inc.html" />
-    <Content Include="scripts\js\jquery.cookies.min.js" />
-    <Content Include="scripts\js\storage.js" />
-    <Content Include="scripts\js\jquery.cookies.js" />
-    <Content Include="scripts\js\style.js" />
+    <Content Include="js\jquery.cookies.min.js" />
+    <Content Include="js\storage.js" />
+    <Content Include="js\jquery.cookies.js" />
+    <Content Include="js\style.js" />
     <Content Include="style\css\compile less files.bat" />
     <Content Include="style\css\style.less" />
     <Content Include="style\fonts\glyphicons-halflings-regular.eot" />
@@ -102,8 +101,8 @@
     <Content Include="style\css\bootstrap.css" />
     <Content Include="style\css\bootstrap.css.map" />
     <Content Include="style\css\bootstrap.min.css" />
-    <Content Include="scripts\js\bootstrap.js" />
-    <Content Include="scripts\js\bootstrap.min.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
     <Content Include="_Project Management\Data\Input type notes.txt" />
     <Content Include="_Project Management\Data\Input types.txt" />
     <Content Include="_Project Management\Concept.pdf" />
