@@ -1,8 +1,4 @@
-﻿/* ==================================================
-    Copyright © 2014 Dimitri Vranken
-   ================================================== */
-
-function setActiveNavigationLink(linkId) {
+﻿function setActiveNavigationLink(linkId) {
     var navigationLink = document.getElementById(linkId);
     if (navigationLink != null) {
         navigationLink.className += " active ";

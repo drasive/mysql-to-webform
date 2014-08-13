@@ -1,7 +1,3 @@
-/* ==================================================
-    Copyright © 2014 Dimitri Vranken
-   ================================================== */
-
 if (typeof jQuery === 'undefined') {
     throw new Error('storage.js requires jQuery');
 }
