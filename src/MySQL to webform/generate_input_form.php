@@ -37,8 +37,8 @@
     }
     ?>
 
-    <?php require('/includes/warnings.inc.php'); ?>
-    <?php require('/includes/navigation.inc.html'); ?>
+    <?php require('includes/warnings.inc.php'); ?>
+    <?php require('includes/navigation.inc.html'); ?>
 
     <div class="content">
         <div class="title-box text-center">
@@ -186,7 +186,7 @@
         </div>
     </div>
 
-    <?php require('/includes/footer.inc.html'); ?>
+    <?php require('includes/footer.inc.html'); ?>
 
     <!--
         ================================================== Scripts
