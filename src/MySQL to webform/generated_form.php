@@ -80,7 +80,7 @@
                     </section>
                 </article>
             </aside>
-            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 pull-right">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 pull-right">
                 <div class="frame" style="height: 500px;">
                     <?php
                     require_once('php/UserInterface/HttpParameterValidator.php');
