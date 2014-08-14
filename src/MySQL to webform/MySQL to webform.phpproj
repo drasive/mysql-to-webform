@@ -34,7 +34,7 @@
     <Compile Include="about.php" />
     <Compile Include="php\BusinessLogic\ConfigurationReader.php" />
     <Compile Include="php\Data\ConfigurationReader.php" />
-    <Compile Include="view_input_form.php" />
+    <Compile Include="generated_form.php" />
     <Compile Include="includes\navigation.inc.html" />
     <Compile Include="index.php" />
     <Compile Include="php\BusinessLogic\MySqlDatabaseInputElementBuilder.php" />

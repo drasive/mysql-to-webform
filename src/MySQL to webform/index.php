@@ -165,7 +165,7 @@
                 </p>
 
 
-                <form action="view_input_form.php" method="post" name="view_input_form" id="view_input_form">
+                <form action="generated_form.php" method="post" name="generated_form" id="generated_form">
                     <?php
                     if ($startInputFormGeneration) {
                         // Prepeare a hidden form for a HTTP post to the form-generation page
@@ -182,7 +182,7 @@
                 if ($startInputFormGeneration) {
                     // Execute the HTTP post to the form-generation page
                     echo '<script type="text/javascript">
-                              document.forms["view_input_form"].submit();
+                              document.forms["generated_form"].submit();
                           </script>';
                 }
                 ?>
