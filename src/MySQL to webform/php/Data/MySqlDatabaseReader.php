@@ -1,4 +1,4 @@
-<?php namespace InputFormGenerator\Data;
+<?php namespace DimitriVranken\MySQL_to_webform\Data;
 
       require_once('php/Data/DatabaseField.php');
       require_once('php/Data/DatabaseManager.php');

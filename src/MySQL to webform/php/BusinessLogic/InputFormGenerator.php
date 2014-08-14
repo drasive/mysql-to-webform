@@ -1,4 +1,4 @@
-<?php namespace InputFormGenerator\BusinessLogic;
+<?php namespace DimitriVranken\MySQL_to_webform\BusinessLogic;
 
       require_once('php/String.php');
       require_once('php/Data/MySqlDatabaseReader.php');
@@ -23,18 +23,18 @@
 
               foreach ($inputElements as $inputElement) {
                   if ($inputElement->type < 100) { // Das Element wird zu einem Input HTML-Element
-                      array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateInput($inputElement->name,$inputElement->required, InputFormGenerator::convertInputElementTypeToHtmlInputType($inputElement->type), $inputElement->maximumLength));
+                      array_push($HtmlElements, \DimitriVranken\MySQL_to_webform\BusinessLogic\HtmlTagGenerator::generateInput($inputElement->name,$inputElement->required, InputFormGenerator::convertInputElementTypeToHtmlInputType($inputElement->type), $inputElement->maximumLength));
                   }
                   else { // Das Element wird nicht zu einem Input HTML-Element
                       switch ($inputElement->type) {
                           case 100: // Textarea HTML-Element
-                              array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateTextarea($inputElement->name,$inputElement->required, $inputElement->maximumLength));
+                              array_push($HtmlElements, \DimitriVranken\MySQL_to_webform\BusinessLogic\HtmlTagGenerator::generateTextarea($inputElement->name,$inputElement->required, $inputElement->maximumLength));
                               break;
                           case 101: // Radiobutton HTML-Element
-                              array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateRadiobuttons($inputElement->name, $inputElement->required, $inputElement->options));
+                              array_push($HtmlElements, \DimitriVranken\MySQL_to_webform\BusinessLogic\HtmlTagGenerator::generateRadiobuttons($inputElement->name, $inputElement->required, $inputElement->options));
                               break;
                           case 102: // Select HTML-Element
-                              array_push($HtmlElements, \InputFormGenerator\BusinessLogic\HtmlTagGenerator::generateSelect($inputElement->name,$inputElement->required, $inputElement->options));
+                              array_push($HtmlElements, \DimitriVranken\MySQL_to_webform\BusinessLogic\HtmlTagGenerator::generateSelect($inputElement->name,$inputElement->required, $inputElement->options));
                               break;
                       }
                   }
@@ -116,11 +116,11 @@
            */
           public static function generateInputForm($name, $server, $database, $table, $username, $password) {
               $debug = false;
-              if (\InputFormGenerator\BusinessLogic\ConfigurationReader::getDebugMode()) {
+              if (\DimitriVranken\MySQL_to_webform\BusinessLogic\ConfigurationReader::getDebugMode()) {
                   $debug = true;
               }
               
-              $mySqlDatabaseReader = new \InputFormGenerator\Data\MySqlDatabaseReader($server, $database, $username, $password);
+              $mySqlDatabaseReader = new \DimitriVranken\MySQL_to_webform\Data\MySqlDatabaseReader($server, $database, $username, $password);
               if ($mySqlDatabaseReader->canConnect()) { // Die Verbindung zur angegebenen Datenbank kann hergestellt werden
                   // Datenbankfelder auslesen
                   $databaseFields = $mySqlDatabaseReader->getFields($table);
@@ -151,7 +151,7 @@
                   // ------------------------------------------------------------------------------------------------------------------------
 
                   // Eingabeelemente aus ausgelesenen Datenbankfeldern generieren
-                  $inputElements = \InputFormGenerator\BusinessLogic\MySqlDatabaseInputElementBuilder::buildInputElements($databaseFields);
+                  $inputElements = \DimitriVranken\MySQL_to_webform\BusinessLogic\MySqlDatabaseInputElementBuilder::buildInputElements($databaseFields);
 
                   // Generierte Eingabeelemente ausgeben
                   if ($debug) {

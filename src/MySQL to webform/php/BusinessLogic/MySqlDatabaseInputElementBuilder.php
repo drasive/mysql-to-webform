@@ -1,4 +1,4 @@
-<?php namespace InputFormGenerator\BusinessLogic;
+<?php namespace DimitriVranken\MySQL_to_webform\BusinessLogic;
       
       /**
        * Generiert Eingabeelemente (InputElement) aus den Datenbankfeldern einer MySQL Tabelle.
@@ -13,57 +13,57 @@
           private static function getDatabaseFieldInputElementType($databaseField) {
               if (self::isDatabaseFieldNumeric($databaseField)) { // Das Datenbankfeld ist numerisch
                   if ($databaseField->maximumLength == 1 && in_array('unsigned', $databaseField->flags)) { // Der Datentyp "Bit"
-                      return \InputFormGenerator\BusinessLogic\InputElementTypes::checkbox;
+                      return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::checkbox;
                   }
                   else {
-                      return \InputFormGenerator\BusinessLogic\InputElementTypes::number;
+                      return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::number;
                   }
               }
               else { // Das Datenbankfeld ist nicht numerisch
                   if (in_array('enum', $databaseField->flags)) {
                       if (self::hasDatabaseFieldPostfix($databaseField, '_r')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::radiobuttons;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::radiobuttons;
                       } else {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::select;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::select;
                       }
                   }
                   else {
                       // http://www.reddit.com/r/Eyebleach/
                       if (self::hasDatabaseFieldPostfix($databaseField, '_c')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::color;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::color;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_d')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::date;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::date;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_dt')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::dateTime;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::dateTime;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_dtl')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::dateTimeLocal;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::dateTimeLocal;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_e')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::email;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::email;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_f')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::file;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::file;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_m')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::month;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::month;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_n')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::number;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::number;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_p')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::password;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::password;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_r')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::range;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::range;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_s')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::search;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::search;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_tel')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::telephone;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::telephone;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_t')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::time;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::time;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_u')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::url;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::url;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_w')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::week;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::week;
                       } else if (self::hasDatabaseFieldPostfix($databaseField, '_ta')) {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::textarea;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::textarea;
                       }
                       else {
-                          return \InputFormGenerator\BusinessLogic\InputElementTypes::text;
+                          return \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::text;
                       }
                   }
               }
@@ -82,7 +82,7 @@
            * @return bool True, wenn der Name des angegebenen Datenbankfeldes mit der angegebenen Zeichenfolge endet.
            */
           private static function hasDatabaseFieldPostfix($databaseField, $postfix) {
-              return \InputFormGenerator\String::endsWith($databaseField->name, $postfix);
+              return \DimitriVranken\MySQL_to_webform\String::endsWith($databaseField->name, $postfix);
           }
           
           /**
@@ -121,16 +121,16 @@
                   $type = self::getDatabaseFieldInputElementType($databaseField);
                   // Falls nötig, die möglichen Eingabewerte des Eingabeelementes festlegen
                   switch ($type) {
-                      case \InputFormGenerator\BusinessLogic\InputElementTypes::radiobuttons:
+                      case \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::radiobuttons:
                           $options = $databaseField->options;
                           break;
-                      case  \InputFormGenerator\BusinessLogic\InputElementTypes::select:
+                      case  \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::select:
                           $options = $databaseField->options;
                           break;
                   }
 
                   // Neues Eingabeelement zum Array hinzufügen
-                  array_push($inputElements, new \InputFormGenerator\BusinessLogic\InputElement(self::getDatabaseFieldNameWithoutPostfix($databaseField),
+                  array_push($inputElements, new \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElement(self::getDatabaseFieldNameWithoutPostfix($databaseField),
                                                                                                 in_array('not_null', $databaseField->flags),
                                                                                                 $type,
                                                                                                 $databaseField->maximumLength,

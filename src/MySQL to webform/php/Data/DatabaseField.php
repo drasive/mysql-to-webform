@@ -1,4 +1,4 @@
-<?php namespace InputFormGenerator\Data;
+<?php namespace DimitriVranken\MySQL_to_webform\Data;
 
       /**
        * Ein Feld in einer Datenbank.

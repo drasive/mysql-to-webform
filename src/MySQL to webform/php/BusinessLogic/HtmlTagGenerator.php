@@ -1,4 +1,4 @@
-<?php namespace InputFormGenerator\BusinessLogic;
+<?php namespace DimitriVranken\MySQL_to_webform\BusinessLogic;
       
       /**
        * Generiert HTML-Elemente für die Anzeige in einem Webbrowser.

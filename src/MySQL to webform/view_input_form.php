@@ -90,11 +90,11 @@
                     
                     if ($validateHttpParameters) {
                         // Validate parameters
-                        if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($name) ||
-                            !\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($server) ||
-                            !\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($database) || 
-                            !\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($table) |
-                            !\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($username)) {
+                        if (!\DimitriVranken\MySQL_to_webform\UserInterface\HttpParameterValidator::hasValue($name) ||
+                            !\DimitriVranken\MySQL_to_webform\UserInterface\HttpParameterValidator::hasValue($server) ||
+                            !\DimitriVranken\MySQL_to_webform\UserInterface\HttpParameterValidator::hasValue($database) || 
+                            !\DimitriVranken\MySQL_to_webform\UserInterface\HttpParameterValidator::hasValue($table) |
+                            !\DimitriVranken\MySQL_to_webform\UserInterface\HttpParameterValidator::hasValue($username)) {
                             
                             header('Location: /error.php');
                         }
@@ -104,7 +104,7 @@
                                         
                     if ($generateInputForm) {
                         // Generate input form
-                        echo \InputFormGenerator\BusinessLogic\InputFormGenerator::generateInputForm($name, $server, $database, $table, $username, $password);
+                        echo \DimitriVranken\MySQL_to_webform\BusinessLogic\InputFormGenerator::generateInputForm($name, $server, $database, $table, $username, $password);
                     }
                     ?>
                 </div>

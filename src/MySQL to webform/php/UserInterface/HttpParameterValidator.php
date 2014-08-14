@@ -1,4 +1,4 @@
-<?php namespace InputFormGenerator\UserInterface;
+<?php namespace DimitriVranken\MySQL_to_webform\UserInterface;
       
       /**
        * Stellt Methoden bereit, um HTTP Parameter zu validieren.

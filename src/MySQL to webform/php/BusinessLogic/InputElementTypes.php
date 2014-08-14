@@ -1,4 +1,4 @@
-<?php namespace InputFormGenerator\BusinessLogic;
+<?php namespace DimitriVranken\MySQL_to_webform\BusinessLogic;
            
       /**
        * Die verschiedenen Typen von Eingabeelementen (InputElement).

@@ -1,4 +1,4 @@
-<?php namespace InputFormGenerator\BusinessLogic;
+<?php namespace DimitriVranken\MySQL_to_webform\BusinessLogic;
 
       require_once('php/Data/ConfigurationReader.php');
       
@@ -19,7 +19,7 @@
            * @return bool The defined debug mode.
            */
           public static function getDebugMode() { 
-              return \InputFormGenerator\Data\ConfigurationReader::readIniFile(self::$m_configurationFile)[self::$m_sectionRelease][self::$m_debugMode];
+              return \DimitriVranken\MySQL_to_webform\Data\ConfigurationReader::readIniFile(self::$m_configurationFile)[self::$m_sectionRelease][self::$m_debugMode];
           }
           
       }

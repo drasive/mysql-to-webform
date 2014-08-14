@@ -1,4 +1,4 @@
-<?php namespace InputFormGenerator;
+<?php namespace DimitriVranken\MySQL_to_webform;
       
       /**
        * Stellt Methoden bereit, um mit Strings zu arbeiten.

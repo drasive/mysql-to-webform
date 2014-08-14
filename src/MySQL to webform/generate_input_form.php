@@ -24,7 +24,7 @@
     require_once('php/BusinessLogic/ConfigurationReader.php');
     
     $debug = false;
-    if (InputFormGenerator\BusinessLogic\ConfigurationReader::getDebugMode()) {
+    if (DimitriVranken\MySQL_to_webform\BusinessLogic\ConfigurationReader::getDebugMode()) {
         $debug = true;
     }
     
@@ -105,19 +105,19 @@
                     if ($validateUserInput) {
                         // Validate form input
                         $isUserInputValid = false;
-                        if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($name)) {
+                        if (!\DimitriVranken\MySQL_to_webform\UserInterface\HttpParameterValidator::hasValue($name)) {
                             outputMissingInformationErrorMessage('Formularname');
                         }
-                        else if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($server)) {
+                        else if (!\DimitriVranken\MySQL_to_webform\UserInterface\HttpParameterValidator::hasValue($server)) {
                             outputMissingInformationErrorMessage('Hostname');
                         }
-                        else if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($database)) {
+                        else if (!\DimitriVranken\MySQL_to_webform\UserInterface\HttpParameterValidator::hasValue($database)) {
                             outputMissingInformationErrorMessage('Datenbankname');
                         }
-                        else if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($table)) {
+                        else if (!\DimitriVranken\MySQL_to_webform\UserInterface\HttpParameterValidator::hasValue($table)) {
                             outputMissingInformationErrorMessage('Tabellenname');
                         }
-                        else if (!\InputFormGenerator\UserInterface\HttpParameterValidator::hasValue($username)) {
+                        else if (!\DimitriVranken\MySQL_to_webform\UserInterface\HttpParameterValidator::hasValue($username)) {
                             outputMissingInformationErrorMessage('Benutzername');
                         }
                         else {
@@ -129,7 +129,7 @@
 
                         // Validate database connection
                         $isDatabaseConnectionValid = false;
-                        $mySqlDatabaseReader = new \InputFormGenerator\Data\MySqlDatabaseReader($server, $database, $username, $password);
+                        $mySqlDatabaseReader = new \DimitriVranken\MySQL_to_webform\Data\MySqlDatabaseReader($server, $database, $username, $password);
                         if (!$mySqlDatabaseReader->canConnect()) {
                             outputInvalidDatabaseConnectionParameterErrorMessage('Es kann keine Verbindung zur Datenbank hergestellt werden.');
                         }
