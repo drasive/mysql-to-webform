@@ -63,6 +63,7 @@
     <Folder Include="php\BusinessLogic\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".htaccess" />
     <Content Include="includes\footer.inc.html" />
     <Content Include="includes\warnings.inc.php" />
     <Content Include="media\images\batman_ironman_spider-man.jpg" />
