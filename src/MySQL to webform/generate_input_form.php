@@ -21,9 +21,14 @@
 </head>
 <body>
     <?php
-    // TODO: Debug flag
-    $debug = false;
+    require_once('php/BusinessLogic/ConfigurationReader.php');
     
+    $debug = false;
+    if (InputFormGenerator\BusinessLogic\ConfigurationReader::getDebugMode()) {
+        $debug = true;
+    }
+    
+    // Input validation
     $validateUserInput = isset($_POST['validate_user_input']);
     
     if ($validateUserInput) {

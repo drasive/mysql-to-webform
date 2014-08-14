@@ -29,8 +29,11 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="application.ini" />
     <Compile Include="error.php" />
     <Compile Include="about.php" />
+    <Compile Include="php\BusinessLogic\ConfigurationReader.php" />
+    <Compile Include="php\Data\ConfigurationReader.php" />
     <Compile Include="view_input_form.php" />
     <Compile Include="includes\navigation.inc.html" />
     <Compile Include="generate_input_form.php" />

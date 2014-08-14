@@ -6,6 +6,7 @@
       require_once('php/BusinessLogic/InputElement.php');
       require_once('php/BusinessLogic/MySqlDatabaseInputElementBuilder.php');
       require_once('php/BusinessLogic/HtmlTagGenerator.php');
+      require_once('php/BusinessLogic/ConfigurationReader.php');
 
       /**
        * Generiert HTML Eingabeformen aufgrund der Felder in einer MySQL Datenbanktabelle.
@@ -114,8 +115,10 @@
            * @return string Das Eingabeformular.
            */
           public static function generateInputForm($name, $server, $database, $table, $username, $password) {
-              // TODO: Debug flag
               $debug = false;
+              if (\InputFormGenerator\BusinessLogic\ConfigurationReader::getDebugMode()) {
+                  $debug = true;
+              }
               
               $mySqlDatabaseReader = new \InputFormGenerator\Data\MySqlDatabaseReader($server, $database, $username, $password);
               if ($mySqlDatabaseReader->canConnect()) { // Die Verbindung zur angegebenen Datenbank kann hergestellt werden
