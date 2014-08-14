@@ -49,9 +49,6 @@ html, body {
     height: 100%;
 }
 
-div.content {
-    min-height: 100%;
-}
 /* 
    ================================================== Notifications
 */
@@ -310,13 +307,13 @@ h2.error {
    ================================================== Footer
 */
 footer {
-    position: relative;
+    position: fixed;
+    bottom: 0px;
     width: 100%;
-    background: @footerBackgroundColor;
     height: 60px;
-    margin-top: -140px;
     padding-top: 20px;
     padding-bottom: 20px;
+    background: @footerBackgroundColor;
 }
 
     footer .container {
