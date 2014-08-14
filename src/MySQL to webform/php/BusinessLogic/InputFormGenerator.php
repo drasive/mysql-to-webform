@@ -185,7 +185,7 @@
 
                   // ------------------------------------------------------------------------------------------------------------------------
                   // Beginn des Formulares generieren
-                  $inputForm .= HtmlTagGenerator::generateFormStart('generate_input_form.php', 'post');
+                  $inputForm .= HtmlTagGenerator::generateFormStart('index.php', 'post');
                   $inputForm .= '<table cellpadding="5">';
                   
                   // HTML-Elemente in Tabellenzeilen ausgeben

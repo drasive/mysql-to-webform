@@ -25,7 +25,7 @@
                 <h1 class="error">Error.</h1>
                 <h2 class="error">I fucked up, sorry!</h2>
                 <p class="lead">
-                    Back to the <a href="generate_input_form.php">Homepage</a>.
+                    Back to the <a href="index.php">Homepage</a>.
                 </p>
             </div>
             <aside class="hidden-xs col-sm-6 col-md-6 col-lg-6 pull-right">

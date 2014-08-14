@@ -109,7 +109,7 @@
                     ?>
                 </div>
 
-                <input class="pull-right" type="button" value="Neues Formular generieren" onclick="if (confirm('Möchten Sie wirklich ein neues Eingabeformular generieren?\nSie können dieses zu einem beliebigen Zeitpunkt erneut generieren lassen.')) { window.location = '/generate_input_form.php'; }" />
+                <input class="pull-right" type="button" value="Neues Formular generieren" onclick="if (confirm('Möchten Sie wirklich ein neues Eingabeformular generieren?\nSie können dieses zu einem beliebigen Zeitpunkt erneut generieren lassen.')) { window.location = '/index.php'; }" />
             </div>
         </div>
     </div>
