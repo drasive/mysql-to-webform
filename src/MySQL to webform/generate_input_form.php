@@ -60,8 +60,7 @@
                         Geben Sie einfach die erforderlichen Informationen ein und lassen Sie ein HTML5 Formular generieren.
                     </p>
                     <p class="lead">
-                        <!-- TODO: Finish -->
-                        Zur <a href="error.php">Kurzanleitung</a>.
+                        Zur <a href="media/pdfs/manual.pdf">Kurzanleitung</a>.
                     </p>
                 </article>
             </aside>

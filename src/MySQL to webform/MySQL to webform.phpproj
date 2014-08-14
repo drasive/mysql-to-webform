@@ -53,6 +53,7 @@
     <Folder Include="media\icons\" />
     <Folder Include="media\images\" />
     <Folder Include="includes\" />
+    <Folder Include="media\pdfs\" />
     <Folder Include="php\UserInterface\" />
     <Folder Include="style\css\" />
     <Folder Include="style\fonts\" />
@@ -82,6 +83,7 @@
     <Content Include="js\storage.js" />
     <Content Include="js\jquery.cookies.js" />
     <Content Include="js\style.js" />
+    <Content Include="media\pdfs\Manual.pdf" />
     <Content Include="style\css\custom.css" />
     <Content Include="style\css\custom.css.map" />
     <Content Include="style\css\custom.min.css" />
