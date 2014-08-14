@@ -77,6 +77,7 @@
     <Content Include="media\images\form-96.png" />
     <Content Include="media\icons\form.ico" />
     <Content Include="media\icons\loading-circle.gif" />
+    <Content Include="media\images\github_mark.png" />
     <Content Include="media\images\kid_lolly_cat.jpg" />
     <Content Include="includes\javascript_off_warning.inc.html" />
     <Content Include="js\jquery.cookies.min.js" />
