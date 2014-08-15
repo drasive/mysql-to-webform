@@ -31,7 +31,7 @@
   <ItemGroup>
     <Compile Include="404.php" />
     <Compile Include="application.ini" />
-    <Compile Include="error.php" />
+    <Compile Include="5xx.php" />
     <Compile Include="about.php" />
     <Compile Include="php\BusinessLogic\ConfigurationReader.php" />
     <Compile Include="php\Data\ConfigurationReader.php" />
