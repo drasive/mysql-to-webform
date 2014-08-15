@@ -24,10 +24,10 @@ The project is developed using Visual Studio 2013 with the plugin "PHP Tools for
 
 ## Screenshots
 ### 1. Generating a form
-![Generating a form](/docs/_sources/images/generating_a_form.png "Generating a form")
+![Generating a form](/docs/_source/generating_a_form.png "Generating a form")
 
 ### 2. Looking at a generated form
-![Looking at a generated form](/docs/_sources/images/generated_form.png "Looking at a generated form")
+![Looking at a generated form](/docs/_source/generated_form.png "Looking at a generated form")
 
 ## License
 The files in this repository are generally released under the MIT License, but some sub-parts (libraries etc.) may be licensed separately.  
