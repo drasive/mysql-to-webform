@@ -1,13 +1,16 @@
 # mysql-to-webform
 
 Generates HTML5 web-forms from the columns of a MySQL database.  
-This was a school project for module 307 at the [GIB Muttenz](http://www.gibm.ch) (Switzerland).
+This was a school project for module #307 at the [GIB Muttenz](http://www.gibm.ch) (Switzerland).
 
-*Attention: The user interface, the documentation and the code documentation are in __German__, even though the code is in English.*
+*Attention: The user interface, the documentation and the code comments are in __German__, even though the code itself is in English.*
 
 ## Features
 - Supports a wide variety of data types (20)
+- The database connection parameters are configurable via the user interface 
+- The generated HTML forms are W3C validated
 - Modern, easy to use and responsive user interface
+- Extensive documentation
 - Well tested
 
 ## Installation
@@ -17,7 +20,7 @@ PHP 5.4 or a compatible later version has to be installed on said webserver.
 ## Documentation
 The documentation is available in the [/docs folder](docs).
 
-The project is developed using Visual Studio 2013 with the plugin "PHP Tools for Visual Studio" (proprietary). These tools are neither required for running nor developing the application, though.
+The project is developed using Visual Studio 2013 with the plugin "PHP Tools for Visual Studio" (proprietary). These tools are neither a requirement for running nor developing the application.
 
 ## Screenshots
 ### 1. Generating a form
