@@ -5,24 +5,29 @@
     <meta charset="UTF-8" />
     <meta name="author" content="Dimitri Vranken" />
 
-    <title>Error - Formular-Generator</title>
+    <title>Server Error - Formular-Generator</title>
     <link rel="shortcut icon" href="media/icons/form.ico">
 
+    <!-- jQuery -->
     <script src="http://code.jquery.com/jquery.js"></script>
 
+    <!-- Bootstrap -->
     <script src="js/bootstrap.min.js"></script>
     <link href="style/css/bootstrap.css" rel="stylesheet" media="screen" />
 
+    <!-- Style -->
     <link href="style/css/custom.min.css" rel="stylesheet" />
 </head>
 <body>
-    <?php require('includes/warnings.inc.php'); ?>
-    <?php require('includes/navigation.inc.html'); ?>
+    <?php
+    require_once('includes/warnings.inc.php');
+    require_once('includes/navigation.inc.html')
+    ?>
 
     <div class="content">
         <div class="container special-content">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <h1 class="error">Error.</h1>
+                <h1 class="error">Server Error.</h1>
                 <h2 class="error">I fucked up, sorry!</h2>
                 <p class="lead">
                     Back to the <a href="index.php">Homepage</a>.
@@ -42,6 +47,6 @@
         </div>
     </div>
 
-    <?php require('includes/footer.inc.html'); ?>
+    <?php require_once('includes/footer.inc.html'); ?>
 </body>
 </html>
