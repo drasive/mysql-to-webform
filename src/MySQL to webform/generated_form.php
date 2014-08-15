@@ -96,7 +96,7 @@
                             !\DimitriVranken\MySQL_to_webform\UserInterface\HttpParameterValidator::hasValue($table) |
                             !\DimitriVranken\MySQL_to_webform\UserInterface\HttpParameterValidator::hasValue($username)) {
                             
-                            header('Location: /error.php');
+                            header('Location: /5xx.php');
                         }
                         
                         $generateInputForm = true;
