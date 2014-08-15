@@ -29,6 +29,7 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="404.php" />
     <Compile Include="application.ini" />
     <Compile Include="error.php" />
     <Compile Include="about.php" />

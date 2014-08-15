@@ -1,5 +1,7 @@
 ﻿RewriteEngine on
 
+ErrorDocument 404 /404.php
+
 ErrorDocument 500 /error.php?code=500
 ErrorDocument 501 /error.php?code=501
 ErrorDocument 502 /error.php?code=502
