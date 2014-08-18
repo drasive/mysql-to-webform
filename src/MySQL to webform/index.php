@@ -77,7 +77,7 @@
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="database">Datenbank</label>
-                        <input value="<?php if ($validateUserInput) {echo $database;} else if ($debug) {echo 'formulargenerator';} ?>" type="text" id="database" name="database" placeholder=" z. B.: Lieferservice" onchange="saveUserInput('database');" maxlength="256" required="" pattern="^[^\s].{0,256}$" title="Der Name der MySql Datenbank, in der sich die zu verwendende Tabelle befindet" class="input" />
+                        <input value="<?php if ($validateUserInput) {echo $database;} else if ($debug) {echo 'mysql-to-webform';} ?>" type="text" id="database" name="database" placeholder=" z. B.: Lieferservice" onchange="saveUserInput('database');" maxlength="256" required="" pattern="^[^\s].{0,256}$" title="Der Name der MySql Datenbank, in der sich die zu verwendende Tabelle befindet" class="input" />
                     </div>
                     <div class="input-group">
                         <label class="input-header" for="table">Tabelle</label>
