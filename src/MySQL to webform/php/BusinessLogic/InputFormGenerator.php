@@ -171,7 +171,12 @@
                           echo '<td>' . $inputElement->required . '</td>';
                           echo '<td>' . $inputElement->type . '</td>';
                           echo '<td>' . $inputElement->maximumLength . '</td>';
-                          echo '<td>' . implode(', ', $inputElement->options) . '</td>';
+                          if (isset($inputElement->options)) {
+                              '<td>' . implode(', ', $inputElement->options) . '</td>';
+                          }
+                          else  {
+                              echo '<td></td>';
+                          }
 
                           echo '</tr>';
                       }
@@ -185,7 +190,7 @@
 
                   // ------------------------------------------------------------------------------------------------------------------------
                   // Beginn des Formulares generieren
-                  $inputForm .= HtmlTagGenerator::generateFormStart('index.php', 'post');
+                  $inputForm = HtmlTagGenerator::generateFormStart('index.php', 'post');
                   $inputForm .= '<table cellpadding="5">';
                   
                   // HTML-Elemente in Tabellenzeilen ausgeben

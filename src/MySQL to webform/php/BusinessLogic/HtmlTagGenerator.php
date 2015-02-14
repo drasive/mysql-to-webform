@@ -33,8 +33,9 @@
            */
           private static function generateOptions($options) {
               // Für jede $option ein Option-Element generieren.
+              $optionsHtml = "";
               foreach ($options as $option) {
-                  $optionsHtml = $optionsHtml . self::generateOption($option);
+                  $optionsHtml .= self::generateOption($option);
               }
               
               return $optionsHtml;
@@ -134,6 +135,7 @@
            */
           public static function generateRadiobuttons($name, $required, $options) {              
               // Für jede $option einen Radiobutton mit voranstehendem Wert generieren.
+              $radiobuttons = "";
               foreach ($options as $option) {                  
                   $radiobuttons .= $option . ":";
                   $radiobuttons .= self::generateRadiobutton($option, $name, $required);

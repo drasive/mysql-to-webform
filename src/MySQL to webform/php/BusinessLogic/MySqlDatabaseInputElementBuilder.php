@@ -120,6 +120,7 @@
 
                   $type = self::getDatabaseFieldInputElementType($databaseField);
                   // Falls nötig, die möglichen Eingabewerte des Eingabeelementes festlegen
+                  $options = null;
                   switch ($type) {
                       case \DimitriVranken\MySQL_to_webform\BusinessLogic\InputElementTypes::radiobuttons:
                           $options = $databaseField->options;
