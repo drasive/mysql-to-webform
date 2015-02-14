@@ -1,0 +1,13 @@
+﻿RewriteEngine on
+
+ErrorDocument 404 /404.php
+
+ErrorDocument 500 /5xx.php?code=500
+ErrorDocument 501 /5xx.php?code=501
+ErrorDocument 502 /5xx.php?code=502
+ErrorDocument 503 /5xx.php?code=503
+ErrorDocument 504 /5xx.php?code=504
+ErrorDocument 505 /5xx.php?code=505
+ErrorDocument 506 /5xx.php?code=506
+ErrorDocument 507 /5xx.php?code=507
+ErrorDocument 508 /5xx.php?code=508

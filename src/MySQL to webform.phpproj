@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>Formulargenerator</Name>
+    <ProjectGuid>6f6218ee-a761-4e6d-a105-9e17139377c6</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>InputFormGenerator</RootNamespace>
+    <!-- important to be opened by PHP Tools, when also Phalanger Tools are installed -->
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <AssemblyName>InputFormGenerator</AssemblyName>
+    <IISProjectUrl>http://localhost:15179/</IISProjectUrl>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+    <Server>PHPDev</Server>
+    <PublishEvent>None</PublishEvent>
+    <PHPDevAutoPort>True</PHPDevAutoPort>
+    <PHPDevPort>44387</PHPDevPort>
+    <PHPDevHostName>localhost</PHPDevHostName>
+    <StartupFile>includes\404.php</StartupFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="404.php" />
+    <Compile Include="application.ini" />
+    <Compile Include="5xx.php" />
+    <Compile Include="about.php" />
+    <Compile Include="php\BusinessLogic\ConfigurationReader.php" />
+    <Compile Include="php\Data\ConfigurationReader.php" />
+    <Compile Include="generated_form.php" />
+    <Compile Include="includes\navigation.inc.html" />
+    <Compile Include="index.php" />
+    <Compile Include="php\BusinessLogic\MySqlDatabaseInputElementBuilder.php" />
+    <Compile Include="php\Data\DatabaseField.php" />
+    <Compile Include="php\String.php" />
+    <Compile Include="php\BusinessLogic\InputFormGenerator.php" />
+    <Compile Include="php\BusinessLogic\InputElementTypes.php" />
+    <Compile Include="php\Data\DatabaseManager.php" />
+    <Compile Include="php\Data\MySqlDatabaseReader.php" />
+    <Compile Include="php\BusinessLogic\HtmlTagGenerator.php" />
+    <Compile Include="php\BusinessLogic\InputElement.php" />
+    <Compile Include="php\UserInterface\HttpParameterValidator.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="media\" />
+    <Folder Include="media\icons\" />
+    <Folder Include="media\images\" />
+    <Folder Include="includes\" />
+    <Folder Include="media\pdfs\" />
+    <Folder Include="php\UserInterface\" />
+    <Folder Include="style\css\" />
+    <Folder Include="style\fonts\" />
+    <Folder Include="style\" />
+    <Folder Include="js\" />
+    <Folder Include="php\" />
+    <Folder Include="php\Data\" />
+    <Folder Include="php\BusinessLogic\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".htaccess" />
+    <Content Include="includes\footer.inc.html" />
+    <Content Include="includes\warnings.inc.php" />
+    <Content Include="media\images\batman_ironman_spider-man.jpg" />
+    <Content Include="media\images\form-128.png" />
+    <Content Include="media\images\form-24.png" />
+    <Content Include="media\images\form-32.png" />
+    <Content Include="media\images\form-48.png" />
+    <Content Include="media\images\form-64.png" />
+    <Content Include="media\images\form-72.png" />
+    <Content Include="media\images\form-96.png" />
+    <Content Include="media\icons\form.ico" />
+    <Content Include="media\icons\loading-circle.gif" />
+    <Content Include="media\images\github_mark.png" />
+    <Content Include="media\images\kid_lolly_cat.jpg" />
+    <Content Include="includes\javascript_off_warning.inc.html" />
+    <Content Include="js\jquery.cookies.min.js" />
+    <Content Include="js\storage.js" />
+    <Content Include="js\jquery.cookies.js" />
+    <Content Include="js\style.js" />
+    <Content Include="media\pdfs\Manual.pdf" />
+    <Content Include="style\css\custom.css" />
+    <Content Include="style\css\custom.css.map" />
+    <Content Include="style\css\custom.min.css" />
+    <Content Include="style\css\custom.less" />
+    <Content Include="style\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="style\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="style\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="style\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="style\fonts\space_invaders.eot" />
+    <Content Include="style\fonts\space_invaders.svg" />
+    <Content Include="style\fonts\space_invaders.ttf" />
+    <Content Include="style\fonts\space_invaders.woff" />
+    <Content Include="style\css\bootstrap-theme.css" />
+    <Content Include="style\css\bootstrap-theme.css.map" />
+    <Content Include="style\css\bootstrap-theme.min.css" />
+    <Content Include="style\css\bootstrap.css" />
+    <Content Include="style\css\bootstrap.css.map" />
+    <Content Include="style\css\bootstrap.min.css" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+  </ItemGroup>
+</Project>
