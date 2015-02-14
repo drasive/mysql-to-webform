@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "MySQL to webform", "src\MySQL to webform.phpproj", "{6F6218EE-A761-4E6D-A105-9E17139377C6}"
+Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "mysql-to-webform", "src\mysql-to-webform.phpproj", "{6F6218EE-A761-4E6D-A105-9E17139377C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
